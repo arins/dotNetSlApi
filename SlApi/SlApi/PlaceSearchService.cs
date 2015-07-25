@@ -19,5 +19,10 @@ namespace SlApi
         {
             return Client.DoRequest<Sites>("api2/typeahead.json", searchRequest);
         }
+
+        public async Task<Sites> SearchAsync(SearchRequest searchRequest)
+        {
+            return await Client.DoRequestAsync<Sites>("api2/typeahead.json", searchRequest);
+        }
     }
 }

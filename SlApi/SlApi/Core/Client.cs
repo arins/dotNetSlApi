@@ -20,7 +20,7 @@ namespace SlApi.Core
 
         internal Client()
         {
-            EndPoint = "https://api.sl.se";
+            EndPoint = "https://api.sl.se/";
         }
 
         
@@ -31,7 +31,7 @@ namespace SlApi.Core
                 throw new ArgumentException("Can not pass null IHttpRequest httpRequester");
             }
             Requester = httpRequester;
-            EndPoint = "https://api.sl.se";
+            EndPoint = "https://api.sl.se/";
         }
 
 

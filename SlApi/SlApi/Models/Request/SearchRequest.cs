@@ -9,9 +9,10 @@ namespace SlApi.Models.Request
 {
     public class SearchRequest : IConvertableToArgument
     {
+        
         public string SearchString { get; set; }
         public bool StationsOnly { get; set; }
-        public int MaxResults { get; set; }
+        public int? MaxResults { get; set; }
         public Arguments GetArgument()
         {
             var result = new Arguments();
@@ -21,10 +22,15 @@ namespace SlApi.Models.Request
             }
             else
             {
-                result.Add("SearchString", "");
+                throw new ArgumentException("search string can not be null or empty!");
             }
-            result.Add("StationsOnly", StationsOnly.ToString());
-            result.Add("MaxResults", MaxResults.ToString());
+
+            result.Add("StationsOnly", StationsOnly.ToString().ToLower());
+
+            if (MaxResults.HasValue)
+            {
+                result.Add("MaxResults", MaxResults.Value.ToString());
+            }
             return result;
         }
     }

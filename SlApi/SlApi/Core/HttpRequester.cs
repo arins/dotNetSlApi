@@ -12,6 +12,10 @@ namespace SlApi.Core
         /// </summary>
         public int Timeout { get; set; }
 
+        public HttpRequester()
+        {
+            Timeout = 10000;
+        }
 
         /// <summary>
         /// Gets the response string async from the url
