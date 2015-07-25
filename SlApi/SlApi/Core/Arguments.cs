@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace SlApi.Core
 {
@@ -17,11 +15,6 @@ namespace SlApi.Core
         protected Arguments(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
-        }
-
-        internal static bool AnyArguments(Arguments arguments)
-        {
-            return arguments != null && arguments.Any();
         }
 
         /// <summary>

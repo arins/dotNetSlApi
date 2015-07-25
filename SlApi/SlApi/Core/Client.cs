@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -40,7 +41,7 @@ namespace SlApi.Core
             try
             {
                 var sb = GetEndPointWithPath(path);
-                if (Arguments.AnyArguments(arg))
+                if (arg != null && arg.Any())
                 {
                     arg.BuildAndAppendQueryString(sb);
                 }
@@ -70,12 +71,12 @@ namespace SlApi.Core
         }
 
         /// <summary>
-        /// Makes a request to picturelife endpoint with path a specific path and arguments. Deserilizes the data recivied to type TOut
+        /// Makes a request to endpoint with path a specific path and arguments. Deserilizes the data recivied to type TOut
         /// </summary>
         /// <typeparam name="TOut">Type to deserilize to</typeparam>
         /// <param name="path">Path to request aginst</param>
         /// <param name="arguments">arguments which will be deserilized to querystring</param>
-        /// <returns>Deserilized data of type TOut from picturelife</returns>
+        /// <returns>Deserilized data of type TOut from response</returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="RequestException"></exception>
         public TOut DoRequest<TOut>(string path, Arguments arguments = null) where TOut : new()
@@ -97,13 +98,13 @@ namespace SlApi.Core
 
 
         /// <summary>
-        /// Makes a request to picturelife endpoint with path a specific path and arguments. 
+        /// Makes a request to api endpoint with path a specific path and arguments. 
         /// Deserilizes the data recivied to type TOut. This operation is done sync
         /// </summary>
         /// <typeparam name="TOut">Type to deserilize to</typeparam>
         /// <param name="path">Path to request aginst</param>
         /// <param name="arguments">arguments which will be deserilized to querystring</param>
-        /// <returns>Deserilized data of type TOut from picturelife</returns>
+        /// <returns>Deserilized data of type TOut from response</returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="RequestException"></exception>
         public async Task<TOut> DoRequestAsync<TOut>(string path, Arguments arguments = null) where TOut : new()
@@ -116,13 +117,13 @@ namespace SlApi.Core
 
 
         /// <summary>
-        /// Makes a request to picturelife endpoint with path a specific path and arguments. 
+        /// Makes a request to api endpoint with path a specific path and arguments. 
         /// Deserilizes the data recivied to type TOut. This operation is done sync
         /// </summary>
         /// <typeparam name="TOut">Type to deserilize to</typeparam>
         /// <param name="path">Path to request aginst</param>
         /// <param name="arguments">arguments which will be deserilized to querystring</param>
-        /// <returns>Deserilized data of type TOut from picturelife</returns>
+        /// <returns>Deserilized data of type TOut from response</returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="RequestException"></exception>
         public async Task<TOut> DoRequestAsync<TOut>(string path, IConvertableToArgument arguments) where TOut : new()
