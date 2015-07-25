@@ -44,11 +44,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Request\SearchRequest.cs" />
-    <Compile Include="Models\Response\BaseResponse.cs" />
-    <Compile Include="Models\Response\Site.cs" />
-    <Compile Include="Models\Response\Sites.cs" />
+    <Compile Include="Models\PlaceSearch\Request\SearchRequest.cs" />
+    <Compile Include="Models\BaseResponse.cs" />
+    <Compile Include="Models\PlaceSearch\Response\Site.cs" />
+    <Compile Include="Models\PlaceSearch\Response\Sites.cs" />
+    <Compile Include="Models\RealtimeInformation\Request\RealtimeDeparturesRequest.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\Bus.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\Departure.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\DepartureResponse.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\Deviation.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\Metro.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\RealtimeInformationBase.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\Ship.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\StopInfo.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\StopPointDeviation.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\Train.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\Tram.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\TransportModeContainer.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\TransportModeEnum.cs" />
+    <Compile Include="Models\RealtimeInformation\Serializer\TransportModeSerializer.cs" />
+    <Compile Include="Models\StatusCode.cs" />
     <Compile Include="PlaceSearchService.cs" />
+    <Compile Include="RealtimeInformation.cs" />
     <Compile Include="Core\Arguments.cs" />
     <Compile Include="Core\BaseService.cs" />
     <Compile Include="Core\Client.cs" />

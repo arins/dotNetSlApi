@@ -4,7 +4,8 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using SlApi.Core;
-using SlApi.Models.Request;
+using SlApi.Models;
+using SlApi.Models.PlaceSearch.Request;
 
 namespace SlApi.Tests
 {
@@ -56,6 +57,7 @@ namespace SlApi.Tests
                 StationsOnly = false
             });
             Assert.IsTrue(result.ResponseData.Count() == 10);
+            Assert.IsTrue(result.StatusCode == StatusCode.Ok);
             var first = result.ResponseData.FirstOrDefault();
             Assert.IsTrue(first != null);
 
@@ -90,7 +92,7 @@ namespace SlApi.Tests
 
             resultAsync.Wait();
             var result = resultAsync.Result;
-
+            Assert.IsTrue(result.StatusCode == StatusCode.Ok);
             Assert.IsTrue(result.ResponseData.Count() == 10);
             var first = result.ResponseData.FirstOrDefault();
             Assert.IsTrue(first != null);

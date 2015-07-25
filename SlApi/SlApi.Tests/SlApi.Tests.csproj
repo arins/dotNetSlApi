@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="PlaceSearchServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RealtimeInformationTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SlApi\SlApi.csproj">

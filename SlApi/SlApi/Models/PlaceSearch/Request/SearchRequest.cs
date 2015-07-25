@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SlApi.Core;
 
-namespace SlApi.Models.Request
+namespace SlApi.Models.PlaceSearch.Request
 {
     public class SearchRequest : IConvertableToArgument
     {

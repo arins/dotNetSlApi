@@ -1,13 +1,18 @@
 ﻿using System.Threading.Tasks;
 using SlApi.Core;
-using SlApi.Models.Request;
-using SlApi.Models.Response;
+using SlApi.Models.PlaceSearch.Request;
+using SlApi.Models.PlaceSearch.Response;
 
 namespace SlApi
 {
     public class PlaceSearchService : BaseService
     {
         public PlaceSearchService(IClient client) : base(client)
+        {
+        }
+
+        internal PlaceSearchService()
+            : base(new Client(new HttpRequester()))
         {
         }
 
