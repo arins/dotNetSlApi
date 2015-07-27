@@ -8,11 +8,11 @@ namespace SlApi.Core
     [Serializable]
     public class Arguments : Dictionary<string, string>
     {
-        public Arguments()
+        internal Arguments()
         {
         }
 
-        protected Arguments(SerializationInfo info, StreamingContext context)
+        internal Arguments(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
@@ -24,7 +24,7 @@ namespace SlApi.Core
         /// </summary>
         /// <param name="sb">stringbuilder to build upon</param>
         /// <returns>return query string with ending &</returns>
-        public StringBuilder BuildAndAppendQueryString(StringBuilder sb = null)
+        internal StringBuilder BuildAndAppendQueryString(StringBuilder sb = null)
         {
             if (sb == null)
             {

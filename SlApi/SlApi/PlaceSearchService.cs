@@ -11,7 +11,7 @@ namespace SlApi
         {
         }
 
-        internal PlaceSearchService()
+        public PlaceSearchService()
             : base(new Client(new HttpRequester()))
         {
         }

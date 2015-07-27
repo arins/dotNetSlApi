@@ -8,6 +8,8 @@ namespace SlApi.Core
 {
     public class Client : IClient
     {
+        private IHttpRequester httpRequester;
+
         public IHttpRequester Requester { get; set; }
         public string EndPoint { get; set; }
         public string ApiToken { get; set; }
@@ -17,14 +19,14 @@ namespace SlApi.Core
             get { return !string.IsNullOrEmpty(ApiToken); }
         }
 
-        public DateTime ApiTokenExpires { get; set; }
+        internal DateTime ApiTokenExpires { get; set; }
 
-        internal Client()
+        public Client()
         {
             EndPoint = "https://api.sl.se/";
         }
 
-        
+
         public Client(IHttpRequester httpRequester)
         {
             if (httpRequester == null)
@@ -35,8 +37,9 @@ namespace SlApi.Core
             EndPoint = "https://api.sl.se/";
         }
 
+        
 
-        public Uri BuildRequestPath(string path, Arguments arg = null)
+        internal Uri BuildRequestPath(string path, Arguments arg = null)
         {
             try
             {
