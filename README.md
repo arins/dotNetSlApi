@@ -10,3 +10,6 @@ var result = client.RealtimeDepartures(new RealtimeDeparturesRequest
   TimeWindow = 2,
 });
 ```
+
+# Nuget package 
+https://www.nuget.org/packages/SlApi
