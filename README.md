@@ -15,3 +15,5 @@ var result = client.RealtimeDepartures(new RealtimeDeparturesRequest
 https://www.nuget.org/packages/SlApi
 
 
+# Trafiklab project page
+https://www.trafiklab.se/projekt/dotnetslapi
