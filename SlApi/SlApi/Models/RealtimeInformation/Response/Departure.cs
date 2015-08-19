@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SlApi.Models.RealtimeInformation.Response
 {
-    [Serializable]
+   
     public class Departure
     {
         /// <summary>

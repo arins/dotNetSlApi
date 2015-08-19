@@ -16,7 +16,7 @@
             {
                 if (Client.ApiToken != null)
                 {
-                    return Client.ApiToken.Clone() as string;
+                    return Client.ApiToken + "";
                 }
                 return null;
 

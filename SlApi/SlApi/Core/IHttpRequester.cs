@@ -22,10 +22,6 @@ namespace SlApi.Core
         /// <exception cref="RequestException">Throw this exception if any error occurs</exception>
         string GetResponse(Uri url);
 
-        /// <summary>
-        /// Sets the encoding 
-        /// </summary>
-        Encoding Encoding { get; set; }
 
         /// <summary>
         /// The timeout until abort in milliseconds

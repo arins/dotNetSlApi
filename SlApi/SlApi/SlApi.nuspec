@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <package >
   <metadata>
     <id>$id$</id>
@@ -6,9 +6,9 @@
     <title>$title$</title>
     <authors>Arin Sinabian</authors>
     <owners>Arin Sinabian</owners>
-    
+
     <projectUrl>https://github.com/arins/dotNetSlApi</projectUrl>
-    
+
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>SL Stockholm Lokaltrafik API .net Wrapper</description>
     <releaseNotes>Release for realtime information and placeinformation.</releaseNotes>

@@ -3,7 +3,7 @@ using SlApi.Core;
 
 namespace SlApi.Models.RealtimeInformation.Request
 {
-    [Serializable]
+    
     public class RealtimeDeparturesRequest : IConvertableToArgument
     {
 

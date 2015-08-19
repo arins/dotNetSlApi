@@ -5,17 +5,14 @@ using System.Text;
 
 namespace SlApi.Core
 {
-    [Serializable]
+    
     public class Arguments : Dictionary<string, string>
     {
         internal Arguments()
         {
         }
 
-        internal Arguments(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
+        
 
         /// <summary>
         /// Creates an querystring from the enrties ex

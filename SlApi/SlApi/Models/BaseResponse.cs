@@ -2,7 +2,7 @@
 
 namespace SlApi.Models
 {
-    [Serializable]
+    
     public class BaseResponse
     {
         public StatusCode StatusCode { get; set; }

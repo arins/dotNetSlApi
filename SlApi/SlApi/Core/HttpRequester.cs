@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Net;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace SlApi.Core
 {
-    public class HttpRequester : WebClient, IHttpRequester
+    public class HttpRequester : IHttpRequester
     {
 
         /// <summary>
@@ -27,7 +29,8 @@ namespace SlApi.Core
         {
             try
             {
-                return DownloadStringTaskAsync(url);
+                var client = new HttpClient {Timeout = new TimeSpan(0, 0, 0, 0, Timeout)};
+                return client.GetStringAsync(url);
             }
             catch (Exception e)
             {
@@ -46,31 +49,19 @@ namespace SlApi.Core
         {
             try
             {
+               
+                var client = new HttpClient {Timeout = new TimeSpan(0, 0, 0, 0, Timeout)};
+                
+                var asyncResult = client.GetStringAsync(url);
+                asyncResult.Wait();
+                return asyncResult.Result;
 
-                return DownloadString(url);
             }
             catch (Exception e)
             {
                 throw new RequestException("Request failed check inner exception", e);
             }
         }
-
-        /// <summary>
-        /// Override Timeout
-        /// </summary>
-        /// <param name="uri">request url</param>
-        /// <returns>Webrequest with overriden timeout</returns>
-        protected override WebRequest GetWebRequest(Uri uri)
-        {
-            var w = base.GetWebRequest(uri);
-            if (w != null)
-            {
-                w.Timeout = Timeout;
-                return w;
-            }
-            return null;
-        }
-
 
     }
 }

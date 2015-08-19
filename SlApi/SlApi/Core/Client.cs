@@ -8,7 +8,6 @@ namespace SlApi.Core
 {
     public class Client : IClient
     {
-        private IHttpRequester httpRequester;
 
         public IHttpRequester Requester { get; set; }
         public string EndPoint { get; set; }
