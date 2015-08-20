@@ -12,8 +12,171 @@ namespace SlApi.Tests
     [TestClass]
     public class StopsAndRoutesClientTest
     {
+       
 
-        public string GetTestResponse()
+        [TestMethod]
+        public void SitesTest()
+        {
+
+            var fakekey = "fakekey";
+            var mockedHttpRequest = new Mock<IHttpRequester>();
+            mockedHttpRequest.Setup(
+                x =>
+                    x.GetResponse(
+                        new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=site&key=" + fakekey)))
+                .Returns(GetTestResponseForSites);
+            var t = new StopsAndRoutesClient(new HttpClient(mockedHttpRequest.Object))
+            {
+                ApiToken = fakekey
+            };
+
+          
+            var result = t.Sites();
+            Assert.IsTrue(result.ExecutionTime == 686);
+            Assert.IsTrue(result.ResponseData.Result.Length == 25);
+            Assert.IsTrue(result.ResponseData.Result[0].SiteId == 4432);
+            Assert.IsTrue(result.ResponseData.Result[24].SiteId == 9248);
+            
+
+        }
+
+        [TestMethod]
+        public void SitesAsyncTest()
+        {
+
+            var fakekey = "fakekey";
+            var mockedHttpRequest = new Mock<IHttpRequester>();
+            mockedHttpRequest.Setup(
+                x =>
+                    x.GetResponseAsync(
+                        new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=site&key=" + fakekey)))
+                .ReturnsAsync(GetTestResponseForSites());
+            var t = new StopsAndRoutesClient(new HttpClient(mockedHttpRequest.Object))
+            {
+                ApiToken = fakekey
+            };
+
+
+            var responseAsync = t.SitesAsync();
+            responseAsync.Wait();
+            var result = responseAsync.Result;
+            Assert.IsTrue(result.ExecutionTime == 686);
+            Assert.IsTrue(result.ResponseData.Result.Length == 25);
+            Assert.IsTrue(result.ResponseData.Result[0].SiteId == 4432);
+            Assert.IsTrue(result.ResponseData.Result[24].SiteId == 9248);
+
+        }
+
+
+
+
+
+        [TestMethod]
+        public void StopPointsTest()
+        {
+
+            var fakekey = "fakekey";
+            var mockedHttpRequest = new Mock<IHttpRequester>();
+            mockedHttpRequest.Setup(
+                x =>
+                    x.GetResponse(
+                        new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=stopPoint&key=" + fakekey)))
+                .Returns(GetTestResponseForStopPoints);
+            var t = new StopsAndRoutesClient(new HttpClient(mockedHttpRequest.Object))
+            {
+                ApiToken = fakekey
+            };
+
+
+            var result = t.StopPoints();
+            Assert.IsTrue(result.ExecutionTime == 792);
+            Assert.IsTrue(result.ResponseData.Result.Length == 13);
+            Assert.IsTrue(result.ResponseData.Result[0].StopPointNumber == 10001);
+            Assert.IsTrue(result.ResponseData.Result[12].StopPointNumber == 10015);
+
+
+        }
+
+
+        [TestMethod]
+        public void StopPointsAsyncTest()
+        {
+
+            var fakekey = "fakekey";
+            var mockedHttpRequest = new Mock<IHttpRequester>();
+            mockedHttpRequest.Setup(
+                x =>
+                    x.GetResponseAsync(
+                        new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=stopPoint&key=" + fakekey)))
+                .ReturnsAsync(GetTestResponseForStopPoints());
+            var t = new StopsAndRoutesClient(new HttpClient(mockedHttpRequest.Object))
+            {
+                ApiToken = fakekey
+            };
+
+
+            var responseAsync = t.StopPointsAsync();
+            responseAsync.Wait();
+            var result = responseAsync.Result;
+            Assert.IsTrue(result.ExecutionTime == 792);
+            Assert.IsTrue(result.ResponseData.Result.Length == 13);
+            Assert.IsTrue(result.ResponseData.Result[0].StopPointNumber == 10001);
+            Assert.IsTrue(result.ResponseData.Result[12].StopPointNumber == 10015);
+
+        }
+
+
+
+
+
+        public string GetTestResponseForStopPoints()
+        {
+            return
+                "{\"StatusCode\":0,\"Message\":null,\"ExecutionTime\":792,\"ResponseData\":{\"Version\":\"2015-08-20 00:07\",\"Type\":\"StopPo" +
+                "int\",\"Result\":[{\"StopPointNumber\":\"10001\",\"StopPointName\":\"Stadshagsplan\",\"StopAreaNumber\":\"10001\",\"Location" +
+                "NorthingCoordinate\":\"59.3374104106887\",\"LocationEastingCoordinate\":\"18.0216535880432\",\"ZoneShortName\":\"A\",\"StopA" +
+                "reaTypeCode\":\"BUSTERM\",\"LastModifiedUtcDateTime\":\"2014-06-03 00:00:00.000\",\"ExistsFromDate\":\"2014-06-03 00:00:00.00" +
+                "0\"},{\"StopPointNumber\":\"10002\",\"StopPointName\":\"John Bergs plan\",\"StopAreaNumber\":\"10002\",\"LocationNorthingCoord" +
+                "inate\":\"59.3361450073188\",\"LocationEastingCoordinate\":\"18.0222866342593\",\"ZoneShortName\":\"A\",\"StopAreaTypeCode\":\"" +
+                "BUSTERM\",\"LastModifiedUtcDateTime\":\"2014-06-03 00:00:00.000\",\"ExistsFromDate\":\"2014-06-03 00:00:00.000\"},{\"StopPointN" +
+                "umber\":\"10003\",\"StopPointName\":\"John Bergs plan\",\"StopAreaNumber\":\"10002\",\"LocationNorthingCoordinate\":\"59.336254" +
+                "9983713\",\"LocationEastingCoordinate\":\"18.0220232520707\",\"ZoneShortName\":\"A\",\"StopAreaTypeCode\":\"BUSTERM\",\"LastModi" +
+                "fiedUtcDateTime\":\"2014-06-03 00:00:00.000\",\"ExistsFromDate\":\"2014-06-03 00:00:00.000\"},{\"StopPointNumber\":\"10006\",\"S" +
+                "topPointName\":\"Arbetargatan\",\"StopAreaNumber\":\"10006\",\"LocationNorthingCoordinate\":\"59.3352361789930\",\"LocationEasti" +
+                "ngCoordinate\":\"18.0269957169377\",\"ZoneShortName\":\"A\",\"StopAreaTypeCode\":\"BUSTERM\",\"LastModifiedUtcDateTime\":\"2014-" +
+                "06-03 00:00:00.000\",\"ExistsFromDate\":\"2014-06-03 00:00:00.000\"},{\"StopPointNumber\":\"10007\",\"StopPointName\":\"Arbetarg" +
+                "atan\",\"StopAreaNumber\":\"10006\",\"LocationNorthingCoordinate\":\"59.3351886295410\",\"LocationEastingCoordinate\":\"18.02767" +
+                "80794936\",\"ZoneShortName\":\"A\",\"StopAreaTypeCode\":\"BUSTERM\",\"LastModifiedUtcDateTime\":\"2014-06-03 00:00:00.000\",\"Ex" +
+                "istsFromDate\":\"2014-06-03 00:00:00.000\"},{\"StopPointNumber\":\"10008\",\"StopPointName\":\"S:t Eriksgatan\",\"StopAreaNumber" +
+                "\":\"10008\",\"LocationNorthingCoordinate\":\"59.3344783742441\",\"LocationEastingCoordinate\":\"18.0315965889341\",\"ZoneShortN" +
+                "ame\":\"A\",\"StopAreaTypeCode\":\"BUSTERM\",\"LastModifiedUtcDateTime\":\"2014-06-03 00:00:00.000\",\"ExistsFromDate\":\"2014-0" +
+                "6-03 00:00:00.000\"},{\"StopPointNumber\":\"10009\",\"StopPointName\":\"S:t Eriksgatan\",\"StopAreaNumber\":\"10008\",\"Location" +
+                "NorthingCoordinate\":\"59.3344800039436\",\"LocationEastingCoordinate\":\"18.0334950425846\",\"ZoneShortName\":\"A\",\"StopAreaTy" +
+                "peCode\":\"BUSTERM\",\"LastModifiedUtcDateTime\":\"2014-06-03 00:00:00.000\",\"ExistsFromDate\":\"2014-06-03 00:00:00.000\"},{\"" +
+                "StopPointNumber\":\"10010\",\"StopPointName\":\"Frihamnens färjeterminal\",\"StopAreaNumber\":\"10010\",\"LocationNorthingCoordin" +
+                "ate\":\"59.3425635205332\",\"LocationEastingCoordinate\":\"18.1189085925683\",\"ZoneShortName\":\"A\",\"StopAreaTypeCode\":\"BUST" +
+                "ERM\",\"LastModifiedUtcDateTime\":\"2014-12-14 00:00:00.000\",\"ExistsFromDate\":\"2014-12-14 00:00:00.000\"},{\"StopPointNumber\"" +
+                ":\"10011\",\"StopPointName\":\"Frihamnsporten\",\"StopAreaNumber\":\"10052\",\"LocationNorthingCoordinate\":\"59.3399094088355\",\"" +
+                "LocationEastingCoordinate\":\"18.1146321830924\",\"ZoneShortName\":\"A\",\"StopAreaTypeCode\":\"BUSTERM\",\"LastModifiedUtcDateTim" +
+                "e\":\"2014-06-03 00:00:00.000\",\"ExistsFromDate\":\"2014-06-03 00:00:00.000\"},{\"StopPointNumber\":\"10012\",\"StopPointName\":\"" +
+                "S:t Eriks ögonsjukhus\",\"StopAreaNumber\":\"10012\",\"LocationNorthingCoordinate\":\"59.3337783076748\",\"LocationEastingCoordinate" +
+                "\":\"18.0374650139904\",\"ZoneShortName\":\"A\",\"StopAreaTypeCode\":\"BUSTERM\",\"LastModifiedUtcDateTime\":\"2014-06-03 00:00:00.0" +
+                "00\",\"ExistsFromDate\":\"2014-06-03 00:00:00.000\"},{\"StopPointNumber\":\"10013\",\"StopPointName\":\"S:t Eriksgatan\",\"StopAreaNu" +
+                "mber\":\"10008\",\"LocationNorthingCoordinate\":\"59.3347173254206\",\"LocationEastingCoordinate\":\"18.0314340953105\",\"ZoneShortNa" +
+                "me\":\"A\",\"StopAreaTypeCode\":\"BUSTERM\",\"LastModifiedUtcDateTime\":\"2014-06-03 00:00:00.000\",\"ExistsFromDate\":\"2014-06-03 0" +
+                "0:00:00.000\"},{\"StopPointNumber\":\"10014\",\"StopPointName\":\"Scheelegatan\",\"StopAreaNumber\":\"10014\",\"LocationNorthingCoord" +
+                "inate\":\"59.3328650108015\",\"LocationEastingCoordinate\":\"18.0446133231273\",\"ZoneShortName\":\"A\",\"StopAreaTypeCode\":\"BUSTERM" +
+                "\",\"LastModifiedUtcDateTime\":\"2014-06-03 00:00:00.000\",\"ExistsFromDate\":\"2014-06-03 00:00:00.000\"},{\"StopPointNumber\":\"10015" +
+                "\",\"StopPointName\":\"Scheelegatan\",\"StopAreaNumber\":\"10014\",\"LocationNorthingCoordinate\":\"59.3332016567806\",\"LocationEast" +
+                "ingCoordinate\":\"18.0441933960080\",\"ZoneShortName\":\"A\",\"StopAreaTypeCode\":\"BUSTERM\",\"LastModifiedUtcDateTime\":\"2014-06-0" +
+                "3 00:00:00.000\",\"ExistsFromDate\":\"2014-06-03 00:00:00.000\"}]}}";
+        }
+
+        public string GetTestResponseForSites()
         {
             return
                 "{\"StatusCode\":0,\"Message\":null,\"ExecutionTime\":686,\"ResponseData\":{\"Version\":\"2015-08-20 00:07\",\"Typ" +
@@ -58,61 +221,6 @@ namespace SlApi.Tests
                 "26 23:55:32.900\",\"ExistsFromDate\":\"2012-06-23 00:00:00.000\"},{\"SiteId\":\"9248\",\"SiteName\":\"Aga\",\"StopAre" +
                 "aNumber\":\"22061\",\"LastModifiedUtcDateTime\":\"2012-03-26 23:55:32.900\",\"ExistsFromDate\":\"2012-06-23 00:00:00." +
                 "000\"}]}}";
-        }
-
-        [TestMethod]
-        public void RealtimeDeparturesTest()
-        {
-
-            var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponse(
-                        new Uri(
-                            "https://api.sl.se/api2/LineData.json/?model=site&key=" + fakekey)))
-                .Returns(GetTestResponse);
-            var t = new StopsAndRoutesClient(new HttpClient(mockedHttpRequest.Object))
-            {
-                ApiToken = fakekey
-            };
-
-          
-            var result = t.SiteData();
-            Assert.IsTrue(result.ExecutionTime == 686);
-            Assert.IsTrue(result.ResponseData.Result.Length == 25);
-            Assert.IsTrue(result.ResponseData.Result[0].SiteId == 4432);
-            Assert.IsTrue(result.ResponseData.Result[24].SiteId == 9248);
-            
-
-        }
-
-        [TestMethod]
-        public void RealtimeDeparturesAsyncTest()
-        {
-
-            var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponseAsync(
-                        new Uri(
-                            "https://api.sl.se/api2/LineData.json/?model=site&key=" + fakekey)))
-                .ReturnsAsync(GetTestResponse());
-            var t = new StopsAndRoutesClient(new HttpClient(mockedHttpRequest.Object))
-            {
-                ApiToken = fakekey
-            };
-
-
-            var responseAsync = t.SiteDataAsync();
-            responseAsync.Wait();
-            var result = responseAsync.Result;
-            Assert.IsTrue(result.ExecutionTime == 686);
-            Assert.IsTrue(result.ResponseData.Result.Length == 25);
-            Assert.IsTrue(result.ResponseData.Result[0].SiteId == 4432);
-            Assert.IsTrue(result.ResponseData.Result[24].SiteId == 9248);
-
         }
     }
 }

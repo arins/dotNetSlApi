@@ -19,14 +19,24 @@ namespace SlApi
             
         }
 
-        public SiteDataResponse SiteData()
+        public Sites Sites()
         {
-            return HttpClient.DoRequest<SiteDataResponse>("api2/LineData.json", new LineDataRequest());
+            return HttpClient.DoRequest<Sites>("api2/LineData.json", new SiteDataRequest());
         }
 
-        public Task<SiteDataResponse> SiteDataAsync()
+        public Task<Sites> SitesAsync()
         {
-            return HttpClient.DoRequestAsync<SiteDataResponse>("api2/LineData.json", new LineDataRequest());
+            return HttpClient.DoRequestAsync<Sites>("api2/LineData.json", new SiteDataRequest());
+        }
+
+        public StopPoints StopPoints()
+        {
+            return HttpClient.DoRequest<StopPoints>("api2/LineData.json", new StopPointRequest());
+        }
+
+        public Task<StopPoints> StopPointsAsync()
+        {
+            return HttpClient.DoRequestAsync<StopPoints>("api2/LineData.json", new StopPointRequest());
         }
     }
 }

@@ -3,7 +3,7 @@ using SlApi.Core;
 
 namespace SlApi.Models.StopsAndRoutes.Request
 {
-    public class LineDataRequest : IConvertableToArgument
+    public class SiteDataRequest : IConvertableToArgument
     {
         public Arguments GetArgument()
         {
