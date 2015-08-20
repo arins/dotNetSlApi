@@ -130,8 +130,121 @@ namespace SlApi.Tests
         }
 
 
+        [TestMethod]
+        public void LinesTest()
+        {
+
+            var fakekey = "fakekey";
+            var mockedHttpRequest = new Mock<IHttpRequester>();
+            mockedHttpRequest.Setup(
+                x =>
+                    x.GetResponse(
+                        new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=line&key=" + fakekey)))
+                .Returns(GetTestResponseForLines);
+            var t = new StopsAndRoutesClient(new HttpClient(mockedHttpRequest.Object))
+            {
+                ApiToken = fakekey
+            };
 
 
+            var result = t.Lines();
+            Assert.IsTrue(result.ExecutionTime == 717);
+            Assert.IsTrue(result.ResponseData.Result.Length == 29);
+            Assert.IsTrue(result.ResponseData.Result[0].LineNumber == 1);
+            Assert.IsTrue(result.ResponseData.Result[0].DefaultTransportMode == "blåbuss");
+            Assert.IsTrue(result.ResponseData.Result[28].LineNumber == 142);
+
+
+
+        }
+
+
+        [TestMethod]
+        public void LinesAsyncTest()
+        {
+
+            var fakekey = "fakekey";
+            var mockedHttpRequest = new Mock<IHttpRequester>();
+            mockedHttpRequest.Setup(
+                x =>
+                    x.GetResponseAsync(
+                        new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=line&key=" + fakekey)))
+                .ReturnsAsync(GetTestResponseForLines());
+            var t = new StopsAndRoutesClient(new HttpClient(mockedHttpRequest.Object))
+            {
+                ApiToken = fakekey
+            };
+
+
+            var responseAsync = t.LinesAsync();
+            responseAsync.Wait();
+            var result = responseAsync.Result;
+            Assert.IsTrue(result.ExecutionTime == 717);
+            Assert.IsTrue(result.ResponseData.Result.Length == 29);
+            Assert.IsTrue(result.ResponseData.Result[0].LineNumber == 1);
+            Assert.IsTrue(result.ResponseData.Result[0].DefaultTransportMode == "blåbuss");
+            Assert.IsTrue(result.ResponseData.Result[28].LineNumber == 142);
+
+        }
+
+
+
+        public string GetTestResponseForLines()
+        {
+            return
+                "{\"StatusCode\":0,\"Message\":null,\"ExecutionTime\":717,\"ResponseData\":{\"Version\":\"2015-08-20 00:07\",\"Type\":\"Line\",\"Resu" +
+                "lt\":[{\"LineNumber\":\"1\",\"LineDesignation\":\"1\",\"DefaultTransportMode\":\"blåbuss\",\"DefaultTransportModeCode\":\"BUS\",\"" +
+                "LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"LineNumber\":\"1\",\"LineD" +
+                "esignation\":\"1\",\"DefaultTransportMode\":\"Waxholmsbolagets\",\"DefaultTransportModeCode\":\"SHIP\",\"LastModifiedUtcDateTime\":\"2" +
+                "009-09-02 00:00:00.000\",\"ExistsFromDate\":\"2009-09-02 00:00:00.000\"},{\"LineNumber\":\"10\",\"LineDesignation\":\"10\",\"Default" +
+                "TransportMode\":\"tunnelbanans blå linje\",\"DefaultTransportModeCode\":\"METRO\",\"LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.00" +
+                "0\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"LineNumber\":\"101\",\"LineDesignation\":\"101\",\"DefaultTransportMode\":\"\"" +
+                ",\"DefaultTransportModeCode\":\"BUS\",\"LastModifiedUtcDateTime\":\"2012-08-24 00:00:00.000\",\"ExistsFromDate\":\"2012-08-24 00:00:00" +
+                ".000\"},{\"LineNumber\":\"102\",\"LineDesignation\":\"102\",\"DefaultTransportMode\":\"\",\"DefaultTransportModeCode\":\"BUS\",\"LastMo" +
+                "difiedUtcDateTime\":\"2012-08-24 00:00:00.000\",\"ExistsFromDate\":\"2012-08-24 00:00:00.000\"},{\"LineNumber\":\"11\",\"LineDesignatio" +
+                "n\":\"11\",\"DefaultTransportMode\":\"tunnelbanans blå linje\",\"DefaultTransportModeCode\":\"METRO\",\"LastModifiedUtcDateTime\":\"200" +
+                "7-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"LineNumber\":\"11\",\"LineDesignation\":\"11\",\"DefaultTransp" +
+                "ortMode\":\"Waxholmsbolagets\",\"DefaultTransportModeCode\":\"SHIP\",\"LastModifiedUtcDateTime\":\"2009-09-02 00:00:00.000\",\"ExistsFro" +
+                "mDate\":\"2009-09-02 00:00:00.000\"},{\"LineNumber\":\"110\",\"LineDesignation\":\"110\",\"DefaultTransportMode\":\"\",\"DefaultTranspor" +
+                "tModeCode\":\"BUS\",\"LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"LineNumbe" +
+                "r\":\"112\",\"LineDesignation\":\"112\",\"DefaultTransportMode\":\"\",\"DefaultTransportModeCode\":\"BUS\",\"LastModifiedUtcDateTime\":\"" +
+                "2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"LineNumber\":\"113\",\"LineDesignation\":\"113\",\"DefaultTr" +
+                "ansportMode\":\"\",\"DefaultTransportModeCode\":\"BUS\",\"LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"200" +
+                "7-08-24 00:00:00.000\"},{\"LineNumber\":\"114\",\"LineDesignation\":\"114\",\"DefaultTransportMode\":\"\",\"DefaultTransportModeCode\":\"" +
+                "BUS\",\"LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"LineNumber\":\"115\",\"" +
+                "LineDesignation\":\"115\",\"DefaultTransportMode\":\"\",\"DefaultTransportModeCode\":\"BUS\",\"LastModifiedUtcDateTime\":\"2007-08-24 0" +
+                "0:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"LineNumber\":\"116\",\"LineDesignation\":\"116\",\"DefaultTransportMode" +
+                "\":\"\",\"DefaultTransportModeCode\":\"BUS\",\"LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:" +
+                "00:00.000\"},{\"LineNumber\":\"117\",\"LineDesignation\":\"117\",\"DefaultTransportMode\":\"\",\"DefaultTransportModeCode\":\"BUS\",\"La" +
+                "stModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"LineNumber\":\"118\",\"LineDesign" +
+                "ation\":\"118\",\"DefaultTransportMode\":\"\",\"DefaultTransportModeCode\":\"BUS\",\"LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000" +
+                "\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"LineNumber\":\"119\",\"LineDesignation\":\"119\",\"DefaultTransportMode\":\"\",\"D" +
+                "efaultTransportModeCode\":\"BUS\",\"LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"" +
+                "},{\"LineNumber\":\"12\",\"LineDesignation\":\"12\",\"DefaultTransportMode\":\"Nockebybanan\",\"DefaultTransportModeCode\":\"TRAM\",\"La" +
+                "stModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"LineNumber\":\"12\",\"LineDesigna" +
+                "tion\":\"12\",\"DefaultTransportMode\":\"Waxholmsbolagets\",\"DefaultTransportModeCode\":\"SHIP\",\"LastModifiedUtcDateTime\":\"2009-09-0" +
+                "2 00:00:00.000\",\"ExistsFromDate\":\"2009-09-02 00:00:00.000\"},{\"LineNumber\":\"124\",\"LineDesignation\":\"124\",\"DefaultTransportMo" +
+                "de\":\"\",\"DefaultTransportModeCode\":\"BUS\",\"LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00" +
+                ":00:00.000\"},{\"LineNumber\":\"127\",\"LineDesignation\":\"127\",\"DefaultTransportMode\":\"\",\"DefaultTransportModeCode\":\"BUS\",\"Las" +
+                "tModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"LineNumber\":\"13\",\"LineDesignati" +
+                "on\":\"13\",\"DefaultTransportMode\":\"tunnelbanans röda linje\",\"DefaultTransportModeCode\":\"METRO\",\"LastModifiedUtcDateTime\":\"2007" +
+                "-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"LineNumber\":\"13\",\"LineDesignation\":\"13\",\"DefaultTranspor" +
+                "tMode\":\"Waxholmsbolagets\",\"DefaultTransportModeCode\":\"SHIP\",\"LastModifiedUtcDateTime\":\"2009-09-02 00:00:00.000\",\"ExistsFromDa" +
+                "te\":\"2009-09-02 00:00:00.000\"},{\"LineNumber\":\"133\",\"LineDesignation\":\"133\",\"DefaultTransportMode\":\"\",\"DefaultTransportMo" +
+                "deCode\":\"BUS\",\"LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"LineNumber\"" +
+                ":\"134\",\"LineDesignation\":\"134\",\"DefaultTransportMode\":\"\",\"DefaultTransportModeCode\":\"BUS\",\"LastModifiedUtcDateTime\":\"2007" +
+                "-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"LineNumber\":\"135\",\"LineDesignation\":\"135\",\"DefaultTransp" +
+                "ortMode\":\"\",\"DefaultTransportModeCode\":\"BUS\",\"LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-2" +
+                "4 00:00:00.000\"},{\"LineNumber\":\"14\",\"LineDesignation\":\"14\",\"DefaultTransportMode\":\"tunnelbanans röda linje\",\"DefaultTranspor" +
+                "tModeCode\":\"METRO\",\"LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"LineNumbe" +
+                "r\":\"14\",\"LineDesignation\":\"14\",\"DefaultTransportMode\":\"Waxholmsbolagets\",\"DefaultTransportModeCode\":\"SHIP\",\"LastModifiedUt" +
+                "cDateTime\":\"2009-09-02 00:00:00.000\",\"ExistsFromDate\":\"2009-09-02 00:00:00.000\"},{\"LineNumber\":\"141\",\"LineDesignation\":\"141\"" +
+                ",\"DefaultTransportMode\":\"\",\"DefaultTransportModeCode\":\"BUS\",\"LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDa" +
+                "te\":\"2007-08-24 00:00:00.000\"},{\"LineNumber\":\"142\",\"LineDesignation\":\"142\",\"DefaultTransportMode\":\"\",\"DefaultTransportMod" +
+                "eCode\":\"BUS\",\"LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"}]}}";
+        }
 
         public string GetTestResponseForStopPoints()
         {

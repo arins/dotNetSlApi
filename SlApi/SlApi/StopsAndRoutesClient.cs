@@ -38,5 +38,15 @@ namespace SlApi
         {
             return HttpClient.DoRequestAsync<StopPoints>("api2/LineData.json", new StopPointRequest());
         }
+
+        public Lines Lines()
+        {
+            return HttpClient.DoRequest<Lines>("api2/LineData.json", new LinesRequest());
+        }
+
+        public Task<Lines> LinesAsync()
+        {
+            return HttpClient.DoRequestAsync<Lines>("api2/LineData.json", new LinesRequest());
+        }
     }
 }

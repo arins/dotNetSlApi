@@ -63,8 +63,11 @@
     <Compile Include="Models\RealtimeInformation\Response\TransportModeEnum.cs" />
     <Compile Include="Models\RealtimeInformation\Serializer\TransportModeSerializer.cs" />
     <Compile Include="Models\StatusCode.cs" />
+    <Compile Include="Models\StopsAndRoutes\Request\LinesRequest.cs" />
     <Compile Include="Models\StopsAndRoutes\Request\SiteDataRequest.cs" />
     <Compile Include="Models\StopsAndRoutes\Request\StopPointRequest.cs" />
+    <Compile Include="Models\StopsAndRoutes\Response\Line.cs" />
+    <Compile Include="Models\StopsAndRoutes\Response\Lines.cs" />
     <Compile Include="Models\StopsAndRoutes\Response\Sites.cs" />
     <Compile Include="Models\StopsAndRoutes\Response\Site.cs" />
     <Compile Include="Models\StopsAndRoutes\Response\StopPoint.cs" />
