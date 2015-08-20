@@ -2,21 +2,21 @@
 {
     public class BaseService
     {
-         internal IClient Client { get; set; }
+         internal IHttpClient HttpClient { get; set; }
 
 
-         internal BaseService(IClient client)
+         internal BaseService(IHttpClient httpClient)
         {
-            Client = client;
+            HttpClient = httpClient;
         }
 
          public string ApiToken
         {
             get
             {
-                if (Client.ApiToken != null)
+                if (HttpClient.ApiToken != null)
                 {
-                    return Client.ApiToken + "";
+                    return HttpClient.ApiToken + "";
                 }
                 return null;
 
@@ -24,7 +24,7 @@
             set
             {
 
-                Client.ApiToken = value;
+                HttpClient.ApiToken = value;
             }
         }
     }

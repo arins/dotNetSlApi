@@ -36,9 +36,9 @@
   <ItemGroup>
     <Compile Include="Core\Arguments.cs" />
     <Compile Include="Core\BaseService.cs" />
-    <Compile Include="Core\Client.cs" />
+    <Compile Include="Core\HttpClient.cs" />
     <Compile Include="Core\HttpRequester.cs" />
-    <Compile Include="Core\IClient.cs" />
+    <Compile Include="Core\IHttpClient.cs" />
     <Compile Include="Core\IConvertableToArguments.cs" />
     <Compile Include="Core\IHttpRequester.cs" />
     <Compile Include="Core\RequestException.cs" />
@@ -63,9 +63,10 @@
     <Compile Include="Models\RealtimeInformation\Response\TransportModeEnum.cs" />
     <Compile Include="Models\RealtimeInformation\Serializer\TransportModeSerializer.cs" />
     <Compile Include="Models\StatusCode.cs" />
-    <Compile Include="PlaceSearchService.cs" />
+    <Compile Include="PlaceSearchClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RealtimeInformation.cs" />
+    <Compile Include="StopsAndRoutesClient.cs" />
+    <Compile Include="RealtimeInformationClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">

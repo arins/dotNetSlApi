@@ -69,7 +69,7 @@ namespace SlApi.Tests
                         new Uri(
                             "https://api.sl.se/api2/realtimedepartures.json/?SiteId=9305&TimeWindow=2&key=" + fakekey)))
                 .Returns(GetTestResponse);
-            var t = new RealtimeInformation(new Client(mockedHttpRequest.Object))
+            var t = new RealtimeInformationClient(new HttpClient(mockedHttpRequest.Object))
             {
                 ApiToken = fakekey
             };
@@ -103,7 +103,7 @@ namespace SlApi.Tests
                         new Uri(
                             "https://api.sl.se/api2/realtimedepartures.json/?SiteId=9305&TimeWindow=2&key=" + fakekey)))
                 .ReturnsAsync(GetTestResponse());
-            var t = new RealtimeInformation(new Client(mockedHttpRequest.Object))
+            var t = new RealtimeInformationClient(new HttpClient(mockedHttpRequest.Object))
             {
                 ApiToken = fakekey
             };

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,7 +30,8 @@ namespace SlApi.Core
         {
             try
             {
-                var client = new HttpClient {Timeout = new TimeSpan(0, 0, 0, 0, Timeout)};
+                var client = new System.Net.Http.HttpClient {Timeout = new TimeSpan(0, 0, 0, 0, Timeout)};
+                client.DefaultRequestHeaders.AcceptEncoding.Add(StringWithQualityHeaderValue.Parse("gzip, deflate"));
                 return client.GetStringAsync(url);
             }
             catch (Exception e)
@@ -50,8 +52,8 @@ namespace SlApi.Core
             try
             {
                
-                var client = new HttpClient {Timeout = new TimeSpan(0, 0, 0, 0, Timeout)};
-                
+                var client = new System.Net.Http.HttpClient {Timeout = new TimeSpan(0, 0, 0, 0, Timeout)};
+                client.DefaultRequestHeaders.AcceptEncoding.Add(StringWithQualityHeaderValue.Parse("gzip, deflate"));
                 var asyncResult = client.GetStringAsync(url);
                 asyncResult.Wait();
                 return asyncResult.Result;

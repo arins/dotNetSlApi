@@ -44,7 +44,7 @@ namespace SlApi.Tests
                         new Uri(
                             "https://api.sl.se/api2/typeahead.json/?SearchString=Solna&StationsOnly=false&key=" + fakekey)))
                 .Returns(GetTestResponse);
-            var search = new PlaceSearchService(new Client(mockedHttpRequest.Object))
+            var search = new PlaceSearchClient(new HttpClient(mockedHttpRequest.Object))
             {
                 ApiToken = fakekey
             };
@@ -77,7 +77,7 @@ namespace SlApi.Tests
                         new Uri(
                             "https://api.sl.se/api2/typeahead.json/?SearchString=Solna&StationsOnly=false&key=" + fakekey)))
                 .ReturnsAsync(GetTestResponse());
-            var search = new PlaceSearchService(new Client(mockedHttpRequest.Object))
+            var search = new PlaceSearchClient(new HttpClient(mockedHttpRequest.Object))
             {
                 ApiToken = fakekey
             };

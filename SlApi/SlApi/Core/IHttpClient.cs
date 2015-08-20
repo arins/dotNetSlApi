@@ -2,7 +2,7 @@
 
 namespace SlApi.Core
 {
-    public interface IClient
+    public interface IHttpClient
     {
         IHttpRequester Requester { get; set; }
         string ApiToken { get; set; }
