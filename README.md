@@ -2,7 +2,7 @@
 Sl api wrapper for .net
 
 ```C#
-var client = new SlApi.RealtimeInformation();
+var client = new SlApi.RealtimeInformationClient();
 client.ApiToken = "your key";
 var result = client.RealtimeDepartures(new RealtimeDeparturesRequest
 {
