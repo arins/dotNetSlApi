@@ -133,13 +133,13 @@ namespace SlApi.Core
         /// <returns>Deserilized data of type TOut from response</returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="RequestException"></exception>
-        public async Task<TOut> DoRequestAsync<TOut>(string path, IConvertableToArgument arguments) where TOut : new()
+        public Task<TOut> DoRequestAsync<TOut>(string path, IConvertableToArgument arguments) where TOut : new()
         {
             if (arguments != null)
             {
-                return await DoRequestAsync<TOut>(path, arguments.GetArgument());
+                return DoRequestAsync<TOut>(path, arguments.GetArgument());
             }
-            return await DoRequestAsync<TOut>(path);
+            return DoRequestAsync<TOut>(path);
         }
 
 

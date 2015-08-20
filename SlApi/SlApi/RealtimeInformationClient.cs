@@ -22,9 +22,9 @@ namespace SlApi
             return HttpClient.DoRequest<DepartureResponse>("api2/realtimedepartures.json", searchRequest);
         }
 
-        public async Task<DepartureResponse> RealtimeDeparturesAsync(RealtimeDeparturesRequest searchRequest)
+        public Task<DepartureResponse> RealtimeDeparturesAsync(RealtimeDeparturesRequest searchRequest)
         {
-            return await HttpClient.DoRequestAsync<DepartureResponse>("api2/realtimedepartures.json", searchRequest);
+            return HttpClient.DoRequestAsync<DepartureResponse>("api2/realtimedepartures.json", searchRequest);
         }
     }
 }

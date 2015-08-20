@@ -59,8 +59,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="PlaceSearchServiceTest.cs" />
-    <Compile Include="RealtimeInformationTest.cs" />
+    <Compile Include="PlaceSearchClientTest.cs" />
+    <Compile Include="StopsAndRoutesClientTest.cs" />
+    <Compile Include="RealtimeInformationClientTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
