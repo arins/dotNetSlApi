@@ -43,7 +43,7 @@ namespace SlApi.Models.StopsAndRoutes.Response
         /// <summary>
         /// Användning av hållplatsen. BUSSTERM, TRAMSTN,METROSTN, RAILWSTN, SHIPBER eller FERRYBER
         /// </summary>
-        public string StopAreaTypeCode { get; set; }
+        public StopAreaTypeCode StopAreaTypeCode { get; set; }
 
         /// <summary>
         /// Senast ändrad

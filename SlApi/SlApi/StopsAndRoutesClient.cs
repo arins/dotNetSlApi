@@ -48,5 +48,25 @@ namespace SlApi
         {
             return HttpClient.DoRequestAsync<Lines>("api2/LineData.json", new LinesRequest());
         }
+
+        public TransportModes TransportModes()
+        {
+            return HttpClient.DoRequest<TransportModes>("api2/LineData.json", new TransportModeRequest());
+        }
+
+        public Task<TransportModes> TransportModesAsync()
+        {
+            return HttpClient.DoRequestAsync<TransportModes>("api2/LineData.json", new TransportModeRequest());
+        }
+
+        public JourneyPatternPointOnLines JourneyPaternPointOnLine()
+        {
+            return HttpClient.DoRequest<JourneyPatternPointOnLines>("api2/LineData.json", new JourneyPatternPointOnLineRequest());
+        }
+
+        public Task<JourneyPatternPointOnLines> JourneyPaternPointOnLineAsync()
+        {
+            return HttpClient.DoRequestAsync<JourneyPatternPointOnLines>("api2/LineData.json", new JourneyPatternPointOnLineRequest());
+        }
     }
 }

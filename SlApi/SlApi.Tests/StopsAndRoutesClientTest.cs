@@ -6,6 +6,7 @@ using SlApi.Core;
 using SlApi.Models;
 using SlApi.Models.RealtimeInformation.Request;
 using SlApi.Models.RealtimeInformation.Response;
+using SlApi.Models.StopsAndRoutes.Response;
 
 namespace SlApi.Tests
 {
@@ -153,6 +154,7 @@ namespace SlApi.Tests
             Assert.IsTrue(result.ResponseData.Result.Length == 29);
             Assert.IsTrue(result.ResponseData.Result[0].LineNumber == 1);
             Assert.IsTrue(result.ResponseData.Result[0].DefaultTransportMode == "blåbuss");
+            Assert.IsTrue(result.ResponseData.Result[0].DefaultTransportModeCode == DefaultTransportModeCode.Metro);
             Assert.IsTrue(result.ResponseData.Result[28].LineNumber == 142);
 
 
@@ -185,17 +187,139 @@ namespace SlApi.Tests
             Assert.IsTrue(result.ResponseData.Result.Length == 29);
             Assert.IsTrue(result.ResponseData.Result[0].LineNumber == 1);
             Assert.IsTrue(result.ResponseData.Result[0].DefaultTransportMode == "blåbuss");
+            Assert.IsTrue(result.ResponseData.Result[0].DefaultTransportModeCode == DefaultTransportModeCode.Metro);
             Assert.IsTrue(result.ResponseData.Result[28].LineNumber == 142);
 
         }
 
 
 
+        [TestMethod]
+        public void TransportModeTest()
+        {
+
+            var fakekey = "fakekey";
+            var mockedHttpRequest = new Mock<IHttpRequester>();
+            mockedHttpRequest.Setup(
+                x =>
+                    x.GetResponse(
+                        new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=tran&key=" + fakekey)))
+                .Returns(GetTestTransportMode);
+            var t = new StopsAndRoutesClient(new HttpClient(mockedHttpRequest.Object))
+            {
+                ApiToken = fakekey
+            };
+
+
+            var result = t.TransportModes();
+            Assert.IsTrue(result.ExecutionTime == 613);
+            Assert.IsTrue(result.ResponseData.Result.Length == 6);
+            Assert.IsTrue(result.ResponseData.Result[0].DefaultTransportModeCode == DefaultTransportModeCode.Bus);
+            Assert.IsTrue(result.ResponseData.Result[0].DefaultTransportMode == "buss");
+            Assert.IsTrue(result.ResponseData.Result[0].StopAreaTypeCode == StopAreaTypeCode.Busterm);
+
+
+
+        }
+
+
+        [TestMethod]
+        public void TransportModeAsyncTest()
+        {
+
+            var fakekey = "fakekey";
+            var mockedHttpRequest = new Mock<IHttpRequester>();
+            mockedHttpRequest.Setup(
+                x =>
+                    x.GetResponseAsync(
+                        new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=tran&key=" + fakekey)))
+                .ReturnsAsync(GetTestTransportMode());
+            var t = new StopsAndRoutesClient(new HttpClient(mockedHttpRequest.Object))
+            {
+                ApiToken = fakekey
+            };
+
+
+            var responseAsync = t.TransportModesAsync();
+            responseAsync.Wait();
+            var result = responseAsync.Result;
+            Assert.IsTrue(result.ExecutionTime == 613);
+            Assert.IsTrue(result.ResponseData.Result.Length == 6);
+            Assert.IsTrue(result.ResponseData.Result[0].DefaultTransportModeCode == DefaultTransportModeCode.Bus);
+            Assert.IsTrue(result.ResponseData.Result[0].DefaultTransportMode == "buss");
+            Assert.IsTrue(result.ResponseData.Result[0].StopAreaTypeCode == StopAreaTypeCode.Busterm);
+
+        }
+
+
+
+        [TestMethod]
+        public void JourneyPaternPointOnLineTest()
+        {
+
+            var fakekey = "fakekey";
+            var mockedHttpRequest = new Mock<IHttpRequester>();
+            mockedHttpRequest.Setup(
+                x =>
+                    x.GetResponse(
+                        new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=jour&key=" + fakekey)))
+                .Returns(GetJourTest);
+            var t = new StopsAndRoutesClient(new HttpClient(mockedHttpRequest.Object))
+            {
+                ApiToken = fakekey
+            };
+
+
+            var result = t.JourneyPaternPointOnLine();
+            Assert.IsTrue(result.ExecutionTime == 872);
+            Assert.IsTrue(result.ResponseData.Result.Length == 11);
+            Assert.IsTrue(result.ResponseData.Result[0].DirectionCode == 1);
+            Assert.IsTrue(result.ResponseData.Result[0].LineNumber == 1);
+            Assert.IsTrue(result.ResponseData.Result[0].ExistsFromDate == new DateTime(2012, 06, 23));
+
+
+
+        }
+
+
+        [TestMethod]
+        public void JourneyPaternPointOnLineAsyncTest()
+        {
+
+            var fakekey = "fakekey";
+            var mockedHttpRequest = new Mock<IHttpRequester>();
+            mockedHttpRequest.Setup(
+                x =>
+                    x.GetResponseAsync(
+                        new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=jour&key=" + fakekey)))
+                .ReturnsAsync(GetJourTest());
+            var t = new StopsAndRoutesClient(new HttpClient(mockedHttpRequest.Object))
+            {
+                ApiToken = fakekey
+            };
+
+
+            var responseAsync = t.JourneyPaternPointOnLineAsync();
+            responseAsync.Wait();
+            var result = responseAsync.Result;
+
+            Assert.IsTrue(result.ExecutionTime == 872);
+            Assert.IsTrue(result.ResponseData.Result.Length == 11);
+            Assert.IsTrue(result.ResponseData.Result[0].DirectionCode == 1);
+            Assert.IsTrue(result.ResponseData.Result[0].LineNumber == 1);
+            Assert.IsTrue(result.ResponseData.Result[0].ExistsFromDate == new DateTime(2012, 06, 23));
+        }
+
+
         public string GetTestResponseForLines()
         {
             return
                 "{\"StatusCode\":0,\"Message\":null,\"ExecutionTime\":717,\"ResponseData\":{\"Version\":\"2015-08-20 00:07\",\"Type\":\"Line\",\"Resu" +
-                "lt\":[{\"LineNumber\":\"1\",\"LineDesignation\":\"1\",\"DefaultTransportMode\":\"blåbuss\",\"DefaultTransportModeCode\":\"BUS\",\"" +
+                "lt\":[{\"LineNumber\":\"1\",\"LineDesignation\":\"1\",\"DefaultTransportMode\":\"blåbuss\",\"DefaultTransportModeCode\":\"METRO\",\"" +
                 "LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"LineNumber\":\"1\",\"LineD" +
                 "esignation\":\"1\",\"DefaultTransportMode\":\"Waxholmsbolagets\",\"DefaultTransportModeCode\":\"SHIP\",\"LastModifiedUtcDateTime\":\"2" +
                 "009-09-02 00:00:00.000\",\"ExistsFromDate\":\"2009-09-02 00:00:00.000\"},{\"LineNumber\":\"10\",\"LineDesignation\":\"10\",\"Default" +
@@ -334,6 +458,46 @@ namespace SlApi.Tests
                 "26 23:55:32.900\",\"ExistsFromDate\":\"2012-06-23 00:00:00.000\"},{\"SiteId\":\"9248\",\"SiteName\":\"Aga\",\"StopAre" +
                 "aNumber\":\"22061\",\"LastModifiedUtcDateTime\":\"2012-03-26 23:55:32.900\",\"ExistsFromDate\":\"2012-06-23 00:00:00." +
                 "000\"}]}}";
+        }
+
+        public string GetTestTransportMode()
+        {
+            return
+                "{\"StatusCode\":0,\"Message\":null,\"ExecutionTime\":613,\"ResponseData\":{\"Version\":\"2015-09-04 00:12\",\"Type\":" +
+                "\"TransportMode\",\"Result\":[{\"DefaultTransportModeCode\":\"BUS\",\"DefaultTransportMode\":\"buss\",\"StopAreaTypeC" +
+                "ode\":\"BUSTERM\",\"LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000" +
+                "\"},{\"DefaultTransportModeCode\":\"FERRY\",\"DefaultTransportMode\":\"färja\",\"StopAreaTypeCode\":\"FERRYBER\",\"Last" +
+                "ModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"DefaultTransportMod" +
+                "eCode\":\"METRO\",\"DefaultTransportMode\":\"tunnelbana\",\"StopAreaTypeCode\":\"METROSTN\",\"LastModifiedUtcDateTime\":\"" +
+                "2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"},{\"DefaultTransportModeCode\":\"SHIP\",\"Defaul" +
+                "tTransportMode\":\"båt\",\"StopAreaTypeCode\":\"FERRYBER\",\"LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"Exis" +
+                "tsFromDate\":\"2007-08-24 00:00:00.000\"},{\"DefaultTransportModeCode\":\"TRAIN\",\"DefaultTransportMode\":\"pendeltåg\"," +
+                "\"StopAreaTypeCode\":\"RAILWSTN\",\"LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24" +
+                " 00:00:00.000\"},{\"DefaultTransportModeCode\":\"TRAM\",\"DefaultTransportMode\":\"spårvagn/lokalbana\",\"StopAreaTypeCode" +
+                "\":\"TRAMSTN\",\"LastModifiedUtcDateTime\":\"2007-08-24 00:00:00.000\",\"ExistsFromDate\":\"2007-08-24 00:00:00.000\"}]}}";
+        }
+
+        public string GetJourTest()
+        {
+            return
+                "{\"StatusCode\":0,\"Message\":null,\"ExecutionTime\":872,\"ResponseData\":{\"Version\":\"2015-09-04 00:12\",\"Type\":\"JourneyPat" +
+                "ternPointOnLine\",\"Result\":[{\"LineNumber\":\"1\",\"DirectionCode\":\"1\",\"JourneyPatternPointNumber\":\"10008\",\"LastModifie" +
+                "dUtcDateTime\":\"2012-06-23 00:00:00.000\",\"ExistsFromDate\":\"2012-06-23 00:00:00.000\"},{\"LineNumber\":\"1\",\"DirectionCode\"" +
+                ":\"1\",\"JourneyPatternPointNumber\":\"10012\",\"LastModifiedUtcDateTime\":\"2012-06-23 00:00:00.000\",\"ExistsFromDate\":\"2012-0" +
+                "6-23 00:00:00.000\"},{\"LineNumber\":\"1\",\"DirectionCode\":\"1\",\"JourneyPatternPointNumber\":\"10014\",\"LastModifiedUtcDateTim" +
+                "e\":\"2012-06-23 00:00:00.000\",\"ExistsFromDate\":\"2012-06-23 00:00:00.000\"},{\"LineNumber\":\"1\",\"DirectionCode\":\"1\",\"Jour" +
+                "neyPatternPointNumber\":\"10016\",\"LastModifiedUtcDateTime\":\"2013-12-19 00:00:00.000\",\"ExistsFromDate\":\"2013-12-19 00:00:00." +
+                "000\"},{\"LineNumber\":\"1\",\"DirectionCode\":\"1\",\"JourneyPatternPointNumber\":\"10024\",\"LastModifiedUtcDateTime\":\"2013-12-" +
+                "19 00:00:00.000\",\"ExistsFromDate\":\"2013-12-19 00:00:00.000\"},{\"LineNumber\":\"1\",\"DirectionCode\":\"1\",\"JourneyPatternPoi" +
+                "ntNumber\":\"10026\",\"LastModifiedUtcDateTime\":\"2012-06-23 00:00:00.000\",\"ExistsFromDate\":\"2012-06-23 00:00:00.000\"},{\"Lin" +
+                "eNumber\":\"1\",\"DirectionCode\":\"1\",\"JourneyPatternPointNumber\":\"10030\",\"LastModifiedUtcDateTime\":\"2013-12-19 00:00:00." +
+                "000\",\"ExistsFromDate\":\"2013-12-19 00:00:00.000\"},{\"LineNumber\":\"1\",\"DirectionCode\":\"1\",\"JourneyPatternPointNumber\":" +
+                "\"10034\",\"LastModifiedUtcDateTime\":\"2012-06-23 00:00:00.000\",\"ExistsFromDate\":\"2012-06-23 00:00:00.000\"},{\"LineNumber\":" +
+                "\"1\",\"DirectionCode\":\"1\",\"JourneyPatternPointNumber\":\"10038\",\"LastModifiedUtcDateTime\":\"2014-05-06 00:00:00.000\",\"Ex" +
+                "istsFromDate\":\"2014-05-06 00:00:00.000\"},{\"LineNumber\":\"1\",\"DirectionCode\":\"1\",\"JourneyPatternPointNumber\":\"10042\"," +
+                "\"LastModifiedUtcDateTime\":\"2012-06-23 00:00:00.000\",\"ExistsFromDate\":\"2012-06-23 00:00:00.000\"},{\"LineNumber\":\"1\",\"Di" +
+                "rectionCode\":\"1\",\"JourneyPatternPointNumber\":\"10044\",\"LastModifiedUtcDateTime\":\"2012-06-23 00:00:00.000\",\"ExistsFromDa" +
+                "te\":\"2012-06-23 00:00:00.000\"}]}}";
         }
     }
 }

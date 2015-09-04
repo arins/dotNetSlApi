@@ -1,33 +1,33 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SlApi.Models.StopsAndRoutes.Response
 {
-    public class Line
+    public class JourneyPatternPointOnLine : BaseResponse
     {
         /// <summary>
-        /// Unikt identifikationsnummer för linje
+        /// Unikt identifikationsnummer för linjes
         /// </summary>
         public int LineNumber { get; set; }
 
         /// <summary>
-        /// Linjebeteckning
+        /// Linjeriktning
         /// </summary>
-        public string LineDesignation { get; set; }
+        public int DirectionCode { get; set; }
 
         /// <summary>
-        /// Gruppering av linjer för presentation
+        /// Unikt identifikationsnummer för stoppställe
         /// </summary>
-        public string DefaultTransportMode { get; set; }
-
-        /// <summary>
-        ///  Trafikslag
-        /// </summary>
-        public DefaultTransportModeCode DefaultTransportModeCode { get; set; }
+        public int JourneyPatternPointNumber { get; set; }
 
         /// <summary>
         /// Senast ändrad
         /// </summary>
         public DateTime LastModifiedUtcDateTime { get; set; }
+
 
         /// <summary>
         /// Gäller fr.o.m. datum
