@@ -41,9 +41,18 @@
     <Compile Include="Core\IHttpClient.cs" />
     <Compile Include="Core\IConvertableToArguments.cs" />
     <Compile Include="Core\IHttpRequester.cs" />
+    <Compile Include="Core\LanguageEnumConverter.cs" />
     <Compile Include="Core\RequestException.cs" />
     <Compile Include="Core\RequestPathBuildException.cs" />
+    <Compile Include="INearbyStops.cs" />
     <Compile Include="Models\BaseResponse.cs" />
+    <Compile Include="Core\Language.cs" />
+    <Compile Include="Models\ErrorCode.cs" />
+    <Compile Include="Models\ErrorResponse.cs" />
+    <Compile Include="Models\NearbyStations\Request\NearbyStopsRequest.cs" />
+    <Compile Include="Models\NearbyStations\Response\LocationList.cs" />
+    <Compile Include="Models\NearbyStations\Response\StopLocation.cs" />
+    <Compile Include="Models\NearbyStations\Response\StopLocations.cs" />
     <Compile Include="Models\PlaceSearch\Request\SearchRequest.cs" />
     <Compile Include="Models\PlaceSearch\Response\Site.cs" />
     <Compile Include="Models\PlaceSearch\Response\Sites.cs" />
@@ -78,6 +87,7 @@
     <Compile Include="Models\StopsAndRoutes\Response\StopAreaTypeCode.cs" />
     <Compile Include="Models\StopsAndRoutes\Response\StopPoint.cs" />
     <Compile Include="Models\StopsAndRoutes\Response\StopPoints.cs" />
+    <Compile Include="Models\ArrayBaseResponse.cs" />
     <Compile Include="Models\StopsAndRoutes\Response\StopsAndRoutesBaseResponse.cs" />
     <Compile Include="Models\StopsAndRoutes\Response\TransportMode.cs" />
     <Compile Include="Models\StopsAndRoutes\Response\TransportModes.cs" />
@@ -99,9 +109,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\NearbyStations\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

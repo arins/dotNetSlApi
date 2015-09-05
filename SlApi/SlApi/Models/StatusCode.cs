@@ -15,6 +15,12 @@
         KeyIsInvalid = 1001,
 
         /// <summary>
+        /// problem with request: Key is invalid
+        /// Nyckel är ogiltig
+        /// </summary>
+        KeyIsInvalid2 = 1002,
+
+        /// <summary>
         /// Ogiltigt api
         /// </summary>
         InvalidApi = 1003,
@@ -38,6 +44,12 @@
         /// För många anrop per månad, för den profil som används
         /// </summary>
         ToManyRequestsPerMonth = 1007,
+
+
+        /// <summary>
+        /// Ett ospecificerat fel har genererats i bakomloggande api.
+        /// </summary>
+        ProxyError = 1008,
 
 
         /// <summary>

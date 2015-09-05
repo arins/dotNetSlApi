@@ -60,6 +60,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="PlaceSearchClientTest.cs" />
+    <Compile Include="NearbyStopsClientTest.cs" />
     <Compile Include="StopsAndRoutesClientTest.cs" />
     <Compile Include="RealtimeInformationClientTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

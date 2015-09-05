@@ -1,5 +1,4 @@
-﻿using System.Text;
-using SlApi.Core;
+﻿using SlApi.Core;
 
 namespace SlApi.Models.StopsAndRoutes.Request
 {

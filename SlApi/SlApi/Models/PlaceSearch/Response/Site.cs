@@ -1,5 +1,7 @@
 ﻿namespace SlApi.Models.PlaceSearch.Response
 {
+    //todo add description to each field 
+    //todo fix X,Y to double
     public class Site
     {
         public string Name { get; set; }
