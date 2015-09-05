@@ -3,8 +3,8 @@
 namespace SlApi.Models.PlaceSearch.Response
 {
     
-    public class Sites : BaseResponse
+    public class Sites : ArrayBaseResponseData<Site>
     {
-        public Site[] ResponseData { get; set; } 
+        
     }
 }

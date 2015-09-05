@@ -1,7 +1,8 @@
-﻿namespace SlApi.Models.StopsAndRoutes.Response
+﻿using SlApi.Models.StopsAndRoutes.Request;
+
+namespace SlApi.Models.StopsAndRoutes.Response
 {
-    public class JourneyPatternPointOnLines : BaseResponse
+    public class JourneyPatternPointOnLines : BaseResponseWithVersionType<JourneyPatternPointOnLine>
     {
-        public StopsAndRoutesBaseResponse<JourneyPatternPointOnLine> ResponseData { get; set; }
     }
 }

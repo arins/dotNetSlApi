@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using SlApi.Core;
 using SlApi.Models;
 using SlApi.Models.NearbyStations.Request;
-using SlApi.Models.RealtimeInformation.Request;
-using SlApi.Models.RealtimeInformation.Response;
-using SlApi.Models.StopsAndRoutes.Response;
 
 namespace SlApi.Tests
 {

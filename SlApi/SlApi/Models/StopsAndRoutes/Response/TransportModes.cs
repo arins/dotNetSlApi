@@ -1,7 +1,6 @@
 ﻿namespace SlApi.Models.StopsAndRoutes.Response
 {
-    public class TransportModes : BaseResponse
+    public class TransportModes : BaseResponseWithVersionType<TransportMode>
     {
-        public StopsAndRoutesBaseResponse<TransportMode> ResponseData { get; set; }
     }
 }

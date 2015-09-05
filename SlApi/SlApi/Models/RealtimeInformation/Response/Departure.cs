@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace SlApi.Models.RealtimeInformation.Response
 {
-   
+
+    /// <summary>
+    /// Innehåller själva svarsdata från tjänsten. Se ”Svarsdata” nedan.
+    /// </summary>
     public class Departure
     {
         /// <summary>

@@ -2,9 +2,12 @@
 
 namespace SlApi.Models.RealtimeInformation.Response
 {
-    
-    public class DepartureResponse : BaseResponse
+
+
+    /// <summary>
+    /// Innehåller själva svarsdata från tjänsten. Se ”Svarsdata” nedan.
+    /// </summary>
+    public class DepartureResponse : BaseResponse<Departure>
     {
-        public Departure ResponseData { get; set; }
     }
 }

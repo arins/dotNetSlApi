@@ -29,7 +29,7 @@ namespace SlApi.Tests
                 "\"Y\":\"59358658\"},{\"Name\":\"Solna kyrka (Solna)\",\"SiteId\":\"3409\",\"Type\":\"Station\"," +
                 "\"X\":\"18024288\",\"Y\":\"59353822\"},{\"Name\":\"Solna stadshus (Solna)\",\"SiteId\":\"3463\"," +
                 "\"Type\":\"Station\",\"X\":\"18004602\",\"Y\":\"59359162\"},{\"Name\":\"Solna tenniscenter (Solna)\"," +
-                "\"SiteId\":\"3402\",\"Type\":\"Station\",\"X\":\"17986731\",\"Y\":\"59375783\"}]}";
+                "\"SiteId\":\"3402\",\"Type\":\"Station\",\"X\":\"17986731\",\"Y\":\"09375783\"}]}";
         }
 
         [TestMethod]
@@ -50,7 +50,7 @@ namespace SlApi.Tests
             };
 
 
-            var result = search.Search(new SearchRequest
+            var result = search.Search(new PlaceSearchRequest
             {
                 SearchString = "Solna",
                 StationsOnly = false
@@ -58,11 +58,20 @@ namespace SlApi.Tests
             Assert.IsTrue(result.ResponseData.Count() == 10);
             Assert.IsTrue(result.StatusCode == StatusCode.Ok);
             var first = result.ResponseData.FirstOrDefault();
+            var last = result.ResponseData.LastOrDefault();
             Assert.IsTrue(first != null);
+            Assert.IsTrue(last != null);
+            Assert.IsTrue(last != first);
 
             Assert.IsTrue(first.Name.Equals("Solna (Solna)"));
+            Assert.IsTrue(first.X == "18011865");
+            Assert.IsTrue(first.Y == "59364312");
+            Assert.IsTrue(first.Latitude == 18.011865);
+            Assert.IsTrue(first.Longitude == 59.364312);
             Assert.IsTrue(first.SiteId.Equals(9509));
 
+            Assert.IsTrue(last.Latitude == 17.986731);
+            Assert.IsTrue(last.Longitude == 9.375783);
         }
 
         [TestMethod]
@@ -83,7 +92,7 @@ namespace SlApi.Tests
             };
 
 
-            var resultAsync = search.SearchAsync(new SearchRequest
+            var resultAsync = search.SearchAsync(new PlaceSearchRequest
             {
                 SearchString = "Solna",
                 StationsOnly = false
@@ -91,13 +100,23 @@ namespace SlApi.Tests
 
             resultAsync.Wait();
             var result = resultAsync.Result;
-            Assert.IsTrue(result.StatusCode == StatusCode.Ok);
             Assert.IsTrue(result.ResponseData.Count() == 10);
+            Assert.IsTrue(result.StatusCode == StatusCode.Ok);
             var first = result.ResponseData.FirstOrDefault();
+            var last = result.ResponseData.LastOrDefault();
             Assert.IsTrue(first != null);
+            Assert.IsTrue(last != null);
+            Assert.IsTrue(last != first);
 
             Assert.IsTrue(first.Name.Equals("Solna (Solna)"));
+            Assert.IsTrue(first.X == "18011865");
+            Assert.IsTrue(first.Y == "59364312");
+            Assert.IsTrue(first.Latitude == 18.011865);
+            Assert.IsTrue(first.Longitude == 59.364312);
             Assert.IsTrue(first.SiteId.Equals(9509));
+
+            Assert.IsTrue(last.Latitude == 17.986731);
+            Assert.IsTrue(last.Longitude == 9.375783);
 
         }
     }

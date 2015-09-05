@@ -5,7 +5,8 @@ using SlApi.Models.PlaceSearch.Response;
 
 namespace SlApi
 {
-    public class PlaceSearchClient : BaseService
+   
+    public class PlaceSearchClient : BaseService, IPlaceSearchClient
     {
         public PlaceSearchClient(IHttpClient httpClient) : base(httpClient)
         {
@@ -16,14 +17,16 @@ namespace SlApi
         {
         }
 
-        public Sites Search(SearchRequest searchRequest)
+       
+        public Sites Search(PlaceSearchRequest placeSearchRequest)
         {
-            return HttpClient.DoRequest<Sites>("api2/typeahead.json", searchRequest);
+            return HttpClient.DoRequest<Sites>("api2/typeahead.json", placeSearchRequest);
         }
 
-        public Task<Sites> SearchAsync(SearchRequest searchRequest)
+       
+        public Task<Sites> SearchAsync(PlaceSearchRequest placeSearchRequest)
         {
-            return HttpClient.DoRequestAsync<Sites>("api2/typeahead.json", searchRequest);
+            return HttpClient.DoRequestAsync<Sites>("api2/typeahead.json", placeSearchRequest);
         }
     }
 }

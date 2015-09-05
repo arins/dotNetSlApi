@@ -1,7 +1,6 @@
 ﻿namespace SlApi.Models.StopsAndRoutes.Response
 {
-    public class Sites : BaseResponse
+    public class Sites : BaseResponseWithVersionType<Site>
     {
-        public StopsAndRoutesBaseResponse<Site> ResponseData { get; set; }
     }
 }

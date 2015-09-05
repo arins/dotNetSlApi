@@ -1,7 +1,6 @@
 ﻿namespace SlApi.Models.StopsAndRoutes.Response
 {
-    public class Lines : BaseResponse
+    public class Lines : BaseResponseWithVersionType<Line>
     {
-        public StopsAndRoutesBaseResponse<Line> ResponseData { get; set; }
     }
 }

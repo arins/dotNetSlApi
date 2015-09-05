@@ -5,7 +5,7 @@ using SlApi.Models.RealtimeInformation.Response;
 
 namespace SlApi
 {
-    public class RealtimeInformationClient : BaseService
+    public class RealtimeInformationClient : BaseService, IRealtimeInformationClient
     {
         public RealtimeInformationClient(IHttpClient httpClient)
             : base(httpClient)
@@ -17,14 +17,14 @@ namespace SlApi
             
         }
 
-        public DepartureResponse RealtimeDepartures(RealtimeDeparturesRequest searchRequest)
+        public DepartureResponse RealtimeDepartures(RealtimeDeparturesRequest realTimeSearchRequest)
         {
-            return HttpClient.DoRequest<DepartureResponse>("api2/realtimedepartures.json", searchRequest);
+            return HttpClient.DoRequest<DepartureResponse>("api2/realtimedepartures.json", realTimeSearchRequest);
         }
 
-        public Task<DepartureResponse> RealtimeDeparturesAsync(RealtimeDeparturesRequest searchRequest)
+        public Task<DepartureResponse> RealtimeDeparturesAsync(RealtimeDeparturesRequest realTimeSearchRequest)
         {
-            return HttpClient.DoRequestAsync<DepartureResponse>("api2/realtimedepartures.json", searchRequest);
+            return HttpClient.DoRequestAsync<DepartureResponse>("api2/realtimedepartures.json", realTimeSearchRequest);
         }
     }
 }

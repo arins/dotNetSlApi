@@ -1,8 +1,6 @@
-﻿using SlApi.Core;
-
-namespace SlApi.Models.StopsAndRoutes.Response
+﻿namespace SlApi.Models
 {
-    public class StopsAndRoutesBaseResponse<T> : ArrayBaseResponse<T>
+    public class GeneralVersionTypeBaseResponse<T> : ArrayBaseResult<T>
     {
         /// <summary>
         /// Senast ändrad. Uppdateras normalt sett bara en gång per dygn

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using SlApi.Core;
 using SlApi.Models.NearbyStations.Request;
 using SlApi.Models.NearbyStations.Response;

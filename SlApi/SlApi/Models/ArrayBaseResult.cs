@@ -1,6 +1,6 @@
 ﻿namespace SlApi.Models
 {
-    public class ArrayBaseResponse<T> : BaseResponse
+    public class ArrayBaseResult<T> : BaseResponse
     {
         /// <summary>
         /// Container-objekt som innehåller typad data
