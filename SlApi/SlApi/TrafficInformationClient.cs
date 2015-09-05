@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using SlApi.Core;
-using SlApi.Models.PlaceSearch.Request;
-using SlApi.Models.PlaceSearch.Response;
+using SlApi.Models.TrafficDeviationInformation.Request;
+using SlApi.Models.TrafficDeviationInformation.Response;
 using SlApi.Models.TrafficInformation.Response;
 
 namespace SlApi
@@ -18,12 +18,12 @@ namespace SlApi
         {
         }
 
+       
 
         public TrafficInformation GetTrafficInformation()
         {
             return HttpClient.DoRequest<TrafficInformation>("api2/trafficsituation.json");
         }
-
 
         public Task<TrafficInformation> GetTrafficInformationAsync()
         {

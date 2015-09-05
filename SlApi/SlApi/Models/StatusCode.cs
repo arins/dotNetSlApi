@@ -57,6 +57,15 @@
         /// </summary>
         SiteIdNotAnInteger = 4001,
 
+        /// <summary>
+        /// Fråndatum angett utan tilldatum. Båda datumen måste vara angivna vid filtrering på datum.
+        /// </summary>
+        DateFromAndToInvalid = 4002,
+
+        /// <summary>
+        /// Serverfel
+        /// </summary>
+        ServerError = 5000,
 
         /// <summary>
         /// Kunde varken hämta information från TPI (tunnelbanan) eller DPS (övriga trafikslag).

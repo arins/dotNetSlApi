@@ -7,7 +7,7 @@ using SlApi.Models.StopsAndRoutes.Response;
 
 namespace SlApi
 {
-    public class StopsAndRoutesClient : BaseService
+    public class StopsAndRoutesClient : BaseService, IStopsAndRoutesClient
     {
         public StopsAndRoutesClient(IHttpClient httpClient)
             : base(httpClient)
@@ -69,4 +69,6 @@ namespace SlApi
             return HttpClient.DoRequestAsync<JourneyPatternPointOnLines>("api2/LineData.json", new JourneyPatternPointOnLineRequest());
         }
     }
+
+    
 }

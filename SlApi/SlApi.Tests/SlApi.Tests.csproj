@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="PlaceSearchClientTest.cs" />
     <Compile Include="NearbyStopsClientTest.cs" />
+    <Compile Include="TrafficDeviationInformationClientTest.cs" />
     <Compile Include="TrafficInformationClientTest.cs" />
     <Compile Include="StopsAndRoutesClientTest.cs" />
     <Compile Include="RealtimeInformationClientTest.cs" />
