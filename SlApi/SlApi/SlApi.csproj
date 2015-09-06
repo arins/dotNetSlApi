@@ -107,6 +107,7 @@
     <Compile Include="Models\TrafficInformation\Response\TrafficTypesContainer.cs" />
     <Compile Include="Models\TrafficInformation\Response\TraficTypeEnum.cs" />
     <Compile Include="NearbyStopsClient.cs" />
+    <Compile Include="TravelPlannerClient.cs" />
     <Compile Include="TrafficInformationClient.cs" />
     <Compile Include="TrafficDeviationInformationClient.cs" />
     <Compile Include="PlaceSearchClient.cs" />
@@ -126,7 +127,10 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\TravelPlanner\Request\" />
+    <Folder Include="Models\TravelPlanner\Response\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

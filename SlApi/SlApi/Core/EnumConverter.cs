@@ -17,6 +17,11 @@ namespace SlApi.Core
             }
         }
 
+        public static string ToTripLanguageString(this Language lang)
+        {
+            return ToNearbyStationsRequestString(lang);
+        }
+
         public static string ToTrafficDeviationInformationString(this DefaultTransportModeCode transportMode)
         {
             switch (transportMode)
