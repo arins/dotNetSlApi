@@ -4,6 +4,6 @@
     {
         public StopLocation[] StopLocation { get; set; }
         public string NoNamespaceSchemaLocation { get; set; }
-        public string ErrorText { get; set; }
+        
     }
 }

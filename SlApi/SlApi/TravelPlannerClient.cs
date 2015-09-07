@@ -22,14 +22,14 @@ namespace SlApi
 
        
 
-        public Trip Trip(TripRequest tripRequest)
+        public TripResponse Trip(TripRequest tripRequest)
         {
-            return HttpClient.DoRequest<Trip>("api2/TravelplannerV2/trip.json", tripRequest);
+            return HttpClient.DoRequest<TripResponse>("api2/TravelplannerV2/trip.json", tripRequest);
         }
 
-        public Task<Trip> TripAsync(TripRequest tripRequest)
+        public Task<TripResponse> TripAsync(TripRequest tripRequest)
         {
-            return HttpClient.DoRequestAsync<Trip>("api2/TravelplannerV2/trip.json", tripRequest);
+            return HttpClient.DoRequestAsync<TripResponse>("api2/TravelplannerV2/trip.json", tripRequest);
         }
     }
 }

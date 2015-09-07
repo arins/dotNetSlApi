@@ -108,7 +108,7 @@
     <Compile Include="Models\TrafficInformation\Response\TraficTypeEnum.cs" />
     <Compile Include="Models\TravelPlanner\Request\tripDestination.cs" />
     <Compile Include="Models\TravelPlanner\Request\TripRequest.cs" />
-    <Compile Include="Models\TravelPlanner\Response\Trip.cs" />
+    <Compile Include="Models\TravelPlanner\Response\TripResponse.cs" />
     <Compile Include="NearbyStopsClient.cs" />
     <Compile Include="TravelPlannerClient.cs" />
     <Compile Include="TrafficInformationClient.cs" />
