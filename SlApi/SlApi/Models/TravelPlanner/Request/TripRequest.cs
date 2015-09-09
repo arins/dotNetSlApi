@@ -147,7 +147,7 @@ namespace SlApi.Models.TravelPlanner.Request
             if (DateTime.HasValue)
             {
                 result.Add("date", DateTime.Value.Date.ToString("yyyy-MM-dd"));
-                result.Add("time", DateTime.Value.ToString("hh:mm"));
+                result.Add("time", DateTime.Value.ToString("HH:mm"));
             }
             if (SearchForArrival.HasValue)
             {
@@ -161,7 +161,7 @@ namespace SlApi.Models.TravelPlanner.Request
             {
                 result.Add("minChgTime", MinimumChangeTime.Value.ToString());
             }
-            if (string.IsNullOrEmpty(OriginId))
+            if (!string.IsNullOrEmpty(OriginId))
             {
                 result.Add("originId", OriginId);
             }

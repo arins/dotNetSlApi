@@ -54,9 +54,9 @@ namespace SlApi.Models.TravelPlanner.Request
             {
                 result.Add(prePend + "CoordLong", CoordLong.Value.ToString());
             }
-            if (string.IsNullOrEmpty(CoordName))
+            if (!string.IsNullOrEmpty(CoordName))
             {
-                result.Add(prePend + "originCoordName", CoordName);
+                result.Add(prePend + "CoordName", CoordName);
             }
             return result;
         }

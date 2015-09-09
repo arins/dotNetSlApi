@@ -108,7 +108,16 @@
     <Compile Include="Models\TrafficInformation\Response\TraficTypeEnum.cs" />
     <Compile Include="Models\TravelPlanner\Request\tripDestination.cs" />
     <Compile Include="Models\TravelPlanner\Request\TripRequest.cs" />
+    <Compile Include="Models\TravelPlanner\Response\Leg.cs" />
+    <Compile Include="Models\TravelPlanner\Response\LegList.cs" />
+    <Compile Include="Models\TravelPlanner\Response\LegPlace.cs" />
+    <Compile Include="Models\TravelPlanner\Response\LegRef.cs" />
+    <Compile Include="Models\TravelPlanner\Response\PriceInfo.cs" />
+    <Compile Include="Models\TravelPlanner\Response\TariffRemark.cs" />
+    <Compile Include="Models\TravelPlanner\Response\TariffZones.cs" />
+    <Compile Include="Models\TravelPlanner\Response\TripList.cs" />
     <Compile Include="Models\TravelPlanner\Response\TripResponse.cs" />
+    <Compile Include="Models\TravelPlanner\Response\ZoneEnum.cs" />
     <Compile Include="NearbyStopsClient.cs" />
     <Compile Include="TravelPlannerClient.cs" />
     <Compile Include="TrafficInformationClient.cs" />

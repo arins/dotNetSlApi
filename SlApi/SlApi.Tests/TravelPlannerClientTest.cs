@@ -103,7 +103,7 @@ namespace SlApi.Tests
                 x =>
                     x.GetResponse(
                         new Uri(
-                            "https://api.sl.se/api2/trafficsituation.json/?date=2015-09-07&time=22:00&originId=9305&destId=9001&key=" + fakekey)))
+                            "https://api.sl.se/api2/TravelplannerV2/trip.json/?date=2015-09-07&time=22:00&originId=9305&destId=9001&key=" + fakekey)))
                 .Returns(GetTestResponse);
             var t = new TravelPlannerClient(new HttpClient(mockedHttpRequest.Object)
             {
@@ -113,17 +113,11 @@ namespace SlApi.Tests
           
             var result = t.Trip(new TripRequest {DateTime = new DateTime(2015,9, 7,22,0,0,DateTimeKind.Local),OriginId = "9305", DestId = "9001" });
 
-           /* var f = result.ResponseData.TrafficTypes.FirstOrDefault();
-            Assert.IsTrue(f!=null);
-            Assert.IsTrue(f.Id == 2);
-            Assert.IsTrue(f.Name == "Tunnelbana");
-            Assert.IsTrue(f.Type== TraficTypeEnum.Metro);
-            Assert.IsTrue(f.StatusIcon == "EventGood");
-            var firstEvent = f.Events.FirstOrDefault();
-            Assert.IsTrue(firstEvent != null);
-            Assert.IsTrue(firstEvent.EventId == 3489);
-            Assert.IsTrue(firstEvent.Message == "Hissen vid Alby mellan biljetthallen och plattformen för tågen mot Ropsten, är avstängd tills vidare för underhållsarbeten.");
-            Assert.IsTrue(firstEvent.SortIndex == 100);*/
+            var f = result.TripList.Trip.FirstOrDefault();
+            
+            Assert.IsTrue(f != null);
+            Assert.IsTrue(f.LegList.Leg.Direction == "Kungsträdgården");
+
 
 
 
@@ -133,35 +127,27 @@ namespace SlApi.Tests
         public void TripAsyncTest()
         {
 
-           /* var fakekey = "fakekey";
+            var fakekey = "fakekey";
             var mockedHttpRequest = new Mock<IHttpRequester>();
             mockedHttpRequest.Setup(
                 x =>
                     x.GetResponseAsync(
                         new Uri(
-                            "https://api.sl.se/api2/trafficsituation.json/?key=" + fakekey)))
+                            "https://api.sl.se/api2/TravelplannerV2/trip.json/?date=2015-09-07&time=22:00&originId=9305&destId=9001&key=" + fakekey)))
                 .ReturnsAsync(GetTestResponse());
-            var t = new TrafficInformationClient(new HttpClient(mockedHttpRequest.Object))
+            var t = new TravelPlannerClient(new HttpClient(mockedHttpRequest.Object)
             {
                 ApiToken = fakekey
-            };
+            });
 
 
-            var responseAsync = t.GetTrafficInformationAsync();
+            var resultAsync = t.TripAsync(new TripRequest { DateTime = new DateTime(2015, 9, 7, 22, 0, 0, DateTimeKind.Local), OriginId = "9305", DestId = "9001" });
+            resultAsync.Wait();
+            var result = resultAsync.Result;
+            var f = result.TripList.Trip.FirstOrDefault();
 
-            responseAsync.Wait();
-            var result = responseAsync.Result;
-            var f = result.ResponseData.TrafficTypes.FirstOrDefault();
             Assert.IsTrue(f != null);
-            Assert.IsTrue(f.Id == 2);
-            Assert.IsTrue(f.Name == "Tunnelbana");
-            Assert.IsTrue(f.Type == TraficTypeEnum.Metro);
-            Assert.IsTrue(f.StatusIcon == "EventGood");
-            var firstEvent = f.Events.FirstOrDefault();
-            Assert.IsTrue(firstEvent != null);
-            Assert.IsTrue(firstEvent.EventId == 3489);
-            Assert.IsTrue(firstEvent.Message == "Hissen vid Alby mellan biljetthallen och plattformen för tågen mot Ropsten, är avstängd tills vidare för underhållsarbeten.");
-            Assert.IsTrue(firstEvent.SortIndex == 100);*/
+            Assert.IsTrue(f.LegList.Leg.Direction == "Kungsträdgården");
 
         }
     }
