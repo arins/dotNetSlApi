@@ -36,10 +36,12 @@ namespace SlApi
         {
             return HttpClient.DoRequest<JourneyDetailResponse>("api2/TravelplannerV2/journeydetail.json", journeyRequest);
         }
-    }
 
-    public class JourneyDetailResponse
-    {
 
+        public Task<JourneyDetailResponse> JourneyDetailAsync(JourneyRequest journeyRequest)
+        {
+            return HttpClient.DoRequestAsync<JourneyDetailResponse>("api2/TravelplannerV2/journeydetail.json", journeyRequest);
+
+        }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using Newtonsoft.Json;
+using SlApi.Core;
 
 namespace SlApi.Models.TravelPlanner.Response
 {
@@ -55,14 +56,14 @@ namespace SlApi.Models.TravelPlanner.Response
         public string Time
         {
             get { return _time; }
-            set { _time = ParseTime(value); }
+            set { _time = DateTimeParsers.ParseApiTime(value); }
         }
 
         private string _date;
         [JsonProperty("date")]
         public string Date {
             get { return _date; }
-            set { _date = ParseDate(value); }
+            set { _date = DateTimeParsers.ParseApiDate(value); }
         }
 
 
@@ -71,7 +72,7 @@ namespace SlApi.Models.TravelPlanner.Response
         [JsonProperty("rtTime")]
         public string TimeRealTime {
             get { return _rtTime; }
-            set { _rtTime = ParseTime(value); }
+            set { _rtTime = DateTimeParsers.ParseApiTime(value); }
         }
 
 
@@ -80,14 +81,14 @@ namespace SlApi.Models.TravelPlanner.Response
         public string TimeRealDate
         {
             get { return _rDate; }
-            set { _rDate = ParseDate(value); }
+            set { _rDate = DateTimeParsers.ParseApiDate(value); }
         }
 
         /// <summary>
         /// Innehåller en lista på oskarpa(unsharp) realtidsmeddelanden som gäller för detta Leg-objekt.
         /// </summary>
         [JsonProperty("RTUMessages")]
-        public List<RtuMessage> RtuMessagesList { get; set; }
+        public List<LegRtuMessage> RtuMessagesList { get; set; }
 
         /// <summary>
         /// Innehåller en en lista med element av typen Note för detta Leg-objekt.
@@ -99,8 +100,8 @@ namespace SlApi.Models.TravelPlanner.Response
         {
             get { return DateTime.Parse(Date + "T" + Time); }
             set {
-                Time = value.ToString("HH:mm");
-                Date = value.Date.ToString("yyyy-MM-dd");
+                Time = value.ApiTimeToString();
+                Date = value.Date.ApiDateToString();
             }
         }
 
@@ -111,50 +112,12 @@ namespace SlApi.Models.TravelPlanner.Response
             get { return DateTime.Parse(TimeRealDate + "T" + TimeRealTime); }
             set
             {
-                TimeRealTime = value.ToString("HH:mm");
-                TimeRealDate = value.Date.ToString("yyyy-MM-dd");
+                TimeRealTime = value.ApiTimeToString();
+                TimeRealDate = value.Date.ApiDateToString();
             }
         }
 
-        private string ParseTime(string value)
-        {
-            try
-            {
-                var result = DateTime.ParseExact(value, "HH:mm", CultureInfo.CurrentCulture);
-                return result.ToString("HH:mm");
-            }
-            catch (Exception ex)
-            {
-                throw new ArgumentException("not a valid time", ex);
-            }
-        }
+        
 
-        private string ParseDate(string value)
-        {
-            try
-            {
-                var result = DateTime.ParseExact(value, "yyyy-MM-dd", CultureInfo.CurrentCulture);
-                return result.ToString("yyyy-MM-dd");
-            }
-            catch (Exception ex)
-            {
-                throw new ArgumentException("not a valid date", ex);
-            }
-        }
-
-    }
-
-    public class LegNote
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        public string Note { get; set; }
-    }
-
-    public class RtuMessage
-    {
-        [JsonProperty("RTUMessage")]
-        public string Message { get; set; }
     }
 }

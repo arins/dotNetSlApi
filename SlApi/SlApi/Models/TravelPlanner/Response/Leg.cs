@@ -52,12 +52,12 @@ namespace SlApi.Models.TravelPlanner.Response
         /// Svaret i denna använder Origin.routeIdx samt Destination.routeIdx för att veta från och
         ///  till delen i listan, då listan är en komplett lista på rutten.
         /// </summary>
-        public LegRef JourneyDetailRef { get; set; }
+        public ApiRef JourneyDetailRef { get; set; }
 
         /// <summary>
         /// Innehåller en referens som kan användas som parameter till GeometryRef-servicen.
         /// </summary>
-        public LegRef GeometryRef { get; set; }
+        public ApiRef GeometryRef { get; set; }
 
     }
 }

@@ -63,7 +63,7 @@
     <Compile Include="PlaceSearchClientTest.cs" />
     <Compile Include="NearbyStopsClientTest.cs" />
     <Compile Include="TrafficDeviationInformationClientTest.cs" />
-    <Compile Include="JourneydetailTest.cs" />
+    <Compile Include="JourneyDetailClientTest.cs" />
     <Compile Include="TravelPlannerClientTest.cs" />
     <Compile Include="TrafficInformationClientTest.cs" />
     <Compile Include="StopsAndRoutesClientTest.cs" />

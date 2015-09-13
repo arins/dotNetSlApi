@@ -1,6 +1,6 @@
 namespace SlApi.Models.TravelPlanner.Response
 {
-    public class LegRef
+    public class ApiRef
     {
         public string Ref { get; set; }
     }

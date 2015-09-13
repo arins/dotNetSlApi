@@ -55,7 +55,7 @@ namespace SlApi.Core
                 var client = new System.Net.Http.HttpClient {Timeout = new TimeSpan(0, 0, 0, 0, Timeout)};
                 client.DefaultRequestHeaders.AcceptEncoding.Add(StringWithQualityHeaderValue.Parse("gzip, deflate"));
                 var asyncResult = client.GetStringAsync(url);
-                asyncResult.Wait();
+                asyncResult.WaitUntilDoneWithTimeoutAsync(Timeout);
                 return asyncResult.Result;
 
             }
