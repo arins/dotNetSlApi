@@ -9,11 +9,17 @@ namespace SlApi.Core
 {
     public class HttpRequester : IHttpRequester
     {
+        public HttpRequester()
+        {
+            GzipEnabled = false;
+        }
 
         /// <summary>
         /// The timeout until abort in milliseconds
         /// </summary>
         public int Timeout { get; set; }
+
+        public bool GzipEnabled { get; set; }
 
         public HttpRequester()
         {
@@ -31,7 +37,10 @@ namespace SlApi.Core
             try
             {
                 var client = new System.Net.Http.HttpClient {Timeout = new TimeSpan(0, 0, 0, 0, Timeout)};
-                client.DefaultRequestHeaders.AcceptEncoding.Add(StringWithQualityHeaderValue.Parse("gzip, deflate"));
+                if (GzipEnabled)
+                {
+                    client.DefaultRequestHeaders.AcceptEncoding.Add(StringWithQualityHeaderValue.Parse("gzip, deflate"));
+                }
                 return client.GetStringAsync(url);
             }
             catch (Exception e)
@@ -53,7 +62,10 @@ namespace SlApi.Core
             {
                
                 var client = new System.Net.Http.HttpClient {Timeout = new TimeSpan(0, 0, 0, 0, Timeout)};
-                client.DefaultRequestHeaders.AcceptEncoding.Add(StringWithQualityHeaderValue.Parse("gzip, deflate"));
+                if (GzipEnabled)
+                {
+                    client.DefaultRequestHeaders.AcceptEncoding.Add(StringWithQualityHeaderValue.Parse("gzip, deflate"));
+                }
                 var asyncResult = client.GetStringAsync(url);
                 asyncResult.WaitUntilDoneWithTimeoutAsync(Timeout);
                 return asyncResult.Result;
