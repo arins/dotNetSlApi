@@ -32,12 +32,12 @@ result = search.Search(new PlaceSearchRequest
 });
 
 var tcentralen = result.ResponseData[0].SiteId;
-var resultFromSEarch = travel.Trip(new TripRequest
+var resultFromSearch = travel.Trip(new TripRequest
 {
   DateTime = DateTime.Now,
   DestId = tcentralen.ToString(),
   OriginId = solna.ToString()
-  });
+});
 ```
 
 # Nuget package 
