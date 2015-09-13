@@ -1,6 +1,6 @@
 ﻿namespace SlApi.Models.TravelPlanner.Response
 {
-    public class JourneyDetailResponse
+    public class JourneyDetailResponse : TravelPlannerErrorResponse
     {
         public JourneyDetail JourneyDetail { get; set; }
     }

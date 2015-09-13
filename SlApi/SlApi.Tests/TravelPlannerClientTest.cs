@@ -120,6 +120,43 @@ namespace SlApi.Tests
             Assert.IsTrue(leg.Origin.Name == "Solna centrum");
         }
 
+        [TestMethod]
+        public void TripErrorResponseAsyncTest()
+        {
+            var fakekey = "fakekey";
+            var mockedHttpRequest = new Mock<IHttpRequester>();
+            mockedHttpRequest.Setup(
+                x =>
+                    x.GetResponseAsync(
+                        new Uri(
+                            "https://api.sl.se/api2/TravelplannerV2/trip.json/?date=2015-09-09&time=22:00&originId=9305&destId=9001&key=" +
+                            fakekey)))
+                .ReturnsAsync(GetErrorResponse());
+            var t = new TravelPlannerClient(new HttpClient(mockedHttpRequest.Object)
+            {
+                ApiToken = fakekey
+            });
+
+
+            var resultAsync =
+                t.TripAsync(new TripRequest
+                {
+                    DateTime = new DateTime(2015, 9, 9, 22, 0, 0, DateTimeKind.Local),
+                    OriginId = "9305",
+                    DestId = "9001"
+                });
+            resultAsync.Wait();
+            var result = resultAsync.Result;
+           Assert.IsTrue(result.StatusCode == StatusCode.KeyIsInvalid2);
+
+            
+        }
+
+        public string GetErrorResponse()
+        {
+            return "{\"StatusCode\":1002,\"Message\":\"problem with request: Key is invalid\"}";
+        }
+
         public string GetTestResponse()
         {
             return

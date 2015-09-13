@@ -133,6 +133,7 @@
     <Compile Include="Models\TravelPlanner\Response\Stops.cs" />
     <Compile Include="Models\TravelPlanner\Response\TariffRemark.cs" />
     <Compile Include="Models\TravelPlanner\Response\TariffZones.cs" />
+    <Compile Include="Models\TravelPlanner\Response\TravelPlannerErrorResponse.cs" />
     <Compile Include="Models\TravelPlanner\Response\Trip.cs" />
     <Compile Include="Models\TravelPlanner\Response\TripList.cs" />
     <Compile Include="Models\TravelPlanner\Response\TripResponse.cs" />
