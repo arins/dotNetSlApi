@@ -9,10 +9,6 @@ namespace SlApi.Core
 {
     public class HttpRequester : IHttpRequester
     {
-        public HttpRequester()
-        {
-            GzipEnabled = false;
-        }
 
         /// <summary>
         /// The timeout until abort in milliseconds
@@ -24,6 +20,7 @@ namespace SlApi.Core
         public HttpRequester()
         {
             Timeout = 10000;
+            GzipEnabled = false;
         }
 
         /// <summary>
