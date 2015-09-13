@@ -59,6 +59,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="GeometryClientTest.cs" />
     <Compile Include="Models\TravelPlanner\Response\LegPlaceTest.cs" />
     <Compile Include="PlaceSearchClientTest.cs" />
     <Compile Include="NearbyStopsClientTest.cs" />

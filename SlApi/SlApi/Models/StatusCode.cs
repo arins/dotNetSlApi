@@ -89,5 +89,140 @@
         DpsDataToOld = 5324,
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        S19 = 10000,
+
+
+        /// <summary>
+        /// Unknown service method
+        /// </summary>
+        R0001 = 10001,
+
+        /// <summary>
+        /// Invalid or missing request parameters.
+        /// </summary>
+        R0002 = 10002,
+
+        /// <summary>
+        /// Internal communication error.
+        /// </summary>
+        R0007 = 10007,
+
+        /// <summary>
+        /// Dep./Arr./Intermed. or equivalent stations defined more than once.
+        /// </summary>
+        H9380 = 19380,
+
+
+        /// <summary>
+        /// Error in data field.
+        /// </summary>
+        H9360 = 19360,
+
+        /// <summary>
+        /// The input is incorrect or incomplete.
+        /// </summary>
+        H9320 = 19320,
+
+
+        /// <summary>
+        /// Unknown arrival station.
+        /// </summary>
+        H9300 = 19300,
+
+        /// <summary>
+        /// Unknown intermediate station.
+        /// </summary>
+        H9280 = 19280,
+
+        /// <summary>
+        /// Unknown departure station.
+        /// </summary>
+        H9260 = 19260,
+
+        /// <summary>
+        /// Part inquiry interrupted.
+        /// </summary>
+        H9250 = 19250,
+
+        /// <summary>
+        /// Unsuccessful search.
+        /// </summary>
+        H9240 = 19240,
+
+        /// <summary>
+        /// An internal error occurred.
+        /// </summary>
+        H9230 = 19230,
+
+
+        /// <summary>
+        /// Nearby to the given address stations could not be found.
+        /// </summary>
+        H9220 = 19220,
+
+        /// <summary>
+        /// Unsuccessful or incomplete search (timetable change).
+        /// </summary>
+        H900 = 10900,
+
+
+        /// <summary>
+        /// Unsuccessful or incomplete search (timetable change).
+        /// </summary>
+        H899 = 10899,
+
+
+        /// <summary>
+        /// Departure/Arrival are too near.
+        /// </summary>
+        H895 = 10895,
+
+
+        /// <summary>
+        /// Inquiry too complex (try entering less intermediate stations).
+        /// </summary>
+        H892 = 10892,
+
+
+        /// <summary>
+        /// No route found (try entering an intermediate station).
+        /// </summary>
+        H891 = 10891,
+
+        /// <summary>
+        /// Unsuccessful search.
+        /// </summary>
+        H890 = 10890,
+
+        /// <summary>
+        /// Because of too many trains the connection is not complete.
+        /// </summary>
+        H500 = 10500,
+
+        /// <summary>
+        /// One or more stops are passed through multiple times.
+        /// </summary>
+        H460 = 10460,
+
+        /// <summary>
+        /// Prolonged stop.
+        /// </summary>
+        H455 = 10455,
+
+        /// <summary>
+        /// Display may be incomplete due to change of timetable.   
+        /// </summary>
+        H410 = 10410,
+
+        /// <summary>
+        /// Departure/Arrival replaced by an equivalent station.
+        /// </summary>
+        H390 = 10390
+
+
+
     }
 }

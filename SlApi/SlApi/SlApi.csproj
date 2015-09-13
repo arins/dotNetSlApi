@@ -139,7 +139,6 @@
     <Compile Include="Models\TravelPlanner\Response\TripResponse.cs" />
     <Compile Include="Models\TravelPlanner\Response\ZoneEnum.cs" />
     <Compile Include="NearbyStopsClient.cs" />
-    <Compile Include="test.cs" />
     <Compile Include="TravelPlannerClient.cs" />
     <Compile Include="TrafficInformationClient.cs" />
     <Compile Include="TrafficDeviationInformationClient.cs" />
