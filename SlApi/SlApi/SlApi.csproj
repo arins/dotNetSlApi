@@ -44,6 +44,7 @@
     <Compile Include="Core\EnumConverter.cs" />
     <Compile Include="Core\RequestException.cs" />
     <Compile Include="Core\RequestPathBuildException.cs" />
+    <Compile Include="Core\SingleOrArrayConverter.cs" />
     <Compile Include="INearbyStops.cs" />
     <Compile Include="IPlaceSearchClient.cs" />
     <Compile Include="IRealtimeInformationClient.cs" />
@@ -106,11 +107,13 @@
     <Compile Include="Models\TrafficInformation\Response\TrafficType.cs" />
     <Compile Include="Models\TrafficInformation\Response\TrafficTypesContainer.cs" />
     <Compile Include="Models\TrafficInformation\Response\TraficTypeEnum.cs" />
+    <Compile Include="Models\TravelPlanner\Request\JourneyRequest.cs" />
     <Compile Include="Models\TravelPlanner\Request\tripDestination.cs" />
     <Compile Include="Models\TravelPlanner\Request\TripRequest.cs" />
     <Compile Include="Models\TravelPlanner\Response\Leg.cs" />
     <Compile Include="Models\TravelPlanner\Response\LegList.cs" />
     <Compile Include="Models\TravelPlanner\Response\LegPlace.cs" />
+    <Compile Include="Models\TravelPlanner\Response\LegPlaceTypEnum.cs" />
     <Compile Include="Models\TravelPlanner\Response\LegRef.cs" />
     <Compile Include="Models\TravelPlanner\Response\PriceInfo.cs" />
     <Compile Include="Models\TravelPlanner\Response\TariffRemark.cs" />

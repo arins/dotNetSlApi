@@ -1,7 +1,12 @@
+using System.Collections.Generic;
 using Newtonsoft.Json;
+using SlApi.Core;
 
 namespace SlApi.Models.TravelPlanner.Response
 {
+    /// <summary>
+    /// Rotelement, innehåller en lista med element av typen Trip.
+    /// </summary>
     public class TripList : ErrorResponse
     {
         public string NoNamespaceSchemaLocation { get; set; }
@@ -9,6 +14,11 @@ namespace SlApi.Models.TravelPlanner.Response
 
     }
 
+
+    /// <summary>
+    /// Trip-objektet innehåller en lista med Leg-objekt med
+    /// den uträknade resan.
+    /// </summary>
     public class Trip
     {
         /// <summary>
@@ -29,10 +39,15 @@ namespace SlApi.Models.TravelPlanner.Response
         public string Co2 { get; set; }
 
         /// <summary>
-        /// 
+        /// Leg-objektet är en del av enresa. Det kanvara antingen en gångväg, 
+        /// cykel eller bilväg eller oftast enresa med bus, tåg, eller annattyp av transportmedel.
         /// </summary>
         public LegList LegList { get; set; }
 
-        public PriceInfo PriceInfo { get; set; }
+        /// <summary>
+        /// Trip related price information.
+        /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<PriceInfo>))]
+        public List<PriceInfo> PriceInfo { get; set; }
     }
 }

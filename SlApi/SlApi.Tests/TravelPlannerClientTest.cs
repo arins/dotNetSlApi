@@ -40,10 +40,9 @@ namespace SlApi.Tests
             var f = result.TripList.Trip.FirstOrDefault();
             
             Assert.IsTrue(f != null);
-            Assert.IsTrue(f.LegList.Leg.Direction == "Kungsträdgården");
-
-
-
+            var leg = f.LegList.Leg.FirstOrDefault();
+            Assert.IsTrue(leg != null);
+            Assert.IsTrue(leg.Direction == "Kungsträdgården");
 
         }
 
@@ -78,7 +77,9 @@ namespace SlApi.Tests
             var f = result.TripList.Trip.FirstOrDefault();
 
             Assert.IsTrue(f != null);
-            Assert.IsTrue(f.LegList.Leg.Direction == "Kungsträdgården");
+            var leg = f.LegList.Leg.FirstOrDefault();
+            Assert.IsTrue(leg != null);
+            Assert.IsTrue(leg.Direction == "Kungsträdgården");
         }
 
 
@@ -113,7 +114,10 @@ namespace SlApi.Tests
             var f = result.TripList.Trip.FirstOrDefault();
 
             Assert.IsTrue(f != null);
-            Assert.IsTrue(f.LegList.Leg.Direction == "Kungsträdgården");
+            var leg = f.LegList.Leg.FirstOrDefault();
+            Assert.IsTrue(leg != null);
+            Assert.IsTrue(leg.Direction == "Solna station");
+            Assert.IsTrue(leg.Origin.Name == "Solna centrum");
         }
 
         public string GetTestResponse()
