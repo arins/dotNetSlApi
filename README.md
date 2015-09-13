@@ -1,6 +1,7 @@
 # dotNetSlApi
 Sl api wrapper for .net
 
+Realtime information example
 ```C#
 var client = new SlApi.RealtimeInformationClient();
 client.ApiToken = "your key";
@@ -9,6 +10,34 @@ var result = client.RealtimeDepartures(new RealtimeDeparturesRequest
   SiteId = 9501,
   TimeWindow = 2,
 });
+```
+Search places and trip
+```C#
+var search = new PlaceSearchClient {ApiToken = "key"};
+var travel = new TravelPlannerClient {ApiToken = "key"};
+
+var result = search.Search(new PlaceSearchRequest
+{
+  MaxResults = 10,
+  SearchString = "Solna",
+  StationsOnly = false
+});
+
+var solna = result.ResponseData[0].SiteId;
+result = search.Search(new PlaceSearchRequest
+{
+  MaxResults = 10,
+  SearchString = "t-centralen",
+  StationsOnly = false
+});
+
+var tcentralen = result.ResponseData[0].SiteId;
+var resultFromSEarch = travel.Trip(new TripRequest
+{
+  DateTime = DateTime.Now,
+  DestId = tcentralen.ToString(),
+  OriginId = solna.ToString()
+  });
 ```
 
 # Nuget package 
