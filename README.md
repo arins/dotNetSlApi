@@ -1,5 +1,5 @@
 # dotNetSlApi
-Sl (Stockholms lokaltrafik) api wrapper for .net. This API wrapper makes it easier to user SL API. If you have an account at Trafiklab you can use this API Wrapper.
+SL (Stockholms lokaltrafik) api wrapper for .net. This API wrapper makes it easier to user SL API. If you have an account at Trafiklab you can use this API Wrapper.
 
 Realtime information example
 ```C#
