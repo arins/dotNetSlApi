@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using SlApi.Core;
 
 namespace SlApi.Models.TravelPlanner.Request
 {
-    public class JourneyRequest : IConvertableToArgument
+    public class GeometryRequest : IConvertableToArgument
     {
         public string Ref { get; set; }
         public Arguments GetArgument()
@@ -15,7 +15,7 @@ namespace SlApi.Models.TravelPlanner.Request
             }
             else
             {
-                throw new ArgumentException("ref can not be null or empty");
+                throw new ArgumentException("Ref must be set");
             }
             return result;
         }

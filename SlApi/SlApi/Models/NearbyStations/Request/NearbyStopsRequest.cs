@@ -34,9 +34,11 @@ namespace SlApi.Models.NearbyStations.Request
 
         public Arguments GetArgument()
         {
-            var result = new Arguments();
-            result.Add("originCoordLat", OriginCoordLat.ToString());
-            result.Add("originCoordLong", OriginCoordLong.ToString());
+            var result = new Arguments
+            {
+                {"originCoordLat", OriginCoordLat.ToString()},
+                {"originCoordLong", OriginCoordLong.ToString()}
+            };
             if (MaxResults.HasValue)
             {
                 result.Add("maxResults", MaxResults.Value.ToString());

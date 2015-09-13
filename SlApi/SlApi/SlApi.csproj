@@ -34,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Core\Argument.cs" />
     <Compile Include="Core\Arguments.cs" />
     <Compile Include="Core\BaseService.cs" />
     <Compile Include="Core\HttpClient.cs" />
@@ -110,9 +111,12 @@
     <Compile Include="Models\TrafficInformation\Response\TrafficTypesContainer.cs" />
     <Compile Include="Models\TrafficInformation\Response\TraficTypeEnum.cs" />
     <Compile Include="Models\TravelPlanner\JourneyDirections.cs" />
+    <Compile Include="Models\TravelPlanner\Request\GeometryRequest.cs" />
     <Compile Include="Models\TravelPlanner\Request\JourneyRequest.cs" />
     <Compile Include="Models\TravelPlanner\Request\tripDestination.cs" />
     <Compile Include="Models\TravelPlanner\Request\TripRequest.cs" />
+    <Compile Include="Models\TravelPlanner\Response\Geometry.cs" />
+    <Compile Include="Models\TravelPlanner\Response\GeometryResponse.cs" />
     <Compile Include="Models\TravelPlanner\Response\JourneyDetail.cs" />
     <Compile Include="Models\TravelPlanner\Response\JourneyDetailResponse.cs" />
     <Compile Include="Models\TravelPlanner\Response\JourneyLines.cs" />
@@ -126,6 +130,8 @@
     <Compile Include="Models\TravelPlanner\Response\LegPlaceTypEnum.cs" />
     <Compile Include="Models\TravelPlanner\Response\ApiRef.cs" />
     <Compile Include="Models\TravelPlanner\Response\LegRtuMessage.cs" />
+    <Compile Include="Models\TravelPlanner\Response\Point.cs" />
+    <Compile Include="Models\TravelPlanner\Response\Points.cs" />
     <Compile Include="Models\TravelPlanner\Response\PriceInfo.cs" />
     <Compile Include="Models\TravelPlanner\Response\RouteBase.cs" />
     <Compile Include="Models\TravelPlanner\Response\RtuMessages.cs" />
