@@ -3,7 +3,7 @@
 
 
 # dotNetSlApi
-SL Stockholms lokaltrafik (stockholm public transport) api wrapper for .NET. This API wrapper makes it easier to user SL API. If you have an account at Trafiklab you can use this API Wrapper.
+SL Stockholms lokaltrafik (stockholm public transport) api wrapper for .NET. This API wrapper makes it easier to user SL API. If you have an account at Trafiklab (https://www.trafiklab.se/) you can use this API Wrapper.
 
 # Build Status
 Current status of the build and unit tests on the master branch.
