@@ -6,7 +6,8 @@
 SL Stockholms lokaltrafik (stockholm public transport) api wrapper for .NET. This API wrapper makes it easier to user SL API. If you have an account at Trafiklab you can use this API Wrapper.
 
 # Build Status
-Current status of the build on the master branch.
+Current status of the build and unit tests on the master branch.
+
 [![Build status](https://ci.appveyor.com/api/projects/status/oxfg3v4y4biux5wt?svg=true)](https://ci.appveyor.com/project/arins43491/dotnetslapi)
 
 #Example
