@@ -3,9 +3,10 @@
 
 
 # dotNetSlApi
-SL (Stockholms lokaltrafik) api wrapper for .net. This API wrapper makes it easier to user SL API. If you have an account at Trafiklab you can use this API Wrapper.
+SL Stockholms lokaltrafik (stockholm public transport) api wrapper for .NET. This API wrapper makes it easier to user SL API. If you have an account at Trafiklab you can use this API Wrapper.
 
 # Build Status
+Current status of the build on the master branch.
 [![Build status](https://ci.appveyor.com/api/projects/status/oxfg3v4y4biux5wt?svg=true)](https://ci.appveyor.com/project/arins43491/dotnetslapi)
 
 #Example
@@ -50,6 +51,7 @@ var resultFromSearch = travel.Trip(new TripRequest
 ```
 
 # Nuget package 
+Download the package via nuget
 https://www.nuget.org/packages/SlApi
 
 
