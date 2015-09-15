@@ -1,5 +1,14 @@
+
+
+
+
 # dotNetSlApi
 SL (Stockholms lokaltrafik) api wrapper for .net. This API wrapper makes it easier to user SL API. If you have an account at Trafiklab you can use this API Wrapper.
+
+# Build Status
+[![Build status](https://ci.appveyor.com/api/projects/status/oxfg3v4y4biux5wt?svg=true)](https://ci.appveyor.com/project/arins43491/dotnetslapi)
+
+#Example
 
 Realtime information example
 ```C#
@@ -52,5 +61,3 @@ https://www.trafiklab.se/projekt/dotnetslapi
 
 This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.
 
-# Build Status
-[![Build status](https://ci.appveyor.com/api/projects/status/oxfg3v4y4biux5wt?svg=true)](https://ci.appveyor.com/project/arins43491/dotnetslapi)
