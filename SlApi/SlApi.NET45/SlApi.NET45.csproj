@@ -115,7 +115,24 @@
     <Message Text="Info: %(OutputAssemblyInfo.Version)" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>if "$(ConfigurationName)" == "PackageRelease" (
+    <PostBuildEvent>if "$(ConfigurationName)" == "PackageRelease"  (
+	GOTO package
+) else (
+
+	if  "%25PackageRelease%25" == "true" ( 
+		GOTO package
+	) else ( 
+		GOTO noPackage
+	)
+
+
+)
+
+
+
+
+
+:package 
 cd ../../../..
 rmdir /q /s SlApi.NET45\bin\PackageRelease\net40
 
@@ -130,11 +147,13 @@ rem copy SlApi.NET45\bin\PackageRelease\net45\SlApi.General.dll SlApi.NET45\bin\
 echo packaging...
 cd  SlApi.NET45
 nuget pack SlApi.NET45.csproj -IncludeReferencedProjects -Prop Configuration=PackageRelease
+goto end
 
-) else (
+:noPackage
 echo not packageing
 echo $(ConfigurationName)
-)
+
+:end
 </PostBuildEvent>
   </PropertyGroup>
 </Project>
