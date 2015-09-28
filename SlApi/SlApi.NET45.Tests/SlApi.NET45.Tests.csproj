@@ -39,7 +39,7 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-Package|AnyCPU'">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'PackageRelease|AnyCPU' ">
     <OutputPath>bin\Release-Package\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>

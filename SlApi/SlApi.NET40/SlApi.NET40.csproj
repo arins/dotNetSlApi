@@ -35,8 +35,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-Package|AnyCPU'">
-    <OutputPath>bin\Release-Package\net40</OutputPath>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'PackageRelease|AnyCPU' ">
+    <OutputPath>bin\PackageRelease\net40</OutputPath>
     <DefineConstants>TRACE;PACKAGE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>

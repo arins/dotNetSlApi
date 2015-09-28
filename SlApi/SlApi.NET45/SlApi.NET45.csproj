@@ -35,8 +35,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-Package|AnyCPU'">
-    <OutputPath>bin\Release-Package\net45</OutputPath>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'PackageRelease|AnyCPU' ">
+    <OutputPath>bin\PackageRelease\net45</OutputPath>
     <DefineConstants>TRACE;PACKAGE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
@@ -115,21 +115,21 @@
     <Message Text="Info: %(OutputAssemblyInfo.Version)" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>if "$(ConfigurationName)" == "Release-Package" (
+    <PostBuildEvent>if "$(ConfigurationName)" == "PackageRelease" (
 cd ../../../..
-rmdir /q /s SlApi.NET45\bin\Release-Package\net40
+rmdir /q /s SlApi.NET45\bin\PackageRelease\net40
 
-mkdir SlApi.NET45\bin\Release-Package\net40
+mkdir SlApi.NET45\bin\PackageRelease\net40
 
 echo net 4.0
-copy SlApi.NET40\bin\Release-Package\net40\SlApi.dll SlApi.NET45\bin\Release-Package\net40\SlApi.dll
-copy SlApi.NET40\bin\Release-Package\net40\SlApi.General.dll SlApi.NET45\bin\Release-Package\net40\SlApi.General.dll
+copy SlApi.NET40\bin\PackageRelease\net40\SlApi.dll SlApi.NET45\bin\PackageRelease\net40\SlApi.dll
+copy SlApi.NET40\bin\PackageRelease\net40\SlApi.General.dll SlApi.NET45\bin\PackageRelease\net40\SlApi.General.dll
 
 echo .net 4.5
-rem copy SlApi.NET45\bin\Release-Package\net45\SlApi.General.dll SlApi.NET45\bin\Release-Package\net45\SlApi.General.dll
+rem copy SlApi.NET45\bin\PackageRelease\net45\SlApi.General.dll SlApi.NET45\bin\PackageRelease\net45\SlApi.General.dll
 echo packaging...
 cd  SlApi.NET45
-nuget pack SlApi.NET45.csproj -IncludeReferencedProjects -Prop Configuration=Release-Package
+nuget pack SlApi.NET45.csproj -IncludeReferencedProjects -Prop Configuration=PackageRelease
 
 ) else (
 echo not packageing
