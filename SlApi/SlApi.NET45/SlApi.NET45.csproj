@@ -116,8 +116,8 @@
   </Target>
   <PropertyGroup>
     <PostBuildEvent>
-echo %25PackageRelease%25
-if "%25PackageRelease%25"=="true"  (
+echo %25APPVEYOR%25
+if "%25APPVEYOR%25"=="True"  (
 	GOTO package
 ) else (
 
