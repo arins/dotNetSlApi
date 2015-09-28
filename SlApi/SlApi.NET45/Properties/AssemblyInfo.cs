@@ -29,9 +29,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("3.0.0.0")]
 [assembly: AssemblyFileVersion("3.0.0.0")]
 
-#if !PACKAGE
+
 [assembly: InternalsVisibleTo("SlApi.Tests")]
 [assembly: InternalsVisibleTo("SlApi.NET40.Tests")]
 [assembly: InternalsVisibleTo("SlApi.NET45.Tests")]
-#endif
+
 

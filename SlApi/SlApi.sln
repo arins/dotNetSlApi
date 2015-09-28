@@ -86,7 +86,7 @@ Global
 		{D3B06A06-101A-4366-9AAE-62CBD331226C}.Release-Package|Any CPU.Build.0 = Release|Any CPU
 		{D3B06A06-101A-4366-9AAE-62CBD331226C}.Release-Package|ARM.ActiveCfg = Release|Any CPU
 		{D3B06A06-101A-4366-9AAE-62CBD331226C}.Release-Package|ARM.Build.0 = Release|Any CPU
-		{D3B06A06-101A-4366-9AAE-62CBD331226C}.Release-Package|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D3B06A06-101A-4366-9AAE-62CBD331226C}.Release-Package|Mixed Platforms.ActiveCfg = Release-Package|Any CPU
 		{D3B06A06-101A-4366-9AAE-62CBD331226C}.Release-Package|x64.ActiveCfg = Release|Any CPU
 		{D3B06A06-101A-4366-9AAE-62CBD331226C}.Release-Package|x64.Build.0 = Release|Any CPU
 		{D3B06A06-101A-4366-9AAE-62CBD331226C}.Release-Package|x86.ActiveCfg = Release|Any CPU
@@ -175,7 +175,7 @@ Global
 		{371EF9C9-3118-4156-9038-0F8E85E92A30}.Release-Package|Any CPU.Build.0 = Release|Any CPU
 		{371EF9C9-3118-4156-9038-0F8E85E92A30}.Release-Package|ARM.ActiveCfg = Release|Any CPU
 		{371EF9C9-3118-4156-9038-0F8E85E92A30}.Release-Package|ARM.Build.0 = Release|Any CPU
-		{371EF9C9-3118-4156-9038-0F8E85E92A30}.Release-Package|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{371EF9C9-3118-4156-9038-0F8E85E92A30}.Release-Package|Mixed Platforms.ActiveCfg = Release-Package|Any CPU
 		{371EF9C9-3118-4156-9038-0F8E85E92A30}.Release-Package|x64.ActiveCfg = Release|Any CPU
 		{371EF9C9-3118-4156-9038-0F8E85E92A30}.Release-Package|x64.Build.0 = Release|Any CPU
 		{371EF9C9-3118-4156-9038-0F8E85E92A30}.Release-Package|x86.ActiveCfg = Release|Any CPU
@@ -204,7 +204,7 @@ Global
 		{114BB98A-D222-4F22-A9FC-8FA604A34B30}.Release-Package|Any CPU.Build.0 = Release|Any CPU
 		{114BB98A-D222-4F22-A9FC-8FA604A34B30}.Release-Package|ARM.ActiveCfg = Release|Any CPU
 		{114BB98A-D222-4F22-A9FC-8FA604A34B30}.Release-Package|ARM.Build.0 = Release|Any CPU
-		{114BB98A-D222-4F22-A9FC-8FA604A34B30}.Release-Package|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{114BB98A-D222-4F22-A9FC-8FA604A34B30}.Release-Package|Mixed Platforms.ActiveCfg = Release-Package|Any CPU
 		{114BB98A-D222-4F22-A9FC-8FA604A34B30}.Release-Package|x64.ActiveCfg = Release|Any CPU
 		{114BB98A-D222-4F22-A9FC-8FA604A34B30}.Release-Package|x64.Build.0 = Release|Any CPU
 		{114BB98A-D222-4F22-A9FC-8FA604A34B30}.Release-Package|x86.ActiveCfg = Release|Any CPU

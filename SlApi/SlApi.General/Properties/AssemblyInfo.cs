@@ -33,8 +33,7 @@ using System.Runtime.InteropServices;
 [assembly: InternalsVisibleTo("SlApi.NET40")]
 
 
-#if !PACKAGE
+
 [assembly: InternalsVisibleTo("SlApi.Tests")]
 [assembly: InternalsVisibleTo("SlApi.NET40.Tests")]
 [assembly: InternalsVisibleTo("SlApi.NET45.Tests")]
-#endif
