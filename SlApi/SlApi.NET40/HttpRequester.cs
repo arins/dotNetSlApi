@@ -1,0 +1,94 @@
+﻿using System;
+using System.IO;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+using SlApi.General;
+using SlApi.General.Core;
+
+namespace SlApi
+{
+    public class HttpRequester : IHttpRequester
+    {
+
+        /// <summary>
+        /// The timeout until abort in milliseconds
+        /// </summary>
+        public int Timeout { get; set; }
+
+        public bool GzipEnabled { get; set; }
+
+        public HttpRequester()
+        {
+            Timeout = 10000;
+            GzipEnabled = false;
+        }
+
+        /// <summary>
+        /// Gets the response string async from the url
+        /// </summary>
+        /// <param name="url">url to request from</param>
+        /// <returns>return a string in the encoding specified</returns>
+        /// <exception cref="RequestException">Throw this exception if any error occurs</exception>
+        public async Task<string> GetResponseAsync(Uri url)
+        {
+            try
+            {
+                var request = (HttpWebRequest)WebRequest.Create(url);
+                if (GzipEnabled)
+                {
+                    request.Headers["Accept-Encoding"] = "gzip, deflate";
+
+                }
+                request.Method = "GET";
+
+                var webresponse = request.GetResponseAsync();
+                await webresponse.WaitWithTimeoutAsync(Timeout);
+                var stream = webresponse.Result.GetResponseStream();
+                using (var streamReader = new StreamReader(stream))
+                {
+                    return streamReader.ReadToEnd();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new RequestException("Request failed check inner exception", e);
+            }
+        }
+
+
+        /// <summary>
+        /// Gets the response string from the url
+        /// </summary>
+        /// <param name="url">url to request from</param>
+        /// <returns>return a string in the encoding specified</returns>
+        /// <exception cref="RequestException">Throw this exception if any error occurs</exception>
+        public string GetResponse(Uri url)
+        {
+            try
+            {
+                var request = (HttpWebRequest)WebRequest.Create(url);
+                if (GzipEnabled)
+                {
+                    request.Headers["Accept-Encoding"] = "gzip, deflate";
+
+                }
+                request.Method = "GET";
+
+                var webresponse = request.GetResponseAsync();
+                webresponse.WaitWithTimeout(Timeout);
+                var stream = webresponse.Result.GetResponseStream();
+                using (var streamReader = new StreamReader(stream))
+                {
+                    return streamReader.ReadToEnd();
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw new RequestException("Request failed check inner exception", e);
+            }
+        }
+
+    }
+}
