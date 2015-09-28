@@ -115,11 +115,13 @@
     <Message Text="Info: %(OutputAssemblyInfo.Version)" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>if "$(ConfigurationName)" == "PackageRelease"  (
+    <PostBuildEvent>
+echo %25PackageRelease%25
+if "%25PackageRelease%25"=="true"  (
 	GOTO package
 ) else (
 
-	if  "%25PackageRelease%25" == "true" ( 
+	if  "$(ConfigurationName)" == "PackageRelease"  ( 
 		GOTO package
 	) else ( 
 		GOTO noPackage
