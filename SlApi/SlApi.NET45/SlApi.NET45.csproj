@@ -87,10 +87,6 @@
       <Project>{6b6b6d90-4a75-4a87-a75d-bc93106b47ec}</Project>
       <Name>SlApi.General</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SlApi.NET40\SlApi.NET40.csproj">
-      <Project>{be6e45d1-16b3-4fd0-b93b-f13b0dbd2c82}</Project>
-      <Name>SlApi.NET40</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
