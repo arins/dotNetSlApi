@@ -131,7 +131,7 @@ echo packaging...
 cd  SlApi.NET45
 nuget pack SlApi.NET45.csproj -IncludeReferencedProjects -Prop Configuration=Release-Package
 
-)      else (
+) else (
 echo not packageing
 echo $(ConfigurationName)
 )

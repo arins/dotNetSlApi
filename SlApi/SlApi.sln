@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlApi.Tests", "SlApi.Tests\SlApi.Tests.csproj", "{D3B06A06-101A-4366-9AAE-62CBD331226C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlApi.NET45", "SlApi.NET45\SlApi.NET45.csproj", "{A04B2035-AAEE-49FA-82F3-77A422F0657B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BE6E45D1-16B3-4FD0-B93B-F13B0DBD2C82} = {BE6E45D1-16B3-4FD0-B93B-F13B0DBD2C82}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlApi.NET40", "SlApi.NET40\SlApi.NET40.csproj", "{BE6E45D1-16B3-4FD0-B93B-F13B0DBD2C82}"
 EndProject
@@ -87,6 +90,7 @@ Global
 		{D3B06A06-101A-4366-9AAE-62CBD331226C}.Release-Package|ARM.ActiveCfg = Release|Any CPU
 		{D3B06A06-101A-4366-9AAE-62CBD331226C}.Release-Package|ARM.Build.0 = Release|Any CPU
 		{D3B06A06-101A-4366-9AAE-62CBD331226C}.Release-Package|Mixed Platforms.ActiveCfg = Release-Package|Any CPU
+		{D3B06A06-101A-4366-9AAE-62CBD331226C}.Release-Package|Mixed Platforms.Build.0 = Release-Package|Any CPU
 		{D3B06A06-101A-4366-9AAE-62CBD331226C}.Release-Package|x64.ActiveCfg = Release|Any CPU
 		{D3B06A06-101A-4366-9AAE-62CBD331226C}.Release-Package|x64.Build.0 = Release|Any CPU
 		{D3B06A06-101A-4366-9AAE-62CBD331226C}.Release-Package|x86.ActiveCfg = Release|Any CPU
@@ -176,6 +180,7 @@ Global
 		{371EF9C9-3118-4156-9038-0F8E85E92A30}.Release-Package|ARM.ActiveCfg = Release|Any CPU
 		{371EF9C9-3118-4156-9038-0F8E85E92A30}.Release-Package|ARM.Build.0 = Release|Any CPU
 		{371EF9C9-3118-4156-9038-0F8E85E92A30}.Release-Package|Mixed Platforms.ActiveCfg = Release-Package|Any CPU
+		{371EF9C9-3118-4156-9038-0F8E85E92A30}.Release-Package|Mixed Platforms.Build.0 = Release-Package|Any CPU
 		{371EF9C9-3118-4156-9038-0F8E85E92A30}.Release-Package|x64.ActiveCfg = Release|Any CPU
 		{371EF9C9-3118-4156-9038-0F8E85E92A30}.Release-Package|x64.Build.0 = Release|Any CPU
 		{371EF9C9-3118-4156-9038-0F8E85E92A30}.Release-Package|x86.ActiveCfg = Release|Any CPU
@@ -205,6 +210,7 @@ Global
 		{114BB98A-D222-4F22-A9FC-8FA604A34B30}.Release-Package|ARM.ActiveCfg = Release|Any CPU
 		{114BB98A-D222-4F22-A9FC-8FA604A34B30}.Release-Package|ARM.Build.0 = Release|Any CPU
 		{114BB98A-D222-4F22-A9FC-8FA604A34B30}.Release-Package|Mixed Platforms.ActiveCfg = Release-Package|Any CPU
+		{114BB98A-D222-4F22-A9FC-8FA604A34B30}.Release-Package|Mixed Platforms.Build.0 = Release-Package|Any CPU
 		{114BB98A-D222-4F22-A9FC-8FA604A34B30}.Release-Package|x64.ActiveCfg = Release|Any CPU
 		{114BB98A-D222-4F22-A9FC-8FA604A34B30}.Release-Package|x64.Build.0 = Release|Any CPU
 		{114BB98A-D222-4F22-A9FC-8FA604A34B30}.Release-Package|x86.ActiveCfg = Release|Any CPU
