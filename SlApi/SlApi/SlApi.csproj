@@ -151,8 +151,9 @@ echo '$(TargetFrameworkVersion)'</PreBuildEvent>
 echo starting package beacause build mode is $(ConfigurationName)
 cd "$(SolutionDir)"
 
+echo starting build of NET40 configuration now
 "C:\Windows\Microsoft.Net\Framework64\v4.0.30319\MSBuild.exe" $(SolutionFileName) /property:Configuration=NET40 /property:Platform="Any CPU"
-
+echo starting build of NET40 configuration end
 rmdir /q /s SlApi\bin\PackageRelease\net40
 rmdir /q /s SlApi\bin\PackageRelease\net45
 mkdir SlApi\bin\PackageRelease\net40
