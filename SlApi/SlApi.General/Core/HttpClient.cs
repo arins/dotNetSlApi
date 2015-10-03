@@ -6,21 +6,22 @@ using Newtonsoft.Json;
 
 namespace SlApi.General.Core
 {
-    public class HttpClient : IHttpClient
+    internal class HttpClient : IHttpClient
     {
 
         public IHttpRequester Requester { get; set; }
 
         public IUrlHelper UrlHelper { get; set; }
+        public ISlApiCallback Callback { get; set; }
 
-        public string EndPoint { get; set; }
+        internal string EndPoint { get; set; }
         public string ApiToken { get; set; }
 
         public bool ApiTokenSet => !string.IsNullOrEmpty(ApiToken);
 
         internal DateTime ApiTokenExpires { get; set; }
 
-        public HttpClient(string endPoint, IHttpRequester httpRequester, IUrlHelper helper)
+        internal HttpClient(string endPoint, IHttpRequester httpRequester, IUrlHelper helper, ISlApiCallback callback = null)
         {
             if (httpRequester == null)
             {
@@ -37,6 +38,7 @@ namespace SlApi.General.Core
             EndPoint = endPoint;
             Requester = httpRequester;
             UrlHelper = helper;
+            Callback = callback;
         }
 
         
@@ -87,8 +89,26 @@ namespace SlApi.General.Core
         public TOut DoRequest<TOut>(string path, Arguments arguments = null) where TOut : new()
         {
             CheckReuquester();
-            var resp = Requester.GetResponse(BuildRequestPath(path, arguments));
-            var ser = JsonConvert.DeserializeObject<TOut>(resp);
+            string resp;
+            var ser = default(TOut);
+            try
+            {
+                resp = Requester.GetResponse(BuildRequestPath(path, arguments));
+            }
+            catch (Exception exception)
+            {
+                Callback?.OnNetworkError(exception);
+                throw;
+            }
+            try
+            {
+                ser = JsonConvert.DeserializeObject<TOut>(resp);
+            }
+            catch (Exception exception)
+            {
+                Callback?.OnParseError(resp, exception);
+                throw;
+            }
             return ser;
         }
 

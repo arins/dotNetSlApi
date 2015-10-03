@@ -2,15 +2,16 @@
 {
     public class BaseService
     {
-         public IHttpClient HttpClient { get; set; }
+        public const string Endpoint = "https://api.sl.se/";
 
+        internal IHttpClient HttpClient { get; set; }
 
-         public BaseService(IHttpClient httpClient)
+        internal BaseService(IHttpClient httpClient)
         {
             HttpClient = httpClient;
         }
 
-         public string ApiToken
+        internal string ApiToken
         {
             get
             {
