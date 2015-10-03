@@ -139,9 +139,9 @@ echo '$(TargetFrameworkVersion)'</PreBuildEvent>
 echo starting package beacause build mode is $(ConfigurationName)
 cd "$(SolutionDir)"
 
-rem echo starting build of NET40 configuration now
-rem nuget.exe restore $(SolutionFileName)
-rem "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe" $(SolutionFileName) /property:Configuration=NET40 /property:Platform="Any CPU"
+echo starting build of NET40 configuration now
+nuget.exe restore $(SolutionFileName)
+"C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe" $(SolutionFileName) /property:Configuration=NET40 /property:Platform="Any CPU"
 echo starting build of NET40 configuration end
 IF EXIST SlApi\bin\PackageRelease\net40 (
 	rmdir /q /s SlApi\bin\PackageRelease\net40
