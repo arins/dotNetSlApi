@@ -152,6 +152,7 @@ echo starting package beacause build mode is $(ConfigurationName)
 cd "$(SolutionDir)"
 
 echo starting build of NET40 configuration now
+nuget.exe restore $(SolutionFileName)
 "C:\Windows\Microsoft.Net\Framework64\v4.0.30319\MSBuild.exe" $(SolutionFileName) /property:Configuration=NET40 /property:Platform="Any CPU"
 echo starting build of NET40 configuration end
 rmdir /q /s SlApi\bin\PackageRelease\net40
@@ -193,7 +194,9 @@ GOTO END
 :NET40IsNotCompiled
 echo not packaging NET40 is not complied. Compile in that configuration first
 
-:end</PostBuildEvent>
+:end
+
+</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
