@@ -70,7 +70,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="SlApi.nuspec" />
+    <None Include="SlApi.nuspec">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SlApi.General\SlApi.General.csproj">
@@ -174,11 +176,11 @@ echo copying .net 4.5 ...
 copy SlApi\bin\Release\SlApi.dll SlApi\bin\Release\net45\SlApi.dll
 copy SlApi\bin\Release\SlApi.General.dll SlApi\bin\Release\net45\SlApi.General.dll
 
+echo preparing for nuget packaging
 copy SlApi\bin\Release\SlApi.dll SlApi\bin\Release\SlApi\SlApi.dll
 copy SlApi.General\bin\Release\SlApi.General.dll SlApi.General\bin\Release\SlApi.General\SlApi.General.dll
 
 echo packaging...
-where nuget.exe
 
 nuget.exe pack SlApi/SlApi.csproj -IncludeReferencedProjects -Prop Configuration=Release -Properties OutDir=$(OutDir)
 
@@ -204,7 +206,7 @@ goto end
 
 
 :noPackage
-echo not packageing
+echo not packaging
 echo $(ConfigurationName)
 GOTO END
 

@@ -10,10 +10,26 @@
     <projectUrl>https://github.com/arins/dotNetSlApi</projectUrl>
 
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>SL Stockholm Lokaltrafik API .net Wrapper</description>
-    <releaseNotes>Release for realtime information and placeinformation.</releaseNotes>
+    <description>
+      SL Stockholm Lokaltrafik API wrapper
+
+      SL Stockholms lokaltrafik (stockholm public transport) api wrapper for .NET. 
+      This API wrapper makes it easier to user SL API. If you have an account at Trafiklab (https://www.trafiklab.se/) 
+      you can use this API Wrapper.
+    </description>
+    <releaseNotes>
+      All methods are supported now. This version is also more tested
+    </releaseNotes>
     <copyright>Copyright 2015</copyright>
-    <tags>Stockholm lokaltrafik API wrapper</tags>
+    <licenseUrl>
+      https://github.com/arins/dotNetSlApi#user-content-license
+    </licenseUrl>
+    <iconUrl>
+      https://github.com/arins/dotNetSlApi/raw/master/SlApi/icon.png
+    </iconUrl>
+    <tags>
+      Stockholm lokaltrafik API-wrapper API warpper Stockholmlokaltrafik SL
+    </tags>
     <references>
       <reference file="SlApi.General.dll" />
 	    <reference file="SlApi.dll" />
