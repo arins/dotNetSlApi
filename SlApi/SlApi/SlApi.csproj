@@ -126,7 +126,8 @@
   </Target>
   <PropertyGroup>
     <PreBuildEvent>echo $(TargetFileName)
-echo '$(TargetFrameworkVersion)'</PreBuildEvent>
+echo '$(TargetFrameworkVersion)'
+echo '$(ConfigurationName)'</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>IF "$(ConfigurationName)" == "PackageRelease" ( 
