@@ -119,24 +119,19 @@
     </Otherwise>
   </Choose>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets') and '$(TargetFrameworkVersion)'=='v4.0'" />
-  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == '' and '$(TargetFrameworkVersion)'=='v4.0'">
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
     <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
     <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
   </Target>
   <PropertyGroup>
-    <PreBuildEvent>echo $(TargetFileName)
-echo '$(TargetFrameworkVersion)'
-echo '$(ConfigurationName)'</PreBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <PostBuildEvent>IF "$(ConfigurationName)" == "PackageRelease" ( 
+    <PostBuildEvent>IF "$(ConfigurationName)" == "PackageRelease" (
 	GOTO package
-) ELSE ( 
+) ELSE (
 	GOTO noPackage
 )
 
-:package 
+:package
 echo starting package beacause build mode is $(ConfigurationName)
 cd "$(SolutionDir)"
 
@@ -157,7 +152,7 @@ mkdir SlApi\bin\PackageRelease\net45
 
 echo check that .net 4.0 is built
 IF NOT EXIST SlApi\bin\NET40\SlApi.dll GOTO NET40IsNotCompiled
-   
+
 
 echo copying net 4.0 ...
 copy SlApi\bin\NET40\SlApi.dll SlApi\bin\PackageRelease\net40\SlApi.dll
@@ -189,20 +184,11 @@ GOTO END
 :NET40IsNotCompiled
 echo not packaging NET40 is not complied. Compile in that configuration first
 
-:end
-
-</PostBuildEvent>
+:end</PostBuildEvent>
   </PropertyGroup>
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
-  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
-    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
-    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
-  </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <PropertyGroup>
+    <PreBuildEvent>echo $(TargetFileName)
+echo '$(TargetFrameworkVersion)'
+echo '$(ConfigurationName)'</PreBuildEvent>
+  </PropertyGroup>
 </Project>
