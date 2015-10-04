@@ -165,9 +165,9 @@ copy SlApi\bin\Release\SlApi.dll SlApi\bin\Release\net45\SlApi.dll
 copy SlApi\bin\Release\SlApi.General.dll SlApi\bin\Release\net45\SlApi.General.dll
 echo packaging...
 
-cd  SlApi
-dir bin/Release
-nuget pack SlApi.csproj -IncludeReferencedProjects -Prop Configuration=Release
+where nuget.exe
+
+nuget.exe pack SlApi/SlApi.csproj -IncludeReferencedProjects -Prop Configuration=Release
 
 IF EXIST SlApi\bin\Release\net40 (
 	rmdir /q /s SlApi\bin\Release\net40
