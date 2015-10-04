@@ -68,7 +68,9 @@
     <Compile Include="UrlHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="SlApi.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SlApi.General\SlApi.General.csproj">
