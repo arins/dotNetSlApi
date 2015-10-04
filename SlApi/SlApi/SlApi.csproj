@@ -167,7 +167,7 @@ echo packaging...
 
 where nuget.exe
 
-nuget.exe pack SlApi/SlApi.csproj -IncludeReferencedProjects -Prop Configuration=Release
+nuget.exe pack SlApi/SlApi.csproj -IncludeReferencedProjects -Prop Configuration=Release -Properties OutDir=$(OutDir)
 cd SlApi/bin
 dir
 cd Release
