@@ -16,7 +16,7 @@
     <tags>Stockholm lokaltrafik API wrapper</tags>
     <references>
       <reference file="SlApi.General.dll" />
-	  <reference file="SlApi.dll" />
+	    <reference file="SlApi.dll" />
     </references>
     
   </metadata>

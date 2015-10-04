@@ -166,6 +166,7 @@ copy SlApi\bin\Release\SlApi.General.dll SlApi\bin\Release\net45\SlApi.General.d
 echo packaging...
 
 cd  SlApi
+dir bin/Release
 nuget pack SlApi.csproj -IncludeReferencedProjects -Prop Configuration=Release
 
 IF EXIST SlApi\bin\Release\net40 (
