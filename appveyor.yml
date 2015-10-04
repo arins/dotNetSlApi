@@ -1,6 +1,6 @@
 version: 3.0.0.{build}
 os: Visual Studio 2015
-configuration: PackageRelease
+configuration: Release
 platform: Any CPU
 clone_folder: c:\projects\dotnetslapi
 cache: SlApi/Packages

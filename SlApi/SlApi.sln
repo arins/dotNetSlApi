@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlApi", "SlApi\SlApi.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlApi.General", "SlApi.General\SlApi.General.csproj", "{E0BBBF85-F307-4F1B-B051-DC0FA9D843EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlApi.Tests", "SlApi.Test\SlApi.Tests.csproj", "{907C6F9E-5A47-4585-B71C-9E7FB0D7BCEE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlApi.Tests", "SlApi.Tests\SlApi.Tests.csproj", "{907C6F9E-5A47-4585-B71C-9E7FB0D7BCEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
