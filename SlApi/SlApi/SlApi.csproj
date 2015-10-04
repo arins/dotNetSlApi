@@ -168,7 +168,8 @@ echo packaging...
 where nuget.exe
 
 nuget.exe pack SlApi/SlApi.csproj -IncludeReferencedProjects -Prop Configuration=Release
-
+cd SlApi/bin
+dir
 IF EXIST SlApi\bin\Release\net40 (
 	rmdir /q /s SlApi\bin\Release\net40
 )
