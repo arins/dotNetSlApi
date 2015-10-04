@@ -22,7 +22,9 @@
     </releaseNotes>
     <copyright>Copyright 2015</copyright>
     <licenseUrl>
-      https://github.com/arins/dotNetSlApi#user-content-license
+      <![CDATA[
+        https://github.com/arins/dotNetSlApi#user-content-license
+      ]]>
     </licenseUrl>
     <iconUrl>
       https://github.com/arins/dotNetSlApi/raw/master/SlApi/icon.png
