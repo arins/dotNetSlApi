@@ -11,7 +11,7 @@
             HttpClient = httpClient;
         }
 
-        internal string ApiToken
+        public string ApiToken
         {
             get
             {
