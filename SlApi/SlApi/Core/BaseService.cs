@@ -11,6 +11,12 @@
             HttpClient = httpClient;
         }
 
+        public int Timeout
+        {
+            get { return HttpClient.Requester.Timeout; }
+            set { HttpClient.Requester.Timeout = value; }
+        }
+
         public string ApiToken
         {
             get

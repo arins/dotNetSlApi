@@ -31,7 +31,6 @@ namespace SlApi
         internal HttpRequester()
         {
             Timeout = 10000;
-            GzipEnabled = false;
         }
 
         /// <summary>
