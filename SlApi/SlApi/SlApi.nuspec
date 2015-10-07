@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>SlApi</id>
-    <version>3.0.0</version>
+    <version>3.1.0</version>
     <title>SlApi</title>
     <authors>Arin Sinabian</authors>
     <owners>Arin Sinabian</owners>
@@ -13,8 +13,8 @@
     <description>
       SL Stockholm Lokaltrafik API wrapper
 
-      SL Stockholms lokaltrafik (stockholm public transport) api wrapper for .NET. 
-      This API wrapper makes it easier to user SL API. If you have an account at Trafiklab (https://www.trafiklab.se/) 
+      SL Stockholms lokaltrafik (stockholm public transport) api wrapper for .NET.
+      This API wrapper makes it easier to user SL API. If you have an account at Trafiklab (https://www.trafiklab.se/)
       you can use this API Wrapper.
     </description>
     <releaseNotes>
@@ -23,7 +23,7 @@
     <copyright>Copyright 2015</copyright>
     <licenseUrl>
       <![CDATA[
-        https://github.com/arins/dotNetSlApi#user-content-license
+        https://github.com/arins/dotNetSlApi#license
       ]]>
     </licenseUrl>
     <iconUrl>
@@ -33,15 +33,14 @@
       Stockholm lokaltrafik API-wrapper API warpper Stockholmlokaltrafik SL
     </tags>
     <references>
-      <reference file="SlApi.General.dll" />
-	    <reference file="SlApi.dll" />
+      <reference file="SlApi.dll" />
     </references>
-    
+
   </metadata>
   <files>
     <file src="bin\Release\net45\SlApi.dll" target="lib\net45\SlApi.dll" />
-	<file src="bin\Release\net45\SlApi.General.dll" target="lib\net45\SlApi.General.dll" />
+    <file src="bin\Release\net46\SlApi.dll" target="lib\net46\SlApi.dll" />
     <file src="bin\Release\net40\SlApi.dll" target="lib\net40\SlApi.dll" />
-	<file src="bin\Release\net40\SlApi.General.dll" target="lib\net40\SlApi.General.dll" />
+    <file src="bin\Release\sl5\SlApi.dll" target="lib\sl5\SlApi.dll" />
   </files>
 </package>

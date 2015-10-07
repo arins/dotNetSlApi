@@ -1,14 +1,24 @@
 ﻿using System.Threading.Tasks;
-using SlApi.General;
-using SlApi.General.Core;
-using SlApi.General.Models.PlaceSearch.Request;
-using SlApi.General.Models.PlaceSearch.Response;
+using SlApi.Core;
+using SlApi.Models.PlaceSearch.Request;
+using SlApi.Models.PlaceSearch.Response;
 
 namespace SlApi
 {
    
     public class PlaceSearchClient : BaseService, IPlaceSearchClient
     {
+
+        public bool GzipEnabled
+        {
+            get
+            {
+                return HttpClient.Requester.GzipEnabled;
+                
+            }
+            set { HttpClient.Requester.GzipEnabled = value; }
+        }
+
         public PlaceSearchClient(IHttpClient httpClient) : base(httpClient)
         {
         }

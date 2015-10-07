@@ -1,8 +1,7 @@
 ﻿using System.Threading.Tasks;
-using SlApi.General;
-using SlApi.General.Core;
-using SlApi.General.Models.TrafficDeviationInformation.Request;
-using SlApi.General.Models.TrafficDeviationInformation.Response;
+using SlApi.Core;
+using SlApi.Models.TrafficDeviationInformation.Request;
+using SlApi.Models.TrafficDeviationInformation.Response;
 
 namespace SlApi
 {

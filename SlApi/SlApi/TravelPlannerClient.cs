@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using SlApi.General;
-using SlApi.General.Core;
-using SlApi.General.Models.TravelPlanner.Request;
-using SlApi.General.Models.TravelPlanner.Response;
+using SlApi.Core;
+
+using SlApi.Models.TravelPlanner.Request;
+using SlApi.Models.TravelPlanner.Response;
 
 namespace SlApi
 {

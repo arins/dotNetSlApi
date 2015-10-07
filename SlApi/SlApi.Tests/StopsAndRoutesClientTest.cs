@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using SlApi.General.Core;
-using SlApi.General.Models.StopsAndRoutes.Response;
+using SlApi.Core;
+using SlApi.Models.StopsAndRoutes.Response;
 
 namespace SlApi.Tests
 {

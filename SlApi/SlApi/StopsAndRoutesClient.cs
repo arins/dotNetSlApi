@@ -1,8 +1,7 @@
 ﻿using System.Threading.Tasks;
-using SlApi.General;
-using SlApi.General.Core;
-using SlApi.General.Models.StopsAndRoutes.Request;
-using SlApi.General.Models.StopsAndRoutes.Response;
+using SlApi.Core;
+using SlApi.Models.StopsAndRoutes.Request;
+using SlApi.Models.StopsAndRoutes.Response;
 
 namespace SlApi
 {

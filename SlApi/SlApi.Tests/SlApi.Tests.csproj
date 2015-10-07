@@ -34,26 +34,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'NET40|AnyCPU'">
-    <OutputPath>bin\NET40\</OutputPath>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PackageRelease|AnyCPU'">
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <OutputPath>bin\PackageRelease\</OutputPath>
-    <DefineConstants>TRACE;PackageRelease</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
   <Choose>
     <When Condition="'$(TargetFrameworkVersion)' == 'v4.5'">
       <ItemGroup>
@@ -139,17 +119,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SlApi.General\SlApi.General.csproj">
-      <Project>{e0bbbf85-f307-4f1b-b051-dc0fa9d843ea}</Project>
-      <Name>SlApi.General</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SlApi\SlApi.csproj">
-      <Project>{5ee29019-a346-4e4f-a031-d0d0a5c591ab}</Project>
-      <Name>SlApi</Name>
-    </ProjectReference>
+    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <ProjectReference Include="..\SlApi.Net45\SlApi.Net45.csproj">
+      <Project>{ea121252-0649-4d40-889e-8855380a0873}</Project>
+      <Name>SlApi.Net45</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

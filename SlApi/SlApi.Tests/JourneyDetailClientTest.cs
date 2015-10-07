@@ -2,8 +2,8 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using SlApi.General.Core;
-using SlApi.General.Models.TravelPlanner.Request;
+using SlApi.Core;
+using SlApi.Models.TravelPlanner.Request;
 
 namespace SlApi.Tests
 {

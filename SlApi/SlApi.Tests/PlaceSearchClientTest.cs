@@ -2,9 +2,9 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using SlApi.General.Core;
-using SlApi.General.Models;
-using SlApi.General.Models.PlaceSearch.Request;
+using SlApi.Core;
+using SlApi.Models;
+using SlApi.Models.PlaceSearch.Request;
 
 namespace SlApi.Tests
 {

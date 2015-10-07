@@ -2,8 +2,8 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using SlApi.General.Core;
-using SlApi.General.Models.TrafficInformation.Response;
+using SlApi.Core;
+using SlApi.Models.TrafficInformation.Response;
 
 namespace SlApi.Tests
 {

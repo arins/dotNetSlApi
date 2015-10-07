@@ -1,8 +1,7 @@
 ﻿using System.Threading.Tasks;
-using SlApi.General;
-using SlApi.General.Core;
-using SlApi.General.Models.NearbyStations.Request;
-using SlApi.General.Models.NearbyStations.Response;
+using SlApi.Core;
+using SlApi.Models.NearbyStations.Request;
+using SlApi.Models.NearbyStations.Response;
 
 namespace SlApi
 {

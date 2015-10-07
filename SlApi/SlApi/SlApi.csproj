@@ -35,28 +35,125 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'NET40|AnyCPU'">
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile328</TargetFrameworkProfile>
-    <OutputPath>bin\NET40\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PackageRelease|AnyCPU'">
-    <OutputPath>bin\PackageRelease\</OutputPath>
-    <DefineConstants>TRACE;PackageRelease</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
   <ItemGroup>
-    <Compile Include="HttpRequester.cs" />
+    <Compile Include="Core\Argument.cs" />
+    <Compile Include="Core\Arguments.cs" />
+    <Compile Include="Core\BaseService.cs" />
+    <Compile Include="Core\DateTimeParsers.cs" />
+    <Compile Include="Core\EnumConverter.cs" />
+    <Compile Include="Core\HttpClient.cs" />
+    <Compile Include="Core\IConvertableToArguments.cs" />
+    <Compile Include="Core\IHttpClient.cs" />
+    <Compile Include="Core\IHttpRequester.cs" />
+    <Compile Include="Core\ISlApiCallback.cs" />
+    <Compile Include="Core\IUrlHelper.cs" />
+    <Compile Include="Core\Language.cs" />
+    <Compile Include="Core\RequestException.cs" />
+    <Compile Include="Core\RequestPathBuildException.cs" />
+    <Compile Include="Core\SingleOrArrayConverter.cs" />
+    <Compile Include="Core\TaskExtension.cs" />
+    <Compile Include="..\NetVersions\Portable\HttpRequester.cs">
+      <Link>
+        Core\HttpRequester.cs
+      </Link>
+    </Compile>
+    <Compile Include="INearbyStopsClient.cs" />
+    <Compile Include="IPlaceSearchClient.cs" />
+    <Compile Include="IRealtimeInformationClient.cs" />
+    <Compile Include="ISlApiClientFactory.cs" />
+    <Compile Include="IStopsAndRoutesClient.cs" />
+    <Compile Include="ITrafficDeviationInformationClient.cs" />
+    <Compile Include="ITrafficInformationClient.cs" />
+    <Compile Include="ITravelPlannerClient.cs" />
+    <Compile Include="Models\ArrayBaseResponseData.cs" />
+    <Compile Include="Models\ArrayBaseResult.cs" />
+    <Compile Include="Models\BaseResponseWithVersionType.cs" />
+    <Compile Include="Models\ErrorCode.cs" />
+    <Compile Include="Models\ErrorResponse.cs" />
+    <Compile Include="Models\GeneralVersionTypeBaseResponse.cs" />
+    <Compile Include="Models\NearbyStations\Request\NearbyStopsRequest.cs" />
+    <Compile Include="Models\NearbyStations\Response\LocationList.cs" />
+    <Compile Include="Models\NearbyStations\Response\StopLocation.cs" />
+    <Compile Include="Models\NearbyStations\Response\StopLocations.cs" />
+    <Compile Include="Models\PlaceSearch\Request\PlaceSearchRequest.cs" />
+    <Compile Include="Models\PlaceSearch\Response\Site.cs" />
+    <Compile Include="Models\PlaceSearch\Response\Sites.cs" />
+    <Compile Include="Models\RealtimeInformation\Request\RealtimeDeparturesRequest.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\Bus.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\Departure.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\DepartureResponse.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\Deviation.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\Metro.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\RealtimeInformationBase.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\Ship.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\StopInfo.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\StopPointDeviation.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\Train.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\Tram.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\TransportModeContainer.cs" />
+    <Compile Include="Models\RealtimeInformation\Response\TransportModeEnum.cs" />
+    <Compile Include="Models\RealtimeInformation\Serializer\TransportModeSerializer.cs" />
+    <Compile Include="Models\StatusCode.cs" />
+    <Compile Include="Models\StopsAndRoutes\Request\JourneyPatternPointOnLineRequest.cs" />
+    <Compile Include="Models\StopsAndRoutes\Request\LinesRequest.cs" />
+    <Compile Include="Models\StopsAndRoutes\Request\SiteDataRequest.cs" />
+    <Compile Include="Models\StopsAndRoutes\Request\StopPointRequest.cs" />
+    <Compile Include="Models\StopsAndRoutes\Request\TransportModeRequest.cs" />
+    <Compile Include="Models\StopsAndRoutes\Response\DefaultTransportModeCode.cs" />
+    <Compile Include="Models\StopsAndRoutes\Response\JourneyPatternPointOnLine.cs" />
+    <Compile Include="Models\StopsAndRoutes\Response\JourneyPatternPointOnLines.cs" />
+    <Compile Include="Models\StopsAndRoutes\Response\Line.cs" />
+    <Compile Include="Models\StopsAndRoutes\Response\Lines.cs" />
+    <Compile Include="Models\StopsAndRoutes\Response\Site.cs" />
+    <Compile Include="Models\StopsAndRoutes\Response\Sites.cs" />
+    <Compile Include="Models\StopsAndRoutes\Response\StopAreaTypeCode.cs" />
+    <Compile Include="Models\StopsAndRoutes\Response\StopPoint.cs" />
+    <Compile Include="Models\StopsAndRoutes\Response\StopPoints.cs" />
+    <Compile Include="Models\StopsAndRoutes\Response\TransportMode.cs" />
+    <Compile Include="Models\StopsAndRoutes\Response\TransportModes.cs" />
+    <Compile Include="Models\TrafficDeviationInformation\Request\TrafficDeviationInformationRawRequest.cs" />
+    <Compile Include="Models\TrafficDeviationInformation\Request\TrafficDeviationInformationRequest.cs" />
+    <Compile Include="Models\TrafficDeviationInformation\Response\TrafficDeviation.cs" />
+    <Compile Include="Models\TrafficDeviationInformation\Response\TrafficDeviationInformation.cs" />
+    <Compile Include="Models\TrafficDeviationInformation\Response\TrafficDeviationInformationRaw.cs" />
+    <Compile Include="Models\TrafficInformation\Response\TrafficInformation.cs" />
+    <Compile Include="Models\TrafficInformation\Response\TrafficType.cs" />
+    <Compile Include="Models\TrafficInformation\Response\TrafficTypesContainer.cs" />
+    <Compile Include="Models\TrafficInformation\Response\TraficTypeEnum.cs" />
+    <Compile Include="Models\TravelPlanner\JourneyDirections.cs" />
+    <Compile Include="Models\TravelPlanner\Request\GeometryRequest.cs" />
+    <Compile Include="Models\TravelPlanner\Request\JourneyRequest.cs" />
+    <Compile Include="Models\TravelPlanner\Request\tripDestination.cs" />
+    <Compile Include="Models\TravelPlanner\Request\TripRequest.cs" />
+    <Compile Include="Models\TravelPlanner\Response\ApiRef.cs" />
+    <Compile Include="Models\TravelPlanner\Response\Geometry.cs" />
+    <Compile Include="Models\TravelPlanner\Response\GeometryResponse.cs" />
+    <Compile Include="Models\TravelPlanner\Response\JourneyDetail.cs" />
+    <Compile Include="Models\TravelPlanner\Response\JourneyDetailResponse.cs" />
+    <Compile Include="Models\TravelPlanner\Response\JourneyLines.cs" />
+    <Compile Include="Models\TravelPlanner\Response\JourneyNames.cs" />
+    <Compile Include="Models\TravelPlanner\Response\JourneyRtuMessage.cs" />
+    <Compile Include="Models\TravelPlanner\Response\JourneyTypes.cs" />
+    <Compile Include="Models\TravelPlanner\Response\Leg.cs" />
+    <Compile Include="Models\TravelPlanner\Response\LegList.cs" />
+    <Compile Include="Models\TravelPlanner\Response\LegNote.cs" />
+    <Compile Include="Models\TravelPlanner\Response\LegPlace.cs" />
+    <Compile Include="Models\TravelPlanner\Response\LegPlaceTypEnum.cs" />
+    <Compile Include="Models\TravelPlanner\Response\LegRtuMessage.cs" />
+    <Compile Include="Models\TravelPlanner\Response\Point.cs" />
+    <Compile Include="Models\TravelPlanner\Response\Points.cs" />
+    <Compile Include="Models\TravelPlanner\Response\PriceInfo.cs" />
+    <Compile Include="Models\TravelPlanner\Response\RouteBase.cs" />
+    <Compile Include="Models\TravelPlanner\Response\RtuMessages.cs" />
+    <Compile Include="Models\TravelPlanner\Response\Stop.cs" />
+    <Compile Include="Models\TravelPlanner\Response\Stops.cs" />
+    <Compile Include="Models\TravelPlanner\Response\TariffRemark.cs" />
+    <Compile Include="Models\TravelPlanner\Response\TariffZones.cs" />
+    <Compile Include="Models\TravelPlanner\Response\TravelPlannerErrorResponse.cs" />
+    <Compile Include="Models\TravelPlanner\Response\Trip.cs" />
+    <Compile Include="Models\TravelPlanner\Response\TripList.cs" />
+    <Compile Include="Models\TravelPlanner\Response\TripResponse.cs" />
+    <Compile Include="Models\TravelPlanner\Response\ZoneEnum.cs" />
     <Compile Include="NearbyStopsClient.cs" />
     <Compile Include="PlaceSearchClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,20 +162,35 @@
     <Compile Include="TrafficDeviationInformationClient.cs" />
     <Compile Include="TrafficInformationClient.cs" />
     <Compile Include="TravelPlannerClient.cs" />
-    <Compile Include="UrlHelper.cs" />
+    <Compile Include="..\NetVersions\Portable\UrlHelper.cs">
+      <Link>
+        Core\UrlHelper.cs
+      </Link>
+    </Compile>
   </ItemGroup>
+  <Choose>
+    <When Condition="'$(TargetFrameworkVersion)' == 'v4.5' OR '$(TargetFrameworkVersion)' == 'v4.0'" />
+    <!--
+    <When Condition="'$(TargetFrameworkVersion)' == 'v4.0'">
+
+      <ItemGroup>
+        <Compile Include="HttpRequester2.cs" />
+      </ItemGroup>
+    </When>-->
+  </Choose>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="build.bat" />
     <None Include="packages.config" />
     <None Include="SlApi.nuspec">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SlApi.General\SlApi.General.csproj">
-      <Project>{e0bbbf85-f307-4f1b-b051-dc0fa9d843ea}</Project>
-      <Name>SlApi.General</Name>
-    </ProjectReference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(TargetFrameworkVersion)' == 'v4.5'">
@@ -129,91 +241,17 @@
     <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>IF "$(ConfigurationName)" == "Release" (
-	GOTO package
-) ELSE (
-	GOTO noPackage
-)
+    <PostBuildEvent>set SolutionDir=$(SolutionDir)
+set SolutionFileName=$(SolutionFileName)
+set ConfigurationName=$(ConfigurationName)
+set OutDir=$(OutDir)
 
-:package
-echo starting package beacause build mode is $(ConfigurationName)
-cd "$(SolutionDir)"
+set SolutionFileName=$(SolutionFileName)
 
-echo starting build of NET40 configuration now
-nuget.exe restore $(SolutionFileName)
-"C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe" $(SolutionFileName) /property:Configuration=NET40 /property:Platform="Any CPU"
-echo starting build of NET40 configuration end
-IF EXIST SlApi\bin\Release\net40 (
-	rmdir /q /s SlApi\bin\Release\net40
-)
-
-IF EXIST SlApi\bin\Release\net45 (
-	rmdir /q /s SlApi\bin\Release\net45
-)
-
-IF EXIST SlApi\bin\Release\SlApi (
-	rmdir /q /s SlApi\bin\Release\SlApi
-)
-
-IF EXIST SlApi.General\bin\Release\SlApi.General (
-	rmdir /q /s SlApi.General\bin\Release\SlApi.General
-)
-
-mkdir SlApi\bin\Release\net40
-mkdir SlApi\bin\Release\net45
-mkdir SlApi\bin\Release\SlApi
-mkdir SlApi.General\bin\Release\SlApi.General
-
-echo check that .net 4.0 is built
-IF NOT EXIST SlApi\bin\NET40\SlApi.dll GOTO NET40IsNotCompiled
-
-
-echo copying net 4.0 ...
-copy SlApi\bin\NET40\SlApi.dll SlApi\bin\Release\net40\SlApi.dll
-copy SlApi\bin\NET40\SlApi.General.dll SlApi\bin\Release\net40\SlApi.General.dll
-
-echo copying .net 4.5 ...
-copy SlApi\bin\Release\SlApi.dll SlApi\bin\Release\net45\SlApi.dll
-copy SlApi\bin\Release\SlApi.General.dll SlApi\bin\Release\net45\SlApi.General.dll
-
-echo preparing for nuget packaging
-copy SlApi\bin\Release\SlApi.dll SlApi\bin\Release\SlApi\SlApi.dll
-copy SlApi.General\bin\Release\SlApi.General.dll SlApi.General\bin\Release\SlApi.General\SlApi.General.dll
-
-echo packaging...
-
-nuget.exe pack SlApi/SlApi.csproj -IncludeReferencedProjects -Prop Configuration=Release -Properties OutDir=$(OutDir)
-
-
-
-
-IF EXIST SlApi\bin\Release\net40 (
-	rmdir /q /s SlApi\bin\Release\net40
-)
-IF EXIST SlApi\bin\Release\net45 (
-	rmdir /q /s SlApi\bin\Release\net45
-)
-IF EXIST SlApi\bin\Release\SlApi (
-	rmdir /q /s SlApi\bin\Release\SlApi
-)
-
-
-IF EXIST SlApi.General\bin\Release\SlApi.General (
-	rmdir /q /s SlApi.General\bin\Release\SlApi.General
-)
-
-goto end
-
-
-:noPackage
-echo not packaging
-echo $(ConfigurationName)
-GOTO END
-
-:NET40IsNotCompiled
-echo not packaging NET40 is not complied. Compile in that configuration first
-
-:end</PostBuildEvent>
+cd "$(SolutionDir)\SlApi"
+echo %25ConfigurationName%25 hejsvej
+echo before script
+build.bat</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>echo $(TargetFileName)

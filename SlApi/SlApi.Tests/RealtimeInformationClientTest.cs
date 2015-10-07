@@ -2,10 +2,10 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using SlApi.General.Core;
-using SlApi.General.Models;
-using SlApi.General.Models.RealtimeInformation.Request;
-using SlApi.General.Models.RealtimeInformation.Response;
+using SlApi.Core;
+using SlApi.Models;
+using SlApi.Models.RealtimeInformation.Request;
+using SlApi.Models.RealtimeInformation.Response;
 
 namespace SlApi.Tests
 {
