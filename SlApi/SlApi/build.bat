@@ -12,6 +12,9 @@ cd "%SolutionDir%"
 
 nuget.exe restore %SolutionFileName%
 
+echo test
+cd
+
 IF EXIST SlApi\bin\Release\net40 (
 	rmdir /q /s SlApi\bin\Release\net40
 )
