@@ -58,6 +58,7 @@
     <Compile Include="NearbyStopsClientTest.cs" />
     <Compile Include="PlaceSearchClientTest.cs" />
     <Compile Include="RealtimeInformationClientTest.cs" />
+    <Compile Include="SlApiCallbackTest.cs" />
     <Compile Include="SlApiTest.cs" />
     <Compile Include="StopsAndRoutesClientTest.cs" />
     <Compile Include="TestDataFetcher.cs" />
