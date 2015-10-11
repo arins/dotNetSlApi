@@ -1,0 +1,243 @@
+﻿{
+  "StatusCode": 0,
+  "Message": null,
+  "ExecutionTime": 717,
+  "ResponseData": {
+    "Version": "2015-08-20 00:07",
+    "Type": "Line",
+    "Result": [
+      {
+        "LineNumber": "1",
+        "LineDesignation": "1",
+        "DefaultTransportMode": "blåbuss",
+        "DefaultTransportModeCode": "METRO",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "1",
+        "LineDesignation": "1",
+        "DefaultTransportMode": "Waxholmsbolagets",
+        "DefaultTransportModeCode": "SHIP",
+        "LastModifiedUtcDateTime": "2009-09-02 00:00:00.000",
+        "ExistsFromDate": "2009-09-02 00:00:00.000"
+      },
+      {
+        "LineNumber": "10",
+        "LineDesignation": "10",
+        "DefaultTransportMode": "tunnelbanans blå linje",
+        "DefaultTransportModeCode": "METRO",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "101",
+        "LineDesignation": "101",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2012-08-24 00:00:00.000",
+        "ExistsFromDate": "2012-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "102",
+        "LineDesignation": "102",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2012-08-24 00:00:00.000",
+        "ExistsFromDate": "2012-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "11",
+        "LineDesignation": "11",
+        "DefaultTransportMode": "tunnelbanans blå linje",
+        "DefaultTransportModeCode": "METRO",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "11",
+        "LineDesignation": "11",
+        "DefaultTransportMode": "Waxholmsbolagets",
+        "DefaultTransportModeCode": "SHIP",
+        "LastModifiedUtcDateTime": "2009-09-02 00:00:00.000",
+        "ExistsFromDate": "2009-09-02 00:00:00.000"
+      },
+      {
+        "LineNumber": "110",
+        "LineDesignation": "110",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "112",
+        "LineDesignation": "112",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "113",
+        "LineDesignation": "113",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "114",
+        "LineDesignation": "114",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "115",
+        "LineDesignation": "115",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "116",
+        "LineDesignation": "116",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "117",
+        "LineDesignation": "117",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "118",
+        "LineDesignation": "118",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "119",
+        "LineDesignation": "119",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "12",
+        "LineDesignation": "12",
+        "DefaultTransportMode": "Nockebybanan",
+        "DefaultTransportModeCode": "TRAM",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "12",
+        "LineDesignation": "12",
+        "DefaultTransportMode": "Waxholmsbolagets",
+        "DefaultTransportModeCode": "SHIP",
+        "LastModifiedUtcDateTime": "2009-09-02 00:00:00.000",
+        "ExistsFromDate": "2009-09-02 00:00:00.000"
+      },
+      {
+        "LineNumber": "124",
+        "LineDesignation": "124",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "127",
+        "LineDesignation": "127",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "13",
+        "LineDesignation": "13",
+        "DefaultTransportMode": "tunnelbanans röda linje",
+        "DefaultTransportModeCode": "METRO",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "13",
+        "LineDesignation": "13",
+        "DefaultTransportMode": "Waxholmsbolagets",
+        "DefaultTransportModeCode": "SHIP",
+        "LastModifiedUtcDateTime": "2009-09-02 00:00:00.000",
+        "ExistsFromDate": "2009-09-02 00:00:00.000"
+      },
+      {
+        "LineNumber": "133",
+        "LineDesignation": "133",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "134",
+        "LineDesignation": "134",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "135",
+        "LineDesignation": "135",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "14",
+        "LineDesignation": "14",
+        "DefaultTransportMode": "tunnelbanans röda linje",
+        "DefaultTransportModeCode": "METRO",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "14",
+        "LineDesignation": "14",
+        "DefaultTransportMode": "Waxholmsbolagets",
+        "DefaultTransportModeCode": "SHIP",
+        "LastModifiedUtcDateTime": "2009-09-02 00:00:00.000",
+        "ExistsFromDate": "2009-09-02 00:00:00.000"
+      },
+      {
+        "LineNumber": "141",
+        "LineDesignation": "141",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      },
+      {
+        "LineNumber": "142",
+        "LineDesignation": "142",
+        "DefaultTransportMode": "",
+        "DefaultTransportModeCode": "BUS",
+        "LastModifiedUtcDateTime": "2007-08-24 00:00:00.000",
+        "ExistsFromDate": "2007-08-24 00:00:00.000"
+      }
+    ]
+  }
+}

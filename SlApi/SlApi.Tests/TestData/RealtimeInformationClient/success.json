@@ -1,0 +1,144 @@
+﻿{
+  "StatusCode": 0,
+  "Message": null,
+  "ExecutionTime": 463,
+  "ResponseData": {
+    "LatestUpdate": "2015-07-25T16:58:22",
+    "DataAge": 2,
+    "Metros": [
+      {
+        "StopAreaName": "Solna centrum",
+        "GroupOfLine": "Tunnelbanans blå linje",
+        "DisplayTime": "5 min",
+        "SafeDestinationName": "Akalla",
+        "GroupOfLineId": 3,
+        "DepartureGroupId": 1,
+        "PlatformMessage": null,
+        "TransportMode": "METRO",
+        "LineNumber": "11",
+        "Destination": "Akalla",
+        "JourneyDirection": 1,
+        "SiteId": 9305
+      },
+      {
+        "StopAreaName": "Solna centrum",
+        "GroupOfLine": "Tunnelbanans blå linje",
+        "DisplayTime": "10 min",
+        "SafeDestinationName": "Akalla",
+        "GroupOfLineId": 3,
+        "DepartureGroupId": 1,
+        "PlatformMessage": null,
+        "TransportMode": "METRO",
+        "LineNumber": "11",
+        "Destination": "Akalla",
+        "JourneyDirection": 1,
+        "SiteId": 9305
+      },
+      {
+        "StopAreaName": "Solna centrum",
+        "GroupOfLine": "Tunnelbanans blå linje",
+        "DisplayTime": "20 min",
+        "SafeDestinationName": "Akalla",
+        "GroupOfLineId": 3,
+        "DepartureGroupId": 1,
+        "PlatformMessage": null,
+        "TransportMode": "METRO",
+        "LineNumber": "11",
+        "Destination": "Akalla",
+        "JourneyDirection": 1,
+        "SiteId": 9305
+      },
+      {
+        "StopAreaName": "Solna centrum",
+        "GroupOfLine": "Tunnelbanans blå linje",
+        "DisplayTime": "1 min",
+        "SafeDestinationName": "Kungsträdgården",
+        "GroupOfLineId": 3,
+        "DepartureGroupId": 2,
+        "PlatformMessage": null,
+        "TransportMode": "METRO",
+        "LineNumber": "11",
+        "Destination": "Kungsträdgården",
+        "JourneyDirection": 2,
+        "SiteId": 9305
+      },
+      {
+        "StopAreaName": "Solna centrum",
+        "GroupOfLine": "Tunnelbanans blå linje",
+        "DisplayTime": "10 min",
+        "SafeDestinationName": "Kungsträdgården",
+        "GroupOfLineId": 3,
+        "DepartureGroupId": 2,
+        "PlatformMessage": null,
+        "TransportMode": "METRO",
+        "LineNumber": "11",
+        "Destination": "Kungsträdgården",
+        "JourneyDirection": 2,
+        "SiteId": 9305
+      },
+      {
+        "StopAreaName": "Solna centrum",
+        "GroupOfLine": "Tunnelbanans blå linje",
+        "DisplayTime": "20 min",
+        "SafeDestinationName": "Kungsträdgården",
+        "GroupOfLineId": 3,
+        "DepartureGroupId": 2,
+        "PlatformMessage": null,
+        "TransportMode": "METRO",
+        "LineNumber": "11",
+        "Destination": "Kungsträdgården",
+        "JourneyDirection": 2,
+        "SiteId": 9305
+      }
+    ],
+    "Buses": [
+      {
+        "JourneyDirection": 2,
+        "GroupOfLine": "Ersättningsbuss",
+        "StopAreaName": "Solna centrum",
+        "StopAreaNumber": 17202,
+        "StopPointNumber": 17202,
+        "StopPointDesignation": null,
+        "TimeTabledDateTime": "2015-07-25T16:59:00",
+        "ExpectedDateTime": "2015-07-25T16:59:00",
+        "DisplayTime": "Nu",
+        "Deviations": null,
+        "TransportMode": "BUS",
+        "LineNumber": "22A",
+        "Destination": "Alvik",
+        "SiteId": 9305
+      }
+    ],
+    "Trains": [ ],
+    "Trams": [ ],
+    "Ships": [ ],
+    "StopPointDeviations": [
+      {
+        "StopInfo": {
+          "StopAreaNumber": 0,
+          "StopAreaName": "Solna centrum",
+          "TransportMode": "n\\a",
+          "GroupOfLine": null
+        },
+        "Deviation": {
+          "Text": "Buss 22A ersätter mellan Alvik och Solna station t o m 9/8. Buss 22B ersätter mellan Gröndalsrampen och Sickla udde t o m 2/8. Använd reseplaneraren för att hitta det bästa alternativet för din resa!",
+          "Consequence": null,
+          "ImportanceLevel": 9
+        }
+      },
+      {
+        "StopInfo": {
+          "StopAreaNumber": 0,
+          "StopAreaName": "Solna centrum",
+          "TransportMode": "n\\a",
+          "GroupOfLine": null
+        },
+        "Deviation": {
+          "Text": "Ersättningsbuss 22A avgår från Frösundaleden.",
+          "Consequence": null,
+          "ImportanceLevel": 9
+        }
+      }
+    ]
+  }
+}
