@@ -1,6 +1,6 @@
 ﻿namespace SlApi.Core
 {
-    public interface IUrlHelper
+    internal interface IUrlHelper
     {
         string UrlEncoder(string value);
     }
