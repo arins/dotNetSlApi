@@ -1,0 +1,721 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{02519899-3509-4E72-8E33-E0401F396D31}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SlApi</RootNamespace>
+    <AssemblyName>SlApi.WindowsPhone81</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{76F1466A-8B6D-4E39-A767-685A06062A39};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\SlApi\Properties\AssemblyInfo.cs">
+      <Link>
+        Properties\AssemblyInfo.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\NetVersions\Portable\UrlHelper.cs">
+      <Link>
+        Core\UrlHelper.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\NearbyStopsClient.cs">
+      <Link>
+        NearbyStopsClient.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\PlaceSearchClient.cs">
+      <Link>
+        PlaceSearchClient.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\RealtimeInformationClient.cs">
+      <Link>
+        RealtimeInformationClient.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\StopsAndRoutesClient.cs">
+      <Link>
+        StopsAndRoutesClient.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\TrafficDeviationInformationClient.cs">
+      <Link>
+        TrafficDeviationInformationClient.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\TrafficInformationClient.cs">
+      <Link>
+        TrafficInformationClient.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\TravelPlannerClient.cs">
+      <Link>
+        TravelPlannerClient.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\Argument.cs">
+      <Link>
+        Core\Argument.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\Arguments.cs">
+      <Link>
+        Core\Arguments.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\NetVersions\Portable\HttpRequester.cs">
+      <Link>
+        Core\HttpRequester.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\TaskExtension.cs">
+      <Link>
+        Core\TaskExtension.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\BaseService.cs">
+      <Link>
+        Core\BaseService.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\DateTimeParsers.cs">
+      <Link>
+        Core\DateTimeParsers.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\EnumConverter.cs">
+      <Link>
+        Core\EnumConverter.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\HttpClient.cs">
+      <Link>
+        Core\HttpClient.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\IConvertableToArguments.cs">
+      <Link>
+        Core\IConvertableToArguments.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\IHttpClient.cs">
+      <Link>
+        Core\IHttpClient.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\IHttpRequester.cs">
+      <Link>
+        Core\IHttpRequester.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\IUrlHelper.cs">
+      <Link>
+        Core\IUrlHelper.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\Language.cs">
+      <Link>
+        Core\Language.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\RequestException.cs">
+      <Link>
+        Core\RequestException.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\RequestPathBuildException.cs">
+      <Link>
+        Core\RequestPathBuildException.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\SingleOrArrayConverter.cs">
+      <Link>
+        Core\SingleOrArrayConverter.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\ArrayBaseResponseData.cs">
+      <Link>
+        Models\ArrayBaseResponseData.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\ArrayBaseResult.cs">
+      <Link>
+        Models\ArrayBaseResult.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\BaseResponseWithVersionType.cs">
+      <Link>
+        Models\BaseResponseWithVersionType.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\ErrorCode.cs">
+      <Link>
+        Models\ErrorCode.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\ErrorResponse.cs">
+      <Link>
+        Models\ErrorResponse.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\GeneralVersionTypeBaseResponse.cs">
+      <Link>
+        Models\GeneralVersionTypeBaseResponse.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\NearbyStations\Request\NearbyStopsRequest.cs">
+      <Link>
+        Models\NearbyStations\Request\NearbyStopsRequest.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\NearbyStations\Response\LocationList.cs">
+      <Link>
+        Models\NearbyStations\Response\LocationList.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\NearbyStations\Response\StopLocation.cs">
+      <Link>
+        Models\NearbyStations\Response\StopLocation.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\NearbyStations\Response\StopLocations.cs">
+      <Link>
+        Models\NearbyStations\Response\StopLocations.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\PlaceSearch\Request\PlaceSearchRequest.cs">
+      <Link>
+        Models\PlaceSearch\Request\PlaceSearchRequest.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\PlaceSearch\Response\Site.cs">
+      <Link>
+        Models\PlaceSearch\Response\Site.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\PlaceSearch\Response\Sites.cs">
+      <Link>
+        Models\PlaceSearch\Response\Sites.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\RealtimeInformation\Request\RealtimeDeparturesRequest.cs">
+      <Link>
+        Models\RealtimeInformation\Request\RealtimeDeparturesRequest.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\RealtimeInformation\Response\Bus.cs">
+      <Link>
+        Models\RealtimeInformation\Response\Bus.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\RealtimeInformation\Response\Departure.cs">
+      <Link>
+        Models\RealtimeInformation\Response\Departure.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\RealtimeInformation\Response\DepartureResponse.cs">
+      <Link>
+        Models\RealtimeInformation\Response\DepartureResponse.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\INearbyStopsClient.cs">
+      <Link>
+        INearbyStopsClient.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\IPlaceSearchClient.cs">
+      <Link>
+        IPlaceSearchClient.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\IRealtimeInformationClient.cs">
+      <Link>
+        IRealtimeInformationClient.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\ISlApiCallback.cs">
+      <Link>
+        ISlApiCallback.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\ISlApiClientFactory.cs">
+      <Link>
+        ISlApiClientFactory.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\IStopsAndRoutesClient.cs">
+      <Link>
+        IStopsAndRoutesClient.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\ITrafficDeviationInformationClient.cs">
+      <Link>
+        ITrafficDeviationInformationClient.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\ITrafficInformationClient.cs">
+      <Link>
+        ITrafficInformationClient.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\ITravelPlannerClient.cs">
+      <Link>
+        ITravelPlannerClient.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\RealtimeInformation\Response\Deviation.cs">
+      <Link>
+        Models\RealtimeInformation\Response\Deviation.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\RealtimeInformation\Response\Metro.cs">
+      <Link>
+        Models\RealtimeInformation\Response\Metro.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\RealtimeInformation\Response\RealtimeInformationBase.cs">
+      <Link>
+        Models\RealtimeInformation\Response\RealtimeInformationBase.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\RealtimeInformation\Response\Ship.cs">
+      <Link>
+        Models\RealtimeInformation\Response\Ship.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\RealtimeInformation\Response\StopInfo.cs">
+      <Link>
+        Models\RealtimeInformation\Response\StopInfo.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\RealtimeInformation\Response\StopPointDeviation.cs">
+      <Link>
+        Models\RealtimeInformation\Response\StopPointDeviation.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\RealtimeInformation\Response\Train.cs">
+      <Link>
+        Models\RealtimeInformation\Response\Train.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\RealtimeInformation\Response\Tram.cs">
+      <Link>
+        Models\RealtimeInformation\Response\Tram.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\RealtimeInformation\Response\TransportModeContainer.cs">
+      <Link>
+        Models\RealtimeInformation\Response\TransportModeContainer.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\RealtimeInformation\Response\TransportModeEnum.cs">
+      <Link>
+        Models\RealtimeInformation\Response\TransportModeEnum.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\RealtimeInformation\Serializer\TransportModeSerializer.cs">
+      <Link>
+        Models\RealtimeInformation\Serializer\TransportModeSerializer.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StatusCode.cs">
+      <Link>
+        Models\StatusCode.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StopsAndRoutes\Request\JourneyPatternPointOnLineRequest.cs">
+      <Link>
+        Models\StopsAndRoutes\Request\JourneyPatternPointOnLineRequest.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StopsAndRoutes\Request\LinesRequest.cs">
+      <Link>
+        Models\StopsAndRoutes\Request\LinesRequest.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StopsAndRoutes\Request\SiteDataRequest.cs">
+      <Link>
+        Models\StopsAndRoutes\Request\SiteDataRequest.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StopsAndRoutes\Request\StopPointRequest.cs">
+      <Link>
+        Models\StopsAndRoutes\Request\StopPointRequest.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StopsAndRoutes\Request\TransportModeRequest.cs">
+      <Link>
+        Models\StopsAndRoutes\Request\TransportModeRequest.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StopsAndRoutes\Response\DefaultTransportModeCode.cs">
+      <Link>
+        Models\StopsAndRoutes\Response\DefaultTransportModeCode.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StopsAndRoutes\Response\JourneyPatternPointOnLine.cs">
+      <Link>
+        Models\StopsAndRoutes\Response\JourneyPatternPointOnLine.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StopsAndRoutes\Response\JourneyPatternPointOnLines.cs">
+      <Link>
+        Models\StopsAndRoutes\Response\JourneyPatternPointOnLines.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StopsAndRoutes\Response\Line.cs">
+      <Link>
+        Models\StopsAndRoutes\Response\Line.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StopsAndRoutes\Response\Lines.cs">
+      <Link>
+        Models\StopsAndRoutes\Response\Lines.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StopsAndRoutes\Response\Site.cs">
+      <Link>
+        Models\StopsAndRoutes\Response\Site.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StopsAndRoutes\Response\Sites.cs">
+      <Link>
+        Models\StopsAndRoutes\Response\Sites.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StopsAndRoutes\Response\StopAreaTypeCode.cs">
+      <Link>
+        Models\StopsAndRoutes\Response\StopAreaTypeCode.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StopsAndRoutes\Response\StopPoint.cs">
+      <Link>
+        Models\StopsAndRoutes\Response\StopPoint.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StopsAndRoutes\Response\StopPoints.cs">
+      <Link>
+        Models\StopsAndRoutes\Response\StopPoints.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StopsAndRoutes\Response\TransportMode.cs">
+      <Link>
+        Models\StopsAndRoutes\Response\TransportMode.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\StopsAndRoutes\Response\TransportModes.cs">
+      <Link>
+        Models\StopsAndRoutes\Response\TransportModes.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TrafficDeviationInformation\Request\TrafficDeviationInformationRawRequest.cs">
+      <Link>
+        Models\TrafficDeviationInformation\Request\TrafficDeviationInformationRawRequest.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TrafficDeviationInformation\Request\TrafficDeviationInformationRequest.cs">
+      <Link>
+        Models\TrafficDeviationInformation\Request\TrafficDeviationInformationRequest.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TrafficDeviationInformation\Response\TrafficDeviation.cs">
+      <Link>
+        Models\TrafficDeviationInformation\Response\TrafficDeviation.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TrafficDeviationInformation\Response\TrafficDeviationInformation.cs">
+      <Link>
+        Models\TrafficDeviationInformation\Response\TrafficDeviationInformation.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TrafficDeviationInformation\Response\TrafficDeviationInformationRaw.cs">
+      <Link>
+        Models\TrafficDeviationInformation\Response\TrafficDeviationInformationRaw.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TrafficInformation\Response\TrafficInformation.cs">
+      <Link>
+        Models\TrafficInformation\Response\TrafficInformation.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TrafficInformation\Response\TrafficType.cs">
+      <Link>
+        Models\TrafficInformation\Response\TrafficType.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TrafficInformation\Response\TrafficTypesContainer.cs">
+      <Link>
+        Models\TrafficInformation\Response\TrafficTypesContainer.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TrafficInformation\Response\TraficTypeEnum.cs">
+      <Link>
+        Models\TrafficInformation\Response\TraficTypeEnum.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\JourneyDirections.cs">
+      <Link>
+        Models\TravelPlanner\JourneyDirections.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Request\GeometryRequest.cs">
+      <Link>
+        Models\TravelPlanner\Request\GeometryRequest.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Request\JourneyRequest.cs">
+      <Link>
+        Models\TravelPlanner\Request\JourneyRequest.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Request\tripDestination.cs">
+      <Link>
+        Models\TravelPlanner\Request\tripDestination.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Request\TripRequest.cs">
+      <Link>
+        Models\TravelPlanner\Request\TripRequest.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\ApiRef.cs">
+      <Link>
+        Models\TravelPlanner\Response\ApiRef.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\Geometry.cs">
+      <Link>
+        Models\TravelPlanner\Response\Geometry.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\GeometryResponse.cs">
+      <Link>
+        Models\TravelPlanner\Response\GeometryResponse.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\JourneyDetail.cs">
+      <Link>
+        Models\TravelPlanner\Response\JourneyDetail.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\JourneyDetailResponse.cs">
+      <Link>
+        Models\TravelPlanner\Response\JourneyDetailResponse.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\JourneyLines.cs">
+      <Link>
+        Models\TravelPlanner\Response\JourneyLines.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\JourneyNames.cs">
+      <Link>
+        Models\TravelPlanner\Response\JourneyNames.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\JourneyRtuMessage.cs">
+      <Link>
+        Models\TravelPlanner\Response\JourneyRtuMessage.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\JourneyTypes.cs">
+      <Link>
+        Models\TravelPlanner\Response\JourneyTypes.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\Leg.cs">
+      <Link>
+        Models\TravelPlanner\Response\Leg.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\LegList.cs">
+      <Link>
+        Models\TravelPlanner\Response\LegList.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\LegNote.cs">
+      <Link>
+        Models\TravelPlanner\Response\LegNote.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\LegPlace.cs">
+      <Link>
+        Models\TravelPlanner\Response\LegPlace.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\LegPlaceTypEnum.cs">
+      <Link>
+        Models\TravelPlanner\Response\LegPlaceTypEnum.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\LegRtuMessage.cs">
+      <Link>
+        Models\TravelPlanner\Response\LegRtuMessage.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\Point.cs">
+      <Link>
+        Models\TravelPlanner\Response\Point.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\Points.cs">
+      <Link>
+        Models\TravelPlanner\Response\Points.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\PriceInfo.cs">
+      <Link>
+        Models\TravelPlanner\Response\PriceInfo.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\RouteBase.cs">
+      <Link>
+        Models\TravelPlanner\Response\RouteBase.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\RtuMessages.cs">
+      <Link>
+        Models\TravelPlanner\Response\RtuMessages.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\Stop.cs">
+      <Link>
+        Models\TravelPlanner\Response\Stop.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\Stops.cs">
+      <Link>
+        Models\TravelPlanner\Response\Stops.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\TariffRemark.cs">
+      <Link>
+        Models\TravelPlanner\Response\TariffRemark.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\TariffZones.cs">
+      <Link>
+        Models\TravelPlanner\Response\TariffZones.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\TravelPlannerErrorResponse.cs">
+      <Link>
+        Models\TravelPlanner\Response\TravelPlannerErrorResponse.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\Trip.cs">
+      <Link>
+        Models\TravelPlanner\Response\Trip.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\TripList.cs">
+      <Link>
+        Models\TravelPlanner\Response\TripList.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\TripResponse.cs">
+      <Link>
+        Models\TravelPlanner\Response\TripResponse.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Models\TravelPlanner\Response\ZoneEnum.cs">
+      <Link>
+        Models\TravelPlanner\Response\ZoneEnum.cs
+      </Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetPlatformIdentifier)' == '' ">
+    <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
