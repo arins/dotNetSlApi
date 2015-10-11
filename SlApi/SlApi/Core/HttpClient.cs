@@ -90,24 +90,15 @@ namespace SlApi.Core
         public TOut DoRequest<TOut>(string path, Arguments arguments = null) where TOut : new()
         {
             CheckReuquester();
-            string resp;
+            string resp = null;
             var ser = default(TOut);
-            try
-            {
+            try { 
                 resp = Requester.GetResponse(BuildRequestPath(path, arguments));
-            }
-            catch (Exception exception)
-            {
-                Callback?.OnNetworkError(exception);
-                throw;
-            }
-            try
-            {
                 ser = JsonConvert.DeserializeObject<TOut>(resp);
             }
             catch (Exception exception)
             {
-                Callback?.OnParseError(resp, exception);
+                Callback?.OnError(resp, exception);
                 throw;
             }
             return ser;

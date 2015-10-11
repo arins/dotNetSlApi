@@ -7,8 +7,6 @@ namespace SlApi.Core
 {
     public interface ISlApiCallback
     {
-        void OnParseError(string response, Exception exception);
-
-        void OnNetworkError(Exception exception);
+        void OnError(string response, Exception exception);
     }
 }

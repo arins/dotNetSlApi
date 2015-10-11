@@ -1,0 +1,17 @@
+﻿{
+  "Geometry": {
+    "noNamespaceSchemaLocation": "hafasRestGeometry.xsd",
+    "Points": {
+      "Point": [
+        {
+          "lat": "59.361337",
+          "lon": "17.996278"
+        },
+        {
+          "lat": "59.363746",
+          "lon": "18.008198"
+        }
+      ]
+    }
+  }
+}

@@ -16,6 +16,7 @@ namespace SlApi.Tests
         
         
         [TestMethod]
+        [DeploymentItem("TestData\\GeometryClient\\testData.json", "TestData\\GeometryClient")]
         public void GeometryTest()
         {
             
@@ -27,7 +28,7 @@ namespace SlApi.Tests
                     "https://api.sl.se/api2/TravelplannerV2/geometry.json/?ref=" + journeref + "&key=" +
                     fakekey),
 
-                GetResponse());
+                GetGeometryResponseSample());
             
 
             
@@ -61,7 +62,7 @@ namespace SlApi.Tests
                         new Uri(
                             "https://api.sl.se/api2/TravelplannerV2/geometry.json/?ref=" + journeref + "&key=" +
                             fakekey)))
-                .ReturnsAsync(GetResponse());
+                .ReturnsAsync(GetGeometryResponseSample());
             var t = new TravelPlannerClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper())
             {
                 ApiToken = fakekey
@@ -80,22 +81,10 @@ namespace SlApi.Tests
         }
 
 
-        public string GetResponse()
+        public string GetGeometryResponseSample()
         {
-            return "{" +
-                   "\"Geometry\":{" +
-                   "  \"noNamespaceSchemaLocation\":\"hafasRestGeometry.xsd\"," +
-                   "  \"Points\":{" +
-                   "    \"Point\":[{" +
-                   "      \"lat\":\"59.361337\"," +
-                   "      \"lon\":\"17.996278\"" +
-                   "      },{" +
-                   "      \"lat\":\"59.363746\"," +
-                   "      \"lon\":\"18.008198\"" +
-                   "      }]" +
-                   "    }" +
-                   "  }" +
-                   "}";
+            var result = GetSampleResponse("TestData\\GeometryClient\\testData.json");
+            return result;
         }
     }
 }

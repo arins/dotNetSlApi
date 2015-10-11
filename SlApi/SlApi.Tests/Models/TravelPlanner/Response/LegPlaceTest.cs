@@ -1,6 +1,8 @@
-﻿using System;
+﻿
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SlApi.Models.TravelPlanner.Response;
+
 
 namespace SlApi.Tests.Models.TravelPlanner.Response
 {
