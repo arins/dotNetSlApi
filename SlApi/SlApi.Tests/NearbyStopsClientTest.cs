@@ -9,6 +9,7 @@ namespace SlApi.Tests
 {
     [TestClass]
     [DeploymentItem("TestData\\NearbyStopsClient\\success.json", "TestData\\NearbyStopsClient")]
+    [DeploymentItem("TestData\\NearbyStopsClient\\error.json", "TestData\\NearbyStopsClient")]
     public class NearbyStopsClientTest : SlApiTest
     {
        
@@ -111,13 +112,13 @@ namespace SlApi.Tests
 
         public string GetNearbyStationsErrorDataForTest()
         {
-            return GetSampleResponse("NearbyStopsClient\\error.json");
+            return GetSampleResponse("TestData\\NearbyStopsClient\\error.json");
         }
 
 
         public string GetNearbyStationDataForTest()
         {
-            return GetSampleResponse("NearbyStopsClient\\success.json");
+            return GetSampleResponse("TestData\\NearbyStopsClient\\success.json");
         }
     }
 }

@@ -125,7 +125,7 @@ namespace SlApi.Tests
 
         public string GetTestResponse()
         {
-            return base.GetSampleResponse("JourneyDetailClient\\success.json");
+            return base.GetSampleResponse("TestData\\JourneyDetailClient\\success.json");
         }
 
     }
