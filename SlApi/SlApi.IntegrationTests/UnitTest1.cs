@@ -15,6 +15,7 @@ namespace SlApi.IntegrationTests
             if (test != null)
             {
                 Trace.WriteLine(" EnvironmentVariableTarget.Machine");
+                Console.WriteLine(" EnvironmentVariableTarget.Machine");
             }
             if (test == null)
             {
@@ -22,6 +23,7 @@ namespace SlApi.IntegrationTests
                 if (test != null)
                 {
                     Trace.WriteLine(" EnvironmentVariableTarget.User");
+                    Console.WriteLine(" EnvironmentVariableTarget.User");
                 }
             }
             if (test == null)
@@ -30,6 +32,7 @@ namespace SlApi.IntegrationTests
                 if (test != null)
                 {
                     Trace.WriteLine(" EnvironmentVariableTarget.Process");
+                    Console.WriteLine(" EnvironmentVariableTarget.Process");
                 }
             }
             if (test == null)
@@ -38,11 +41,13 @@ namespace SlApi.IntegrationTests
                 if (test != null)
                 {
                     Trace.WriteLine(" EnvironmentVariableTarget.User");
+                    Console.WriteLine(" EnvironmentVariableTarget.User");
                 }
             }
             if (test != null)
             {
                 Trace.WriteLine("PlaceSearchClientApiToken: " + test);
+                Console.WriteLine("PlaceSearchClientApiToken: " + test);
             }
             else
             {
