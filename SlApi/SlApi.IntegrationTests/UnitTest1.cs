@@ -12,21 +12,37 @@ namespace SlApi.IntegrationTests
         {
             Trace.WriteLine(Environment.UserDomainName);
             var test = Environment.GetEnvironmentVariable("PlaceSearchClientApiToken",EnvironmentVariableTarget.Machine);
+            if (test != null)
+            {
+                Trace.WriteLine(" EnvironmentVariableTarget.Machine");
+            }
             if (test == null)
             {
                 test = Environment.GetEnvironmentVariable("PlaceSearchClientApiToken", EnvironmentVariableTarget.User);
+                if (test != null)
+                {
+                    Trace.WriteLine(" EnvironmentVariableTarget.User");
+                }
             }
             if (test == null)
             {
                 test = Environment.GetEnvironmentVariable("PlaceSearchClientApiToken", EnvironmentVariableTarget.Process);
+                if (test != null)
+                {
+                    Trace.WriteLine(" EnvironmentVariableTarget.Process");
+                }
             }
             if (test == null)
             {
                 test = Environment.GetEnvironmentVariable("PlaceSearchClientApiToken");
+                if (test != null)
+                {
+                    Trace.WriteLine(" EnvironmentVariableTarget.User");
+                }
             }
             if (test != null)
             {
-                Trace.WriteLine(test);
+                Trace.WriteLine("PlaceSearchClientApiToken: " + test);
             }
             else
             {
