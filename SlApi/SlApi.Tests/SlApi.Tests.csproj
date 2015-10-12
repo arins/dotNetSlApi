@@ -58,6 +58,7 @@
     <Compile Include="NearbyStopsClientTest.cs" />
     <Compile Include="PlaceSearchClientTest.cs" />
     <Compile Include="RealtimeInformationClientTest.cs" />
+    <Compile Include="SlApiCallbackTest.cs" />
     <Compile Include="SlApiTest.cs" />
     <Compile Include="StopsAndRoutesClientTest.cs" />
     <Compile Include="TrafficDeviationInformationClientTest.cs" />
@@ -65,12 +66,58 @@
     <Compile Include="TravelPlannerClientTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TestData\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="TestData\GeometryClient\testData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\JourneyDetailClient\success.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\NearbyStopsClient\error.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\NearbyStopsClient\success.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\PlaceSearchClient\success.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\RealtimeInformationClient\success.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\StopsAndRoutesClient\Jour\success.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\StopsAndRoutesClient\Lines\success.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\StopsAndRoutesClient\Sites\success.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\StopsAndRoutesClient\StopPoints\success.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\StopsAndRoutesClient\TransportMode\success.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\TrafficDeviationInformationClient\success.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\TrafficInformationClient\success.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\TravelPlannerClient\error.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\TravelPlannerClient\success-multizonetest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\TravelPlannerClient\success.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -97,24 +144,10 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SlApi.Net40\SlApi.Net40.csproj">
-      <Project>{d0c7f64c-4987-4d57-8e2a-deb88f50df2c}</Project>
-      <Name>SlApi.Net40</Name>
-      <Aliases>SLApiNet40</Aliases>
-    </ProjectReference>
-    <ProjectReference Include="..\SlApi.Net45\SlApi.Net45.csproj">
-      <Project>{ea121252-0649-4d40-889e-8855380a0873}</Project>
-      <Name>SlApi.Net45</Name>
-      <Aliases>SLApiNet45</Aliases>
-    </ProjectReference>
     <ProjectReference Include="..\SlApi.Net46\SlApi.Net46.csproj">
       <Project>{283e4392-0ee6-4681-86c5-68017e313d49}</Project>
       <Name>SlApi.Net46</Name>
-      <Aliases>SLApiNet46</Aliases>
-    </ProjectReference>
-    <ProjectReference Include="..\SlApi\SlApi.csproj">
-      <Project>{5ee29019-a346-4e4f-a031-d0d0a5c591ab}</Project>
-      <Name>SlApi</Name>
+      <Aliases>global</Aliases>
     </ProjectReference>
   </ItemGroup>
   <Choose>

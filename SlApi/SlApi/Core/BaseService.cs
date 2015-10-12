@@ -11,12 +11,26 @@
             HttpClient = httpClient;
         }
 
+        /// <summary>
+        /// timeout in milliseconds for the requests
+        /// </summary>
         public int Timeout
         {
             get { return HttpClient.Requester.Timeout; }
             set { HttpClient.Requester.Timeout = value; }
         }
+        /// <summary>
+        /// Implement ISlApiCallback and assign it to the client and you can start catching error 
+        /// </summary>
+        public ISlApiCallback Callback
+        {
+            get { return HttpClient.Callback; }
+            set { HttpClient.Callback = value; }
+        }
 
+        /// <summary>
+        /// Sl Api token
+        /// </summary>
         public string ApiToken
         {
             get

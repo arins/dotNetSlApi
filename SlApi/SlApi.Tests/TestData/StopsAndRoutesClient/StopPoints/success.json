@@ -1,0 +1,154 @@
+﻿{
+  "StatusCode": 0,
+  "Message": null,
+  "ExecutionTime": 792,
+  "ResponseData": {
+    "Version": "2015-08-20 00:07",
+    "Type": "StopPoint",
+    "Result": [
+      {
+        "StopPointNumber": "10001",
+        "StopPointName": "Stadshagsplan",
+        "StopAreaNumber": "10001",
+        "LocationNorthingCoordinate": "59.3374104106887",
+        "LocationEastingCoordinate": "18.0216535880432",
+        "ZoneShortName": "A",
+        "StopAreaTypeCode": "BUSTERM",
+        "LastModifiedUtcDateTime": "2014-06-03 00:00:00.000",
+        "ExistsFromDate": "2014-06-03 00:00:00.000"
+      },
+      {
+        "StopPointNumber": "10002",
+        "StopPointName": "John Bergs plan",
+        "StopAreaNumber": "10002",
+        "LocationNorthingCoordinate": "59.3361450073188",
+        "LocationEastingCoordinate": "18.0222866342593",
+        "ZoneShortName": "A",
+        "StopAreaTypeCode": "BUSTERM",
+        "LastModifiedUtcDateTime": "2014-06-03 00:00:00.000",
+        "ExistsFromDate": "2014-06-03 00:00:00.000"
+      },
+      {
+        "StopPointNumber": "10003",
+        "StopPointName": "John Bergs plan",
+        "StopAreaNumber": "10002",
+        "LocationNorthingCoordinate": "59.3362549983713",
+        "LocationEastingCoordinate": "18.0220232520707",
+        "ZoneShortName": "A",
+        "StopAreaTypeCode": "BUSTERM",
+        "LastModifiedUtcDateTime": "2014-06-03 00:00:00.000",
+        "ExistsFromDate": "2014-06-03 00:00:00.000"
+      },
+      {
+        "StopPointNumber": "10006",
+        "StopPointName": "Arbetargatan",
+        "StopAreaNumber": "10006",
+        "LocationNorthingCoordinate": "59.3352361789930",
+        "LocationEastingCoordinate": "18.0269957169377",
+        "ZoneShortName": "A",
+        "StopAreaTypeCode": "BUSTERM",
+        "LastModifiedUtcDateTime": "2014-06-03 00:00:00.000",
+        "ExistsFromDate": "2014-06-03 00:00:00.000"
+      },
+      {
+        "StopPointNumber": "10007",
+        "StopPointName": "Arbetargatan",
+        "StopAreaNumber": "10006",
+        "LocationNorthingCoordinate": "59.3351886295410",
+        "LocationEastingCoordinate": "18.0276780794936",
+        "ZoneShortName": "A",
+        "StopAreaTypeCode": "BUSTERM",
+        "LastModifiedUtcDateTime": "2014-06-03 00:00:00.000",
+        "ExistsFromDate": "2014-06-03 00:00:00.000"
+      },
+      {
+        "StopPointNumber": "10008",
+        "StopPointName": "S:t Eriksgatan",
+        "StopAreaNumber": "10008",
+        "LocationNorthingCoordinate": "59.3344783742441",
+        "LocationEastingCoordinate": "18.0315965889341",
+        "ZoneShortName": "A",
+        "StopAreaTypeCode": "BUSTERM",
+        "LastModifiedUtcDateTime": "2014-06-03 00:00:00.000",
+        "ExistsFromDate": "2014-06-03 00:00:00.000"
+      },
+      {
+        "StopPointNumber": "10009",
+        "StopPointName": "S:t Eriksgatan",
+        "StopAreaNumber": "10008",
+        "LocationNorthingCoordinate": "59.3344800039436",
+        "LocationEastingCoordinate": "18.0334950425846",
+        "ZoneShortName": "A",
+        "StopAreaTypeCode": "BUSTERM",
+        "LastModifiedUtcDateTime": "2014-06-03 00:00:00.000",
+        "ExistsFromDate": "2014-06-03 00:00:00.000"
+      },
+      {
+        "StopPointNumber": "10010",
+        "StopPointName": "Frihamnens färjeterminal",
+        "StopAreaNumber": "10010",
+        "LocationNorthingCoordinate": "59.3425635205332",
+        "LocationEastingCoordinate": "18.1189085925683",
+        "ZoneShortName": "A",
+        "StopAreaTypeCode": "BUSTERM",
+        "LastModifiedUtcDateTime": "2014-12-14 00:00:00.000",
+        "ExistsFromDate": "2014-12-14 00:00:00.000"
+      },
+      {
+        "StopPointNumber": "10011",
+        "StopPointName": "Frihamnsporten",
+        "StopAreaNumber": "10052",
+        "LocationNorthingCoordinate": "59.3399094088355",
+        "LocationEastingCoordinate": "18.1146321830924",
+        "ZoneShortName": "A",
+        "StopAreaTypeCode": "BUSTERM",
+        "LastModifiedUtcDateTime": "2014-06-03 00:00:00.000",
+        "ExistsFromDate": "2014-06-03 00:00:00.000"
+      },
+      {
+        "StopPointNumber": "10012",
+        "StopPointName": "S:t Eriks ögonsjukhus",
+        "StopAreaNumber": "10012",
+        "LocationNorthingCoordinate": "59.3337783076748",
+        "LocationEastingCoordinate": "18.0374650139904",
+        "ZoneShortName": "A",
+        "StopAreaTypeCode": "BUSTERM",
+        "LastModifiedUtcDateTime": "2014-06-03 00:00:00.000",
+        "ExistsFromDate": "2014-06-03 00:00:00.000"
+      },
+      {
+        "StopPointNumber": "10013",
+        "StopPointName": "S:t Eriksgatan",
+        "StopAreaNumber": "10008",
+        "LocationNorthingCoordinate": "59.3347173254206",
+        "LocationEastingCoordinate": "18.0314340953105",
+        "ZoneShortName": "A",
+        "StopAreaTypeCode": "BUSTERM",
+        "LastModifiedUtcDateTime": "2014-06-03 00:00:00.000",
+        "ExistsFromDate": "2014-06-03 00:00:00.000"
+      },
+      {
+        "StopPointNumber": "10014",
+        "StopPointName": "Scheelegatan",
+        "StopAreaNumber": "10014",
+        "LocationNorthingCoordinate": "59.3328650108015",
+        "LocationEastingCoordinate": "18.0446133231273",
+        "ZoneShortName": "A",
+        "StopAreaTypeCode": "BUSTERM",
+        "LastModifiedUtcDateTime": "2014-06-03 00:00:00.000",
+        "ExistsFromDate": "2014-06-03 00:00:00.000"
+      },
+      {
+        "StopPointNumber": "10015",
+        "StopPointName": "Scheelegatan",
+        "StopAreaNumber": "10014",
+        "LocationNorthingCoordinate": "59.3332016567806",
+        "LocationEastingCoordinate": "18.0441933960080",
+        "ZoneShortName": "A",
+        "StopAreaTypeCode": "BUSTERM",
+        "LastModifiedUtcDateTime": "2014-06-03 00:00:00.000",
+        "ExistsFromDate": "2014-06-03 00:00:00.000"
+      }
+    ]
+  }
+}

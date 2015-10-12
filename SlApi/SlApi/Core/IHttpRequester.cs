@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 
 namespace SlApi.Core
-
 {
     public interface IHttpRequester
     {

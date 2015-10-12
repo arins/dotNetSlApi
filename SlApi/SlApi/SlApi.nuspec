@@ -41,6 +41,7 @@
     <file src="bin\Release\net45\SlApi.dll" target="lib\net45\SlApi.dll" />
     <file src="bin\Release\net46\SlApi.dll" target="lib\net46\SlApi.dll" />
     <file src="bin\Release\net40\SlApi.dll" target="lib\net40\SlApi.dll" />
+    <file src="bin\Release\windowsphone81\SlApi.dll" target="lib\windowsphone81\SlApi.dll" />
     <file src="bin\Release\sl5\SlApi.dll" target="lib\sl5\SlApi.dll" />
   </files>
 </package>

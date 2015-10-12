@@ -12,6 +12,10 @@ cd "%SolutionDir%"
 
 nuget.exe restore %SolutionFileName%
 
+echo test
+
+cd
+
 IF EXIST SlApi\bin\Release\net40 (
 	rmdir /q /s SlApi\bin\Release\net40
 )
@@ -31,6 +35,9 @@ IF EXIST SlApi\bin\Release\SlApi (
 	rmdir /q /s SlApi\bin\Release\SlApi
 )
 
+IF EXIST SlApi\bin\Release\windowsphone81 (
+	rmdir /q /s SlApi\bin\Release\windowsphone81
+)
 
 
 mkdir SlApi\bin\Release\net40
@@ -38,7 +45,9 @@ mkdir SlApi\bin\Release\net45
 mkdir SlApi\bin\Release\net46
 mkdir SlApi\bin\Release\sl5
 mkdir SlApi\bin\Release\SlApi
+mkdir SlApi\bin\Release\windowsphone81
 
+pause 10
 
 echo copying net 4.0 ...
 copy SlApi.Net40\bin\Release\SlApi.dll SlApi\bin\Release\net40\SlApi.dll
@@ -51,6 +60,9 @@ copy SlApi.Net46\bin\Release\SlApi.dll SlApi\bin\Release\net46\SlApi.dll
 
 echo copying .net silverlight 5 ...
 copy SlApi.Silverlight\bin\Release\SlApi.dll SlApi\bin\Release\sl5\SlApi.dll
+
+echo copying .net windows phone 8.1 ...
+copy SlApi.WindowsPhone8.1\bin\Release\SlApi.dll SlApi\bin\Release\windowsphone81\SlApi.dll
 
 echo preparing for nuget packaging
 copy SlApi\bin\Release\SlApi.dll SlApi\bin\Release\SlApi\SlApi.dll
