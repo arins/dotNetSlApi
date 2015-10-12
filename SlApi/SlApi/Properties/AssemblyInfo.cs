@@ -30,5 +30,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("3.1.0")]
 
 
-//[assembly: InternalsVisibleTo("SlApi.Tests")]
+[assembly: InternalsVisibleTo("SlApi.Tests")]
 
