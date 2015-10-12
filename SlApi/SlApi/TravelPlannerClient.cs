@@ -7,7 +7,7 @@ using SlApi.Models.TravelPlanner.Response;
 namespace SlApi
 {
 
-    internal class TravelPlannerClient : BaseService, ITravelPlannerClient
+    public class TravelPlannerClient : BaseService, ITravelPlannerClient
     {
         public TravelPlannerClient(IHttpClient httpClient) : base(httpClient)
         {
