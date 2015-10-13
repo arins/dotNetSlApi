@@ -11,22 +11,7 @@ namespace SlApi.IntegrationTests
         public void TestMethod1()
         {
             Trace.WriteLine(Environment.UserDomainName);
-            var test = Environment.GetEnvironmentVariable("PlaceSearchClientApiToken", EnvironmentVariableTarget.User);
-                if (test != null)
-                {
-                    Trace.WriteLine(" EnvironmentVariableTarget.User");
-                    Console.WriteLine(" EnvironmentVariableTarget.User");
-                }
-            
-            if (test == null)
-            {
-                test = Environment.GetEnvironmentVariable("PlaceSearchClientApiToken", EnvironmentVariableTarget.Process);
-                if (test != null)
-                {
-                    Trace.WriteLine(" EnvironmentVariableTarget.Process");
-                    Console.WriteLine(" EnvironmentVariableTarget.Process");
-                }
-            }
+            var test = EnvironmentHelper.GetEnvironmentVariable("PlaceSearchClientApiToken");
            
             if (test != null)
             {
