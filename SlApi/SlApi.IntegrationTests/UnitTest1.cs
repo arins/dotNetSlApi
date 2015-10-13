@@ -11,21 +11,13 @@ namespace SlApi.IntegrationTests
         public void TestMethod1()
         {
             Trace.WriteLine(Environment.UserDomainName);
-            var test = Environment.GetEnvironmentVariable("PlaceSearchClientApiToken",EnvironmentVariableTarget.Machine);
-            if (test != null)
-            {
-                Trace.WriteLine(" EnvironmentVariableTarget.Machine");
-                Console.WriteLine(" EnvironmentVariableTarget.Machine");
-            }
-            if (test == null)
-            {
-                test = Environment.GetEnvironmentVariable("PlaceSearchClientApiToken", EnvironmentVariableTarget.User);
+            var test = Environment.GetEnvironmentVariable("PlaceSearchClientApiToken", EnvironmentVariableTarget.User);
                 if (test != null)
                 {
                     Trace.WriteLine(" EnvironmentVariableTarget.User");
                     Console.WriteLine(" EnvironmentVariableTarget.User");
                 }
-            }
+            
             if (test == null)
             {
                 test = Environment.GetEnvironmentVariable("PlaceSearchClientApiToken", EnvironmentVariableTarget.Process);
@@ -35,19 +27,10 @@ namespace SlApi.IntegrationTests
                     Console.WriteLine(" EnvironmentVariableTarget.Process");
                 }
             }
-            if (test == null)
-            {
-                test = Environment.GetEnvironmentVariable("PlaceSearchClientApiToken");
-                if (test != null)
-                {
-                    Trace.WriteLine(" EnvironmentVariableTarget.User");
-                    Console.WriteLine(" EnvironmentVariableTarget.User");
-                }
-            }
+           
             if (test != null)
             {
-                Trace.WriteLine("PlaceSearchClientApiToken: " + test);
-                Console.WriteLine("PlaceSearchClientApiToken: " + test);
+                Assert.IsTrue("43c8b38e98414ef8bce521e939ee9643".Equals(test));
             }
             else
             {
