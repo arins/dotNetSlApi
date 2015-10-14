@@ -134,6 +134,11 @@
         Core\Arguments.cs
       </Link>
     </Compile>
+    <Compile Include="..\SlApi\Core\HttpRequestException.cs">
+      <Link>
+        Core\Argument.cs
+      </Link>
+    </Compile>
     <Compile Include="..\NetVersions\Portable\HttpRequester.cs">
       <Link>
         Core\HttpRequester.cs

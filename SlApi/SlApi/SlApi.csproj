@@ -42,6 +42,7 @@
     <Compile Include="Core\DateTimeParsers.cs" />
     <Compile Include="Core\EnumConverter.cs" />
     <Compile Include="Core\HttpClient.cs" />
+    <Compile Include="Core\HttpRequestException.cs" />
     <Compile Include="Core\IConvertableToArguments.cs" />
     <Compile Include="Core\IHttpClient.cs" />
     <Compile Include="Core\IHttpRequester.cs" />

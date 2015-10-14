@@ -1,7 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 using SlApi.Core;
 using SlApi.Models.TravelPlanner.Request;
 
@@ -20,15 +20,10 @@ namespace SlApi.Tests
 
             var fakekey = "fakekey";
             var journeref = "773439%2F263400%2F652690%2F68534%2F74%3Fdate%3D2015-09-13%26station_evaId%3D400104547%26station_type%3Ddep%26lang%3Dsv%26format%3Djson%26";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponse(
-                        new Uri(
-                            "https://api.sl.se/api2/TravelplannerV2/journeydetail.json/?ref=" + journeref + "&key=" +
-                            fakekey)))
-                .Returns(GetTestResponse);
-            var t = new TravelPlannerClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper())
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                "https://api.sl.se/api2/TravelplannerV2/journeydetail.json/?ref=" + journeref + "&key=" +
+                fakekey), GetTestResponse());
+            var t = new TravelPlannerClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper())
             {
                 ApiToken = fakekey
             });
@@ -72,15 +67,11 @@ namespace SlApi.Tests
 
             var fakekey = "fakekey";
             var journeref = "773439%2F263400%2F652690%2F68534%2F74%3Fdate%3D2015-09-13%26station_evaId%3D400104547%26station_type%3Ddep%26lang%3Dsv%26format%3Djson%26";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponseAsync(
-                        new Uri(
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
                             "https://api.sl.se/api2/TravelplannerV2/journeydetail.json/?ref=" + journeref + "&key=" +
-                            fakekey)))
-                .ReturnsAsync(GetTestResponse());
-            var t = new TravelPlannerClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper())
+                            fakekey), GetTestResponse());
+            
+            var t = new TravelPlannerClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper())
             {
                 ApiToken = fakekey
             });
@@ -123,9 +114,14 @@ namespace SlApi.Tests
 
 
 
-        public string GetTestResponse()
+        public Stream GetTestResponse()
         {
-            return base.GetSampleResponse("TestData\\JourneyDetailClient\\success.json");
+            var ms = new MemoryStream();
+            var sw = new StreamWriter(ms);
+            sw.Write(GetSampleResponse("TestData\\JourneyDetailClient\\success.json"));
+            sw.AutoFlush = true;
+            ms.Seek(0, SeekOrigin.Begin);
+            return ms;
         }
 
     }

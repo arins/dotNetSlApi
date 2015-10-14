@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -12,9 +13,15 @@ namespace SlApi.Tests
     public class TrafficInformationClientTest : SlApiTest
     {
 
-        public string GetTestResponse()
+        public Stream GetTestResponse()
         {
-            return GetSampleResponse("TestData\\TrafficInformationClient\\success.json");
+            var ms = new MemoryStream();
+            var sw = new StreamWriter(ms);
+            sw.Write(GetSampleResponse("TestData\\TrafficInformationClient\\success.json"));
+            sw.AutoFlush = true;
+            ms.Seek(0, SeekOrigin.Begin);
+            return ms;
+            
 
         }
 
@@ -23,14 +30,9 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponse(
-                        new Uri(
-                            "https://api.sl.se/api2/trafficsituation.json/?key=" + fakekey)))
-                .Returns(GetTestResponse);
-            var t = new TrafficInformationClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper())
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/trafficsituation.json/?key=" + fakekey), GetTestResponse());
+            var t = new TrafficInformationClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper())
             {
                 ApiToken = fakekey
             });
@@ -59,21 +61,13 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponseAsync(
-                        new Uri(
-                            "https://api.sl.se/api2/trafficsituation.json/?key=" + fakekey)))
-                .ReturnsAsync(GetTestResponse());
-            var t = new TrafficInformationClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper()))
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/trafficsituation.json/?key=" + fakekey), GetTestResponse());
+            var t = new TrafficInformationClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper()))
             {
                 ApiToken = fakekey
             };
-
-
             var responseAsync = t.GetTrafficInformationAsync();
-
             responseAsync.Wait();
             var result = responseAsync.Result;
             var f = result.ResponseData.TrafficTypes.FirstOrDefault();

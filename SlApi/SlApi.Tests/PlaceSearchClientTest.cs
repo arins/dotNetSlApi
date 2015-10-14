@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -13,9 +14,14 @@ namespace SlApi.Tests
     public class PlaceSearchClientTest : SlApiTest
     {
 
-        public string GetTestResponse()
+        public Stream GetTestResponse()
         {
-            return GetSampleResponse("TestData\\PlaceSearchClient\\success.json");
+            var ms = new MemoryStream();
+            var sw = new StreamWriter(ms);
+            sw.Write(GetSampleResponse("TestData\\PlaceSearchClient\\success.json"));
+            sw.AutoFlush = true;
+            ms.Seek(0, SeekOrigin.Begin);
+            return ms;
         }
 
         [TestMethod]
@@ -23,19 +29,12 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponse(
-                        new Uri(
-                            "https://api.sl.se/api2/typeahead.json/?SearchString=Solna&StationsOnly=false&key=" + fakekey)))
-                .Returns(GetTestResponse);
-            var search = new PlaceSearchClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper()))
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/typeahead.json/?SearchString=Solna&StationsOnly=false&key=" + fakekey), GetTestResponse());
+            var search = new PlaceSearchClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper()))
             {
                 ApiToken = fakekey
             };
-
-
             var result = search.Search(new PlaceSearchRequest
             {
                 SearchString = "Solna",
@@ -65,19 +64,12 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponseAsync(
-                        new Uri(
-                            "https://api.sl.se/api2/typeahead.json/?SearchString=Solna&StationsOnly=false&key=" + fakekey)))
-                .ReturnsAsync(GetTestResponse());
-            var search = new PlaceSearchClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper()))
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/typeahead.json/?SearchString=Solna&StationsOnly=false&key=" + fakekey), GetTestResponse());
+            var search = new PlaceSearchClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper()))
             {
                 ApiToken = fakekey
             };
-
-
             var resultAsync = search.SearchAsync(new PlaceSearchRequest
             {
                 SearchString = "Solna",

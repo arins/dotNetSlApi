@@ -31,7 +31,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlApi.Silverlight", "SlApi.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlApi.WindowsPhone8.1", "SlApi.WindowsPhone8.1\SlApi.WindowsPhone8.1.csproj", "{02519899-3509-4E72-8E33-E0401F396D31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlApi.IntegrationTests", "SlApi.IntegrationTests\SlApi.IntegrationTests.csproj", "{3315A23E-006A-453C-878B-6DCB0BB41D98}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlApi.IntegrationTests46", "SlApi.IntegrationTests46\SlApi.IntegrationTests46.csproj", "{3315A23E-006A-453C-878B-6DCB0BB41D98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlaApi.IntegrationTests45", "SlaApi.IntegrationTests45\SlaApi.IntegrationTests45.csproj", "{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -207,6 +209,26 @@ Global
 		{3315A23E-006A-453C-878B-6DCB0BB41D98}.Release|x64.Build.0 = Release|Any CPU
 		{3315A23E-006A-453C-878B-6DCB0BB41D98}.Release|x86.ActiveCfg = Release|Any CPU
 		{3315A23E-006A-453C-878B-6DCB0BB41D98}.Release|x86.Build.0 = Release|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Debug|ARM.Build.0 = Debug|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Debug|x64.Build.0 = Debug|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Debug|x86.Build.0 = Debug|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Release|ARM.ActiveCfg = Release|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Release|ARM.Build.0 = Release|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Release|x64.ActiveCfg = Release|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Release|x64.Build.0 = Release|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Release|x86.ActiveCfg = Release|Any CPU
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -220,5 +242,6 @@ Global
 		{CD56740D-DBF1-4347-A5DF-924945DEEE62} = {F0FC216E-3345-4D49-9D0C-386A5DBB2B75}
 		{02519899-3509-4E72-8E33-E0401F396D31} = {F0FC216E-3345-4D49-9D0C-386A5DBB2B75}
 		{3315A23E-006A-453C-878B-6DCB0BB41D98} = {B90876EE-6D6A-4551-AF17-F59B44AA9872}
+		{CF9BC0AE-FE1D-453B-88FB-830FAADA9806} = {B90876EE-6D6A-4551-AF17-F59B44AA9872}
 	EndGlobalSection
 EndGlobal

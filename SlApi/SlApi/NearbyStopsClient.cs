@@ -7,19 +7,35 @@ namespace SlApi
 {
     public class NearbyStopsClient : BaseService, INearbyStopsClient
     {
+
+        public bool GzipEnabled
+        {
+            get
+            {
+                return HttpClient.Requester.GzipEnabled;
+
+            }
+            set
+            {
+                HttpClient.Requester.GzipEnabled = value;
+            }
+        }
         public NearbyStopsClient(IHttpClient httpClient) : base(httpClient)
         {
         }
 
-        public NearbyStopsClient()
-            : base(new HttpClient("https://api.sl.se/", new HttpRequester(), new UrlHelper()))
-        {
-        }
-        public NearbyStopsClient(string endPoint)
-            : base(new HttpClient(endPoint, new HttpRequester(), new UrlHelper()))
+        public NearbyStopsClient(string apiToken, string endPoint = Endpoint)
+            : base(new HttpClient(endPoint, new HttpRequester(), new UrlHelper()) {
+                ApiToken = apiToken
+            })
         {
         }
 
+        public NearbyStopsClient()
+            : base(new HttpClient(Endpoint, new HttpRequester(), new UrlHelper()))
+        {
+        }
+       
         public StopLocations Nearbystops(NearbyStopsRequest nerbyStopsRequest)
         {
             return HttpClient.DoRequest<StopLocations>("api2/nearbystops.json", nerbyStopsRequest);

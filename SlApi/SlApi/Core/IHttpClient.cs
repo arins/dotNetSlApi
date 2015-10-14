@@ -10,7 +10,5 @@ namespace SlApi.Core
         Task<TOut> DoRequestAsync<TOut>(string path, Arguments arguments = null) where TOut : new();
         TOut DoRequest<TOut>(string path, IConvertableToArgument arguments) where TOut : new();
         Task<TOut> DoRequestAsync<TOut>(string path, IConvertableToArgument arguments) where TOut : new();
-
-        ISlApiCallback Callback { get; set; }
     }
 }

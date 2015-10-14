@@ -11,6 +11,11 @@ namespace SlApi
     public interface ITravelPlannerClient
 
     {
+
+        bool GzipEnabled
+        {
+            get; set;
+        }
         GeometryResponse Geometry(GeometryRequest geometryRequest);
         Task<GeometryResponse> GeometryAsync(GeometryRequest geometryRequest);
         JourneyDetailResponse JourneyDetail(JourneyRequest journeyRequest);

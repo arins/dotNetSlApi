@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -14,9 +15,14 @@ namespace SlApi.Tests
     public class RealtimeInformationClientTest : SlApiTest
     {
 
-        public string GetTestResponse()
+        public Stream GetTestResponse()
         {
-            return base.GetSampleResponse("TestData\\RealtimeInformationClient\\success.json");
+            var ms = new MemoryStream();
+            var sw = new StreamWriter(ms);
+            sw.Write(GetSampleResponse("TestData\\RealtimeInformationClient\\success.json"));
+            sw.AutoFlush = true;
+            ms.Seek(0, SeekOrigin.Begin);
+            return ms;
         }
 
         [TestMethod]
@@ -24,25 +30,17 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponse(
-                        new Uri(
-                            "https://api.sl.se/api2/realtimedepartures.json/?SiteId=9305&TimeWindow=2&key=" + fakekey)))
-                .Returns(GetTestResponse);
-            var t = new RealtimeInformationClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper()))
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/realtimedepartures.json/?SiteId=9305&TimeWindow=2&key=" + fakekey), GetTestResponse());
+            var t = new RealtimeInformationClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper()))
             {
                 ApiToken = fakekey
             };
-
-          
             var result = t.RealtimeDepartures(new RealtimeDeparturesRequest
             {
                 SiteId = 9305,
                 TimeWindow = 2
             });
-
             var f = result.ResponseData.Metros.FirstOrDefault();
             Assert.IsTrue(f!=null);
             Assert.IsTrue(result.StatusCode == StatusCode.Ok);
@@ -58,19 +56,12 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponseAsync(
-                        new Uri(
-                            "https://api.sl.se/api2/realtimedepartures.json/?SiteId=9305&TimeWindow=2&key=" + fakekey)))
-                .ReturnsAsync(GetTestResponse());
-            var t = new RealtimeInformationClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper()))
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/realtimedepartures.json/?SiteId=9305&TimeWindow=2&key=" + fakekey), GetTestResponse());
+            var t = new RealtimeInformationClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper()))
             {
                 ApiToken = fakekey
             };
-
-
             var responseAsync = t.RealtimeDeparturesAsync(new RealtimeDeparturesRequest
             {
                 SiteId = 9305,

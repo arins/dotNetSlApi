@@ -1,26 +1,30 @@
 ﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace SlApi.Core
 {
     public interface IHttpRequester
     {
+       
+
+
         /// <summary>
-        /// Gets the response string async from the url
+        /// Gets the response stream from the url
         /// </summary>
         /// <param name="url">url to request from</param>
         /// <returns>return a string in the encoding specified</returns>
         /// <exception cref="RequestException">Throw this exception if any error occurs</exception>
-        Task<string> GetResponseAsync(Uri url);
+        Stream GetResponseStream(Uri url);
+
 
         /// <summary>
-        /// Gets the response string from the url
+        /// Gets the response stream async from the url
         /// </summary>
         /// <param name="url">url to request from</param>
         /// <returns>return a string in the encoding specified</returns>
         /// <exception cref="RequestException">Throw this exception if any error occurs</exception>
-        string GetResponse(Uri url);
-
+        Task<Stream> GetResponseStreamAsync(Uri url);
 
         /// <summary>
         /// The timeout until abort in milliseconds
@@ -28,5 +32,6 @@ namespace SlApi.Core
         int Timeout { get; set; }
 
         bool GzipEnabled { get; set; }
+        
     }
 }

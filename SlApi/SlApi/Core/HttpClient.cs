@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,6 @@ namespace SlApi.Core
         public IHttpRequester Requester { get; set; }
 
         public IUrlHelper UrlHelper { get; set; }
-        public ISlApiCallback Callback { get; set; }
 
         internal string EndPoint { get; set; }
         public string ApiToken { get; set; }
@@ -39,7 +39,7 @@ namespace SlApi.Core
             EndPoint = endPoint;
             Requester = httpRequester;
             UrlHelper = helper;
-            Callback = callback;
+            
         }
 
         
@@ -90,18 +90,34 @@ namespace SlApi.Core
         public TOut DoRequest<TOut>(string path, Arguments arguments = null) where TOut : new()
         {
             CheckReuquester();
-            string resp = null;
-            var ser = default(TOut);
-            try { 
-                resp = Requester.GetResponse(BuildRequestPath(path, arguments));
-                ser = JsonConvert.DeserializeObject<TOut>(resp);
+
+            Stream stream = null;
+            try
+            {
+
+                stream = Requester.GetResponseStream(BuildRequestPath(path, arguments));
+                var serializer = new JsonSerializer();
+                using (var sr = new StreamReader(stream))
+                {
+                    using (var jsonTextReader = new JsonTextReader(sr))
+                    {
+                        var result = serializer.Deserialize<TOut>(jsonTextReader);
+                        
+                        return result;
+                    }
+                }
             }
             catch (Exception exception)
             {
-                Callback?.OnError(resp, exception);
-                throw;
+                var response = "";
+                if (stream != null)
+                {
+                    var sr = new StreamReader(stream);
+                    response = sr.ReadToEnd();
+                }
+                throw new HttpRequestException("Something wrong when requesting ", response, exception);
             }
-            return ser;
+
         }
 
         public TOut DoRequest<TOut>(string path, IConvertableToArgument arguments) where TOut : new()
@@ -128,9 +144,15 @@ namespace SlApi.Core
         {
             CheckReuquester();
             var url = BuildRequestPath(path, arguments);
-            var result = await Requester.GetResponseAsync(url);
-            var p = JsonConvert.DeserializeObject<TOut>(result);
-            return p;
+            var stream = await Requester.GetResponseStreamAsync(url);
+            var serializer = new JsonSerializer();
+            using (var sr = new StreamReader(stream))
+            {
+                using (var jsonTextReader = new JsonTextReader(sr))
+                {
+                    return serializer.Deserialize<TOut>(jsonTextReader);
+                }
+            }
         }
 
 
@@ -167,4 +189,6 @@ namespace SlApi.Core
 
 
     }
+
+    
 }

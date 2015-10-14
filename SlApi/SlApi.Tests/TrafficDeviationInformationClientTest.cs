@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -12,9 +13,14 @@ namespace SlApi.Tests
     public class TrafficDeviationInformationClientTest : SlApiTest
     {
 
-        public string GetTestResponse()
+        public Stream GetTestResponse()
         {
-            return GetSampleResponse("TestData\\TrafficDeviationInformationClient\\success.json");
+            var ms = new MemoryStream();
+            var sw = new StreamWriter(ms);
+            sw.Write(GetSampleResponse("TestData\\TrafficDeviationInformationClient\\success.json"));
+            sw.AutoFlush = true;
+            ms.Seek(0, SeekOrigin.Begin);
+            return ms;
 
         }
 
@@ -23,21 +29,13 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponse(
-                        new Uri(
-                            "https://api.sl.se/api2/deviations.json/?key=" + fakekey)))
-                .Returns(GetTestResponse);
-            var t = new TrafficDeviationInformationClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper())
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/deviations.json/?key=" + fakekey), GetTestResponse());
+            var t = new TrafficDeviationInformationClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper())
             {
                 ApiToken = fakekey
             });
-
-          
             var result = t.GetTrafficDeviationInformation(new TrafficDeviationInformationRequest());
-
             var f = result.ResponseData.FirstOrDefault();
             Assert.IsTrue(f!=null);
             var date = new DateTime(2015, 9, 4, 16, 14, 13);
@@ -56,21 +54,13 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponseAsync(
-                        new Uri(
-                            "https://api.sl.se/api2/deviations.json/?key=" + fakekey)))
-                .ReturnsAsync(GetTestResponse());
-            var t = new TrafficDeviationInformationClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper()))
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/deviations.json/?key=" + fakekey), GetTestResponse());
+            var t = new TrafficDeviationInformationClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper()))
             {
                 ApiToken = fakekey
             };
-
-
             var responseAsync = t.GetTrafficDeviationInformationAsync(new TrafficDeviationInformationRequest());
-
             responseAsync.Wait();
             var result = responseAsync.Result;
             var f = result.ResponseData.FirstOrDefault();

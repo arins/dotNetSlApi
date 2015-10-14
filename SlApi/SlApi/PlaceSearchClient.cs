@@ -23,10 +23,13 @@ namespace SlApi
         {
         }
 
-        public PlaceSearchClient(string endPoint)
-            : base(new HttpClient(endPoint, new HttpRequester(), new UrlHelper()))
+        public PlaceSearchClient(string apiToken, string endPoint = Endpoint)
+            : base(new HttpClient(endPoint, new HttpRequester(), new UrlHelper()) {
+                ApiToken = apiToken
+            })
         {
         }
+
         public PlaceSearchClient()
             : base(new HttpClient("https://api.sl.se/", new HttpRequester(), new UrlHelper()))
         {

@@ -10,7 +10,10 @@ namespace SlApi
     /// </summary>
     public interface IPlaceSearchClient
     {
-
+        bool GzipEnabled
+        {
+            get; set;
+        }
 
         /// <summary>
         /// Med detta API kan du få information om en plats genom att skicka in delar av platsens namn. 

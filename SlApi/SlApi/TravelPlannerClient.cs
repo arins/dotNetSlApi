@@ -9,15 +9,32 @@ namespace SlApi
 
     public class TravelPlannerClient : BaseService, ITravelPlannerClient
     {
+
+        public bool GzipEnabled
+        {
+            get
+            {
+                return HttpClient.Requester.GzipEnabled;
+
+            }
+            set
+            {
+                HttpClient.Requester.GzipEnabled = value;
+            }
+        }
+
         public TravelPlannerClient(IHttpClient httpClient) : base(httpClient)
         {
         }
 
 
-        public TravelPlannerClient(string endPoint)
-            : base(new HttpClient(endPoint, new HttpRequester(), new UrlHelper()))
+        public TravelPlannerClient(string apiToken, string endPoint = Endpoint)
+            : base(new HttpClient(endPoint, new HttpRequester(), new UrlHelper()) {
+                ApiToken = apiToken
+            })
         {
         }
+
         public TravelPlannerClient()
             : base(new HttpClient("https://api.sl.se/", new HttpRequester(), new UrlHelper()))
         {

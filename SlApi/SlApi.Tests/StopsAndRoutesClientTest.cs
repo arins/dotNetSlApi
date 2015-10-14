@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using SlApi.Core;
@@ -21,19 +22,12 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponse(
-                        new Uri(
-                            "https://api.sl.se/api2/LineData.json/?model=site&key=" + fakekey)))
-                .Returns(GetTestResponseForSites);
-            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper()))
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=site&key=" + fakekey), GetTestResponseForSites());
+            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper()))
             {
                 ApiToken = fakekey
             };
-
-          
             var result = t.Sites();
             Assert.IsTrue(result.ExecutionTime == 686);
             Assert.IsTrue(result.ResponseData.Result.Length == 25);
@@ -48,19 +42,12 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponseAsync(
-                        new Uri(
-                            "https://api.sl.se/api2/LineData.json/?model=site&key=" + fakekey)))
-                .ReturnsAsync(GetTestResponseForSites());
-            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper()))
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=site&key=" + fakekey), GetTestResponseForSites());
+            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper()))
             {
                 ApiToken = fakekey
             };
-
-
             var responseAsync = t.SitesAsync();
             responseAsync.Wait();
             var result = responseAsync.Result;
@@ -80,19 +67,12 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponse(
-                        new Uri(
-                            "https://api.sl.se/api2/LineData.json/?model=stopPoint&key=" + fakekey)))
-                .Returns(GetTestResponseForStopPoints);
-            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper()))
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=stopPoint&key=" + fakekey), GetTestResponseForStopPoints());
+            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper()))
             {
                 ApiToken = fakekey
             };
-
-
             var result = t.StopPoints();
             Assert.IsTrue(result.ExecutionTime == 792);
             Assert.IsTrue(result.ResponseData.Result.Length == 13);
@@ -108,19 +88,12 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponseAsync(
-                        new Uri(
-                            "https://api.sl.se/api2/LineData.json/?model=stopPoint&key=" + fakekey)))
-                .ReturnsAsync(GetTestResponseForStopPoints());
-            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper()))
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=stopPoint&key=" + fakekey), GetTestResponseForStopPoints());
+            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper()))
             {
                 ApiToken = fakekey
             };
-
-
             var responseAsync = t.StopPointsAsync();
             responseAsync.Wait();
             var result = responseAsync.Result;
@@ -137,19 +110,12 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponse(
-                        new Uri(
-                            "https://api.sl.se/api2/LineData.json/?model=line&key=" + fakekey)))
-                .Returns(GetTestResponseForLines);
-            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper()))
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=line&key=" + fakekey), GetTestResponseForLines());
+            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper()))
             {
                 ApiToken = fakekey
             };
-
-
             var result = t.Lines();
             Assert.IsTrue(result.ExecutionTime == 717);
             Assert.IsTrue(result.ResponseData.Result.Length == 29);
@@ -168,19 +134,12 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponseAsync(
-                        new Uri(
-                            "https://api.sl.se/api2/LineData.json/?model=line&key=" + fakekey)))
-                .ReturnsAsync(GetTestResponseForLines());
-            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper()))
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=line&key=" + fakekey), GetTestResponseForLines());
+            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper()))
             {
                 ApiToken = fakekey
             };
-
-
             var responseAsync = t.LinesAsync();
             responseAsync.Wait();
             var result = responseAsync.Result;
@@ -200,19 +159,12 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponse(
-                        new Uri(
-                            "https://api.sl.se/api2/LineData.json/?model=tran&key=" + fakekey)))
-                .Returns(GetTestTransportMode);
-            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper()))
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=tran&key=" + fakekey), GetTestTransportMode());
+            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper()))
             {
                 ApiToken = fakekey
             };
-
-
             var result = t.TransportModes();
             Assert.IsTrue(result.ExecutionTime == 613);
             Assert.IsTrue(result.ResponseData.Result.Length == 6);
@@ -230,19 +182,12 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponseAsync(
-                        new Uri(
-                            "https://api.sl.se/api2/LineData.json/?model=tran&key=" + fakekey)))
-                .ReturnsAsync(GetTestTransportMode());
-            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper()))
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=tran&key=" + fakekey), GetTestTransportMode());
+            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper()))
             {
                 ApiToken = fakekey
             };
-
-
             var responseAsync = t.TransportModesAsync();
             responseAsync.Wait();
             var result = responseAsync.Result;
@@ -251,7 +196,6 @@ namespace SlApi.Tests
             Assert.IsTrue(result.ResponseData.Result[0].DefaultTransportModeCode == DefaultTransportModeCode.Bus);
             Assert.IsTrue(result.ResponseData.Result[0].DefaultTransportMode == "buss");
             Assert.IsTrue(result.ResponseData.Result[0].StopAreaTypeCode == StopAreaTypeCode.Busterm);
-
         }
 
 
@@ -261,19 +205,12 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponse(
-                        new Uri(
-                            "https://api.sl.se/api2/LineData.json/?model=jour&key=" + fakekey)))
-                .Returns(GetJourTest);
-            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper()))
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=jour&key=" + fakekey), GetJourTest());
+            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper()))
             {
                 ApiToken = fakekey
             };
-
-
             var result = t.JourneyPaternPointOnLine();
             Assert.IsTrue(result.ExecutionTime == 872);
             Assert.IsTrue(result.ResponseData.Result.Length == 11);
@@ -291,19 +228,12 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponseAsync(
-                        new Uri(
-                            "https://api.sl.se/api2/LineData.json/?model=jour&key=" + fakekey)))
-                .ReturnsAsync(GetJourTest());
-            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper()))
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/LineData.json/?model=jour&key=" + fakekey), GetJourTest());
+            var t = new StopsAndRoutesClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper()))
             {
                 ApiToken = fakekey
             };
-
-
             var responseAsync = t.JourneyPaternPointOnLineAsync();
             responseAsync.Wait();
             var result = responseAsync.Result;
@@ -316,32 +246,57 @@ namespace SlApi.Tests
         }
 
 
-        public string GetTestResponseForLines()
+        public Stream GetTestResponseForLines()
         {
-            return GetSampleResponse("TestData\\StopsAndRoutesClient\\Lines\\success.json");
+            var ms = new MemoryStream();
+            var sw = new StreamWriter(ms);
+            sw.Write(GetSampleResponse("TestData\\StopsAndRoutesClient\\Lines\\success.json"));
+            sw.AutoFlush = true;
+            ms.Seek(0, SeekOrigin.Begin);
+            return ms;
 
         }
 
-        public string GetTestResponseForStopPoints()
+        public Stream GetTestResponseForStopPoints()
         {
-            return GetSampleResponse("TestData\\StopsAndRoutesClient\\StopPoints\\success.json");
+            var ms = new MemoryStream();
+            var sw = new StreamWriter(ms);
+            sw.Write(GetSampleResponse("TestData\\StopsAndRoutesClient\\StopPoints\\success.json"));
+            sw.AutoFlush = true;
+            ms.Seek(0, SeekOrigin.Begin);
+            return ms;
         }
 
-        public string GetTestResponseForSites()
+        public Stream GetTestResponseForSites()
         {
-            return GetSampleResponse("TestData\\StopsAndRoutesClient\\Sites\\success.json");
+            var ms = new MemoryStream();
+            var sw = new StreamWriter(ms);
+            sw.Write(GetSampleResponse("TestData\\StopsAndRoutesClient\\Sites\\success.json"));
+            sw.AutoFlush = true;
+            ms.Seek(0, SeekOrigin.Begin);
+            return ms;
+            
         }
 
-        public string GetTestTransportMode()
+        public Stream GetTestTransportMode()
         {
-            return GetSampleResponse("TestData\\StopsAndRoutesClient\\TransportMode\\success.json");
+            var ms = new MemoryStream();
+            var sw = new StreamWriter(ms);
+            sw.Write(GetSampleResponse("TestData\\StopsAndRoutesClient\\TransportMode\\success.json"));
+            sw.AutoFlush = true;
+            ms.Seek(0, SeekOrigin.Begin);
+            return ms;
 
         }
 
-        public string GetJourTest()
+        public Stream GetJourTest()
         {
-            return GetSampleResponse("TestData\\StopsAndRoutesClient\\Jour\\success.json");
-
+            var ms = new MemoryStream();
+            var sw = new StreamWriter(ms);
+            sw.Write(GetSampleResponse("TestData\\StopsAndRoutesClient\\Jour\\success.json"));
+            sw.AutoFlush = true;
+            ms.Seek(0, SeekOrigin.Begin);
+            return ms;
         }
     }
 }

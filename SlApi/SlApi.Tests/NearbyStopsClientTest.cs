@@ -1,6 +1,6 @@
 ﻿using System;
+using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 using SlApi.Core;
 using SlApi.Models;
 using SlApi.Models.NearbyStations.Request;
@@ -19,19 +19,12 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponse(
-                        new Uri(
-                            "https://api.sl.se/api2/nearbystops.json/?originCoordLat=59.365602&originCoordLong=17.998137&key=" + fakekey)))
-                .Returns(GetNearbyStationDataForTest);
-            var t = new NearbyStopsClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper())
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/nearbystops.json/?originCoordLat=59.365602&originCoordLong=17.998137&key=" + fakekey), GetNearbyStationDataForTest());
+            var t = new NearbyStopsClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper())
             {
                 ApiToken = fakekey
             });
-
-          
             var result = t.Nearbystops(new NearbyStopsRequest
             {
                 OriginCoordLat = 59.365602,
@@ -41,43 +34,34 @@ namespace SlApi.Tests
             Assert.IsTrue(result.LocationList.StopLocation[0].Name == "Trappgränd (Solna)");
             Assert.IsTrue(result.LocationList.StopLocation[0].Id == "300103467");
             Assert.IsTrue(result.LocationList.StopLocation[0].SiteId == "03467");
-            Assert.IsTrue(result.LocationList.StopLocation[0].Lat == 59.365571);
-
-
+            Assert.IsTrue(Math.Abs(result.LocationList.StopLocation[0].Lat - 59.365571) < 0.0001);
         }
 
         [TestMethod]
-         public void SitesAsyncTest()
-         {
-
-             var fakekey = "fakekey";
-             var mockedHttpRequest = new Mock<IHttpRequester>();
-             mockedHttpRequest.Setup(
-                 x =>
-                     x.GetResponseAsync(
-                         new Uri(
-                             "https://api.sl.se/api2/nearbystops.json/?originCoordLat=59.365602&originCoordLong=17.998137&key=" + fakekey)))
-                 .ReturnsAsync(GetNearbyStationDataForTest());
-             var t = new NearbyStopsClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper())
-             {
-                 ApiToken = fakekey
-             });
-
-
-             var responseAsync = t.NearbystopsAsync(new NearbyStopsRequest
-             {
-                 OriginCoordLat = 59.365602,
-                 OriginCoordLong = 17.998137
-             });
-             responseAsync.Wait();
-             var result = responseAsync.Result;
+        public void SitesAsyncTest()
+        {
+            var fakekey = "fakekey";
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                "https://api.sl.se/api2/nearbystops.json/?originCoordLat=59.365602&originCoordLong=17.998137&key=" +
+                fakekey), GetNearbyStationDataForTest());
+            var t = new NearbyStopsClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper())
+            {
+                ApiToken = fakekey
+            });
+            var responseAsync = t.NearbystopsAsync(new NearbyStopsRequest
+            {
+                OriginCoordLat = 59.365602,
+                OriginCoordLong = 17.998137
+            });
+            responseAsync.Wait();
+            var result = responseAsync.Result;
             Assert.IsTrue(result.LocationList.StopLocation[0].Idx == 1);
-             Assert.IsTrue(result.LocationList.StopLocation[0].Name == "Trappgränd (Solna)");
-             Assert.IsTrue(result.LocationList.StopLocation[0].Id == "300103467");
+            Assert.IsTrue(result.LocationList.StopLocation[0].Name == "Trappgränd (Solna)");
+            Assert.IsTrue(result.LocationList.StopLocation[0].Id == "300103467");
             Assert.IsTrue(result.LocationList.StopLocation[0].SiteId == "03467");
-            Assert.IsTrue(result.LocationList.StopLocation[0].Lat == 59.365571);
+            Assert.IsTrue(Math.Abs(result.LocationList.StopLocation[0].Lat - 59.365571) < 0.0001);
 
-         }
+        }
 
 
         [TestMethod]
@@ -85,19 +69,12 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponse(
-                        new Uri(
-                            "https://api.sl.se/api2/nearbystops.json/?originCoordLat=59.365602&originCoordLong=17.998137&key=" + fakekey)))
-                .Returns(GetNearbyStationsErrorDataForTest);
-            var t = new NearbyStopsClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper())
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/nearbystops.json/?originCoordLat=59.365602&originCoordLong=17.998137&key=" + fakekey), GetNearbyStationsErrorDataForTest());
+            var t = new NearbyStopsClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper())
             {
                 ApiToken = fakekey
             });
-
-
             var result = t.Nearbystops(new NearbyStopsRequest
             {
                 OriginCoordLat = 59.365602,
@@ -110,15 +87,25 @@ namespace SlApi.Tests
         }
 
 
-        public string GetNearbyStationsErrorDataForTest()
+        public Stream GetNearbyStationsErrorDataForTest()
         {
-            return GetSampleResponse("TestData\\NearbyStopsClient\\error.json");
+            var ms = new MemoryStream();
+            var sw = new StreamWriter(ms);
+            sw.Write(GetSampleResponse("TestData\\NearbyStopsClient\\error.json"));
+            sw.AutoFlush = true;
+            ms.Seek(0, SeekOrigin.Begin);
+            return ms;
         }
 
 
-        public string GetNearbyStationDataForTest()
+        public Stream GetNearbyStationDataForTest()
         {
-            return GetSampleResponse("TestData\\NearbyStopsClient\\success.json");
+            var ms = new MemoryStream();
+            var sw = new StreamWriter(ms);
+            sw.Write(GetSampleResponse("TestData\\NearbyStopsClient\\success.json"));
+            sw.AutoFlush = true;
+            ms.Seek(0, SeekOrigin.Begin);
+            return ms;
         }
     }
 }

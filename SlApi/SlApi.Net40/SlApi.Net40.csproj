@@ -116,6 +116,11 @@
         Core\Argument.cs
       </Link>
     </Compile>
+    <Compile Include="..\SlApi\Core\HttpRequestException.cs">
+      <Link>
+        Core\Argument.cs
+      </Link>
+    </Compile>
     <Compile Include="..\SlApi\Core\Arguments.cs">
       <Link>
         Core\Arguments.cs

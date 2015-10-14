@@ -51,7 +51,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="GeometryClientTest.cs" />
-    <Compile Include="HttpRequestersTest.cs" />
     <Compile Include="HttpRequestMocker.cs" />
     <Compile Include="JourneyDetailClientTest.cs" />
     <Compile Include="Models\TravelPlanner\Response\LegPlaceTest.cs" />

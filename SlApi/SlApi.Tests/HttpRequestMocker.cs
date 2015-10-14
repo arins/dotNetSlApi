@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.IO;
 using Moq;
 using SlApi.Core;
 
@@ -9,29 +7,20 @@ namespace SlApi.Tests
 {
     public class HttpRequestMocker
     {
-        public IHttpRequester GetMockedRequesterFor(Uri url, string dataResponse)
+        public IHttpRequester GetMockedRequesterFor(Uri url, Stream dataResponse)
         {
             var mockedHttpRequest = new Mock<IHttpRequester>();
             mockedHttpRequest.Setup(
                x =>
-                   x.GetResponse(
+                   x.GetResponseStream(
                       url))
                .Returns(dataResponse);
-            return mockedHttpRequest.Object;
-        }
-
-        public IHttpRequester GetMockedAsyncRequesterFor(Uri url, string dataResponse)
-        {
-            var mockedHttpRequest = new Mock<IHttpRequester>();
             mockedHttpRequest.Setup(
                x =>
-                   x.GetResponseAsync(
+                   x.GetResponseStreamAsync(
                       url))
                .ReturnsAsync(dataResponse);
             return mockedHttpRequest.Object;
         }
-
-
-
     }
 }

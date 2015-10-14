@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -22,23 +23,14 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponse(
-                        new Uri(
-                            "https://api.sl.se/api2/TravelplannerV2/trip.json/?date=2015-09-07&time=22:00&originId=9305&destId=9001&key=" + fakekey)))
-                .Returns(GetTestResponse);
-            var t = new TravelPlannerClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper())
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
+                            "https://api.sl.se/api2/TravelplannerV2/trip.json/?date=2015-09-07&time=22:00&originId=9305&destId=9001&key=" + fakekey), GetTestResponse());
+            var t = new TravelPlannerClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper())
             {
                 ApiToken = fakekey
             });
-
-          
             var result = t.Trip(new TripRequest {DateTime = new DateTime(2015,9, 7,22,0,0,DateTimeKind.Local),OriginId = "9305", DestId = "9001" });
-
             var f = result.TripList.Trip.FirstOrDefault();
-            
             Assert.IsTrue(f != null);
             var leg = f.LegList.Leg.FirstOrDefault();
             Assert.IsTrue(leg != null);
@@ -51,15 +43,11 @@ namespace SlApi.Tests
         {
 
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponseAsync(
-                        new Uri(
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
                             "https://api.sl.se/api2/TravelplannerV2/trip.json/?date=2015-09-07&time=22:00&originId=9305&destId=9001&key=" +
-                            fakekey)))
-                .ReturnsAsync(GetTestResponse());
-            var t = new TravelPlannerClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper())
+                            fakekey), GetTestResponse());
+            
+            var t = new TravelPlannerClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper())
             {
                 ApiToken = fakekey
             });
@@ -86,22 +74,14 @@ namespace SlApi.Tests
         [TestMethod]
         public void TripMultiZoneAsyncTest()
         {
-
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponseAsync(
-                        new Uri(
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
                             "https://api.sl.se/api2/TravelplannerV2/trip.json/?date=2015-09-09&time=22:00&originId=9305&destId=9001&key=" +
-                            fakekey)))
-                .ReturnsAsync(GetMultiZoneTest());
-            var t = new TravelPlannerClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper())
+                            fakekey), GetMultiZoneTest());
+            var t = new TravelPlannerClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper())
             {
                 ApiToken = fakekey
             });
-
-
             var resultAsync =
                 t.TripAsync(new TripRequest
                 {
@@ -124,15 +104,10 @@ namespace SlApi.Tests
         public void TripErrorResponseAsyncTest()
         {
             var fakekey = "fakekey";
-            var mockedHttpRequest = new Mock<IHttpRequester>();
-            mockedHttpRequest.Setup(
-                x =>
-                    x.GetResponseAsync(
-                        new Uri(
+            var mockedHttpRequest = HttpRequestMocker.GetMockedRequesterFor(new Uri(
                             "https://api.sl.se/api2/TravelplannerV2/trip.json/?date=2015-09-09&time=22:00&originId=9305&destId=9001&key=" +
-                            fakekey)))
-                .ReturnsAsync(GetErrorResponse());
-            var t = new TravelPlannerClient(new HttpClient("https://api.sl.se/", mockedHttpRequest.Object, new UrlHelper())
+                            fakekey), GetErrorResponse());
+            var t = new TravelPlannerClient(new HttpClient("https://api.sl.se/", mockedHttpRequest, new UrlHelper())
             {
                 ApiToken = fakekey
             });
@@ -152,20 +127,34 @@ namespace SlApi.Tests
             
         }
 
-        public string GetErrorResponse()
+        public Stream GetErrorResponse()
         {
-            return GetSampleResponse("TestData\\TravelPlannerClient\\error.json");
+            var ms = new MemoryStream();
+            var sw = new StreamWriter(ms);
+            sw.Write(GetSampleResponse("TestData\\TravelPlannerClient\\error.json"));
+            sw.AutoFlush = true;
+            ms.Seek(0, SeekOrigin.Begin);
+            return ms;
         }
 
-        public string GetTestResponse()
+        public Stream GetTestResponse()
         {
-            return GetSampleResponse("TestData\\TravelPlannerClient\\success.json");
-
+            var ms = new MemoryStream();
+            var sw = new StreamWriter(ms);
+            sw.Write(GetSampleResponse("TestData\\TravelPlannerClient\\success.json"));
+            sw.AutoFlush = true;
+            ms.Seek(0, SeekOrigin.Begin);
+            return ms;
         }
 
-        private string GetMultiZoneTest()
-            {
-                return GetSampleResponse("TestData\\TravelPlannerClient\\success-multizonetest.json");
+        public Stream GetMultiZoneTest()
+        {
+            var ms = new MemoryStream();
+            var sw = new StreamWriter(ms);
+            sw.Write(GetSampleResponse("TestData\\TravelPlannerClient\\success-multizonetest.json"));
+            sw.AutoFlush = true;
+            ms.Seek(0, SeekOrigin.Begin);
+            return ms;
         }
     }
 }
