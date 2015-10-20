@@ -14,6 +14,7 @@ namespace SlApi
         {
             get; set;
         }
+        bool EnableDebugInformationInException { get; set; }
 
         /// <summary>
         /// Med detta API kan du få information om en plats genom att skicka in delar av platsens namn. 

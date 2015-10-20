@@ -23,6 +23,12 @@ namespace SlApi
             }
         }
 
+        public bool EnableDebugInformationInException
+        {
+            get { return HttpClient.EnableDebugInformationInException; }
+            set { HttpClient.EnableDebugInformationInException = value; }
+        }
+
         public TravelPlannerClient(IHttpClient httpClient) : base(httpClient)
         {
         }

@@ -66,7 +66,6 @@
         Properties\AssemblyInfo.cs
       </Link>
     </Compile>
-    
     <Compile Include="..\NetVersions\Net45\UrlHelper.cs">
       <Link>
         Core\UrlHelper.cs
@@ -277,10 +276,6 @@
         Models\RealtimeInformation\Response\DepartureResponse.cs
       </Link>
     </Compile>
-    
-    
-    
-   
     <Compile Include="..\SlApi\INearbyStopsClient.cs">
       <Link>
         INearbyStopsClient.cs
@@ -294,11 +289,6 @@
     <Compile Include="..\SlApi\IRealtimeInformationClient.cs">
       <Link>
         IRealtimeInformationClient.cs
-      </Link>
-    </Compile>
-    <Compile Include="..\SlApi\Core\ISlApiCallback.cs">
-      <Link>
-        ISlApiCallback.cs
       </Link>
     </Compile>
     <Compile Include="..\SlApi\ISlApiClientFactory.cs">
@@ -326,8 +316,6 @@
         ITravelPlannerClient.cs
       </Link>
     </Compile>
-
-   
     <Compile Include="..\SlApi\Models\RealtimeInformation\Response\Deviation.cs">
       <Link>
         Models\RealtimeInformation\Response\Deviation.cs
@@ -686,6 +674,11 @@
     <Compile Include="..\SlApi\Models\TravelPlanner\Response\ZoneEnum.cs">
       <Link>
         Models\TravelPlanner\Response\ZoneEnum.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\StreamAndHeaders.cs">
+      <Link>
+        Core\StreamAndHeaders.cs
       </Link>
     </Compile>
   </ItemGroup>

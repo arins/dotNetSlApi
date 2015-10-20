@@ -12,6 +12,8 @@ namespace SlApi
     /// </summary>
     public interface ITrafficDeviationInformationClient
     {
+        bool GzipEnabled { get; set; }
+        bool EnableDebugInformationInException { get; set; }
         TrafficDeviationInformation GetTrafficDeviationInformation(TrafficDeviationInformationRequest request);
         Task<TrafficDeviationInformation> GetTrafficDeviationInformationAsync(TrafficDeviationInformationRequest request);
 

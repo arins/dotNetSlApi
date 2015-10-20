@@ -5,6 +5,12 @@ namespace SlApi
 {
     public interface IStopsAndRoutesClient
     {
+
+        bool EnableDebugInformationInException { get; set; }
+        bool GzipEnabled
+        {
+            get; set;
+        }
         JourneyPatternPointOnLines JourneyPaternPointOnLine();
         Task<JourneyPatternPointOnLines> JourneyPaternPointOnLineAsync();
         Lines Lines();

@@ -13,7 +13,7 @@ namespace SlApi.IntegrationTests
     public class PlaceSearchClientIntegrationTest
     {
         [TestMethod]
-        public void PlaceSearchClientIntegrationFailTest()
+        public void SearchFailTest()
         {
             
             var token = EnvironmentHelper.GetEnvironmentVariable("PlaceSearchClientApiToken");
@@ -40,7 +40,7 @@ namespace SlApi.IntegrationTests
         }
 
         [TestMethod]
-        public void PlaceSearchClientIntegrationSuccessTest()
+        public void SearchSuccessTest()
         {
             
             var token = EnvironmentHelper.GetEnvironmentVariable("PlaceSearchClientApiToken");

@@ -11,6 +11,14 @@ namespace SlApi
     /// </summary>
     public interface IRealtimeInformationClient
     {
+
+        bool GzipEnabled
+        {
+            get; set;
+        }
+
+        bool EnableDebugInformationInException { get; set; }
+
         /// <summary>
         /// Realtidsinformation gällande buss, tunnelbana, pendeltåg och lokalbana.
         /// Detta API innehåller liknande information som SL Realtidsinformation, 

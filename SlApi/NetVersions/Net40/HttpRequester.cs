@@ -10,7 +10,6 @@ namespace SlApi
 
     internal class HttpRequester : IHttpRequester
     {
-
         /// <summary>
         /// The timeout until abort in milliseconds
         /// </summary>
@@ -34,21 +33,22 @@ namespace SlApi
             
         }
 
-
-
         /// <summary>
         /// Gets the response stream from the url
         /// </summary>
         /// <param name="url">url to request from</param>
         /// <returns>return a string in the encoding specified</returns>
-        /// <exception cref="RequestException">Throw this exception if any error occurs</exception>
-        public Stream GetResponseStream(Uri url)
+        public StreamAndHeaders GetResponseStream(Uri url)
         {
             var client = WebRequest.Create(url);
+            var response = new StreamAndHeaders();
             client.Method = "GET";
+            response.SetRequestHeaders(client.Headers);
             client.Timeout = Timeout;
             var webresponse = client.GetResponse();
-            return webresponse.GetResponseStream();
+            response.Stream = webresponse.GetResponseStream();
+            response.SetResponseHeaders(webresponse.Headers);
+            return response;
         }
 
         /// <summary>
@@ -56,14 +56,17 @@ namespace SlApi
         /// </summary>
         /// <param name="url">url to request from</param>
         /// <returns>return a string in the encoding specified</returns>
-        /// <exception cref="RequestException">Throw this exception if any error occurs</exception>
-        public async Task<Stream> GetResponseStreamAsync(Uri url)
+        public async Task<StreamAndHeaders> GetResponseStreamAsync(Uri url)
         {
             var client = WebRequest.Create(url);
+            var response = new StreamAndHeaders();
             client.Method = "GET";
+            response.SetRequestHeaders(client.Headers);
             client.Timeout = Timeout;
             var webresponse = await client.GetResponseAsync();
-            return webresponse.GetResponseStream();
+            response.Stream = webresponse.GetResponseStream();
+            response.SetResponseHeaders(webresponse.Headers);
+            return response;
         }
 
     }

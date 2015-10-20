@@ -11,16 +11,23 @@ namespace SlApi.Tests
         {
             var mockedHttpRequest = new Mock<IHttpRequester>();
             mockedHttpRequest.Setup(
-               x =>
-                   x.GetResponseStream(
-                      url))
-               .Returns(dataResponse);
+                x =>
+                    x.GetResponseStream(
+                        url))
+                .Returns(new StreamAndHeaders
+                {
+                    Stream = dataResponse
+                });
             mockedHttpRequest.Setup(
-               x =>
-                   x.GetResponseStreamAsync(
-                      url))
-               .ReturnsAsync(dataResponse);
+                x =>
+                    x.GetResponseStreamAsync(
+                        url))
+                .ReturnsAsync(new StreamAndHeaders
+                {
+                    Stream = dataResponse
+                });
             return mockedHttpRequest.Object;
         }
     }
+
 }

@@ -301,11 +301,6 @@
         IRealtimeInformationClient.cs
       </Link>
     </Compile>
-    <Compile Include="..\SlApi\Core\ISlApiCallback.cs">
-      <Link>
-        ISlApiCallback.cs
-      </Link>
-    </Compile>
     <Compile Include="..\SlApi\ISlApiClientFactory.cs">
       <Link>
         ISlApiClientFactory.cs
@@ -689,6 +684,11 @@
     <Compile Include="..\SlApi\Models\TravelPlanner\Response\ZoneEnum.cs">
       <Link>
         Models\TravelPlanner\Response\ZoneEnum.cs
+      </Link>
+    </Compile>
+    <Compile Include="..\SlApi\Core\StreamAndHeaders.cs">
+      <Link>
+        Core\StreamAndHeaders.cs
       </Link>
     </Compile>
   </ItemGroup>

@@ -51,13 +51,13 @@
   </Choose>
   <ItemGroup>
     <Compile Include="GeometryClientTest.cs" />
+    <Compile Include="HttpClientTest.cs" />
     <Compile Include="HttpRequestMocker.cs" />
     <Compile Include="JourneyDetailClientTest.cs" />
     <Compile Include="Models\TravelPlanner\Response\LegPlaceTest.cs" />
     <Compile Include="NearbyStopsClientTest.cs" />
     <Compile Include="PlaceSearchClientTest.cs" />
     <Compile Include="RealtimeInformationClientTest.cs" />
-    <Compile Include="SlApiCallbackTest.cs" />
     <Compile Include="SlApiTest.cs" />
     <Compile Include="StopsAndRoutesClientTest.cs" />
     <Compile Include="TrafficDeviationInformationClientTest.cs" />
@@ -70,6 +70,9 @@
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="TestData\GeometryClient\testData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\HttpClientTest\invalidJson.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestData\JourneyDetailClient\success.json">

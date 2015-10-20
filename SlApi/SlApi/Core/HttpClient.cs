@@ -18,11 +18,13 @@ namespace SlApi.Core
         internal string EndPoint { get; set; }
         public string ApiToken { get; set; }
 
+        public bool EnableDebugInformationInException { get; set; }
+
         public bool ApiTokenSet => !string.IsNullOrEmpty(ApiToken);
 
         internal DateTime ApiTokenExpires { get; set; }
 
-        internal HttpClient(string endPoint, IHttpRequester httpRequester, IUrlHelper helper, ISlApiCallback callback = null)
+        internal HttpClient(string endPoint, IHttpRequester httpRequester, IUrlHelper helper)
         {
             if (httpRequester == null)
             {
@@ -48,12 +50,15 @@ namespace SlApi.Core
         {
             try
             {
-                var sb = GetEndPointWithPath(path);
+                var sb = GetEndPointAsStringBuilder();
+                sb.Append(path);
                 if (arg != null && arg.Any())
                 {
+                    
+                    sb.Append(path.EndsWith("/") ? "?" : "/?");
                     arg.BuildAndAppendQueryString(UrlHelper,sb);
                 }
-                AppendAccessToken(sb);
+                AppendAccessToken(sb, arg?.Count ?? 0);
                 return new Uri(sb.ToString());
             }
             catch (Exception e)
@@ -63,18 +68,23 @@ namespace SlApi.Core
             }
         }
 
-        private void AppendAccessToken(StringBuilder sb)
+        private void AppendAccessToken(StringBuilder sb, int arguments)
         {
-            sb.Append("key=");
-            sb.Append(ApiToken);
+            if (ApiTokenSet)
+            {
+                if (arguments == 0)
+                {
+                    sb.Append("?");
+                }
+                sb.Append("key=");
+                sb.Append(ApiToken);
+            }
         }
 
-        private StringBuilder GetEndPointWithPath(string path)
+        private StringBuilder GetEndPointAsStringBuilder()
         {
             var sb = new StringBuilder();
             sb.Append(EndPoint);
-            sb.Append(path);
-            sb.Append(path.EndsWith("/") ? "?" : "/?");
             return sb;
         }
 
@@ -90,32 +100,26 @@ namespace SlApi.Core
         public TOut DoRequest<TOut>(string path, Arguments arguments = null) where TOut : new()
         {
             CheckReuquester();
-
-            Stream stream = null;
+            string response = null;
+            StreamAndHeaders data = null;
             try
             {
 
-                stream = Requester.GetResponseStream(BuildRequestPath(path, arguments));
-                var serializer = new JsonSerializer();
-                using (var sr = new StreamReader(stream))
+                var url = BuildRequestPath(path, arguments);
+                data = Requester.GetResponseStream(url);
+                if (!EnableDebugInformationInException)
                 {
-                    using (var jsonTextReader = new JsonTextReader(sr))
-                    {
-                        var result = serializer.Deserialize<TOut>(jsonTextReader);
-                        
-                        return result;
-                    }
+                    return SerializeStream<TOut>(data.Stream);
                 }
+                return SerializeStream<TOut>(data.Stream, out response);
             }
             catch (Exception exception)
             {
-                var response = "";
-                if (stream != null)
-                {
-                    var sr = new StreamReader(stream);
-                    response = sr.ReadToEnd();
-                }
-                throw new HttpRequestException("Something wrong when requesting ", response, exception);
+                throw new HttpRequestException("Something wrong when requesting ",
+                    response,
+                    data?.GetResponsetHeadersAsString(),
+                    data?.GetRequestHeadersAsString(),
+                    exception);
             }
 
         }
@@ -127,6 +131,26 @@ namespace SlApi.Core
                 return DoRequest<TOut>(path, arguments.GetArgument());
             }
             return DoRequest<TOut>(path);
+        }
+
+        private TOut SerializeStream<TOut>(Stream stream)
+        {
+            var serializer = new JsonSerializer();
+            using (var sr = new StreamReader(stream))
+            {
+                using (var jsonTextReader = new JsonTextReader(sr))
+                {
+                    var result = serializer.Deserialize<TOut>(jsonTextReader);
+                    return result;
+                }
+            }
+        }
+
+        private TOut SerializeStream<TOut>(Stream stream, out string response)
+        {
+            var sr = new StreamReader(stream);
+            response = sr.ReadToEnd();
+            return JsonConvert.DeserializeObject<TOut>(response);
         }
 
 
@@ -143,15 +167,26 @@ namespace SlApi.Core
         public async Task<TOut> DoRequestAsync<TOut>(string path, Arguments arguments = null) where TOut : new()
         {
             CheckReuquester();
-            var url = BuildRequestPath(path, arguments);
-            var stream = await Requester.GetResponseStreamAsync(url);
-            var serializer = new JsonSerializer();
-            using (var sr = new StreamReader(stream))
+            
+            string response = null;
+            StreamAndHeaders data = null;
+            try
             {
-                using (var jsonTextReader = new JsonTextReader(sr))
+                var url = BuildRequestPath(path, arguments);
+                data = await Requester.GetResponseStreamAsync(url);
+                if (!EnableDebugInformationInException)
                 {
-                    return serializer.Deserialize<TOut>(jsonTextReader);
+                    return SerializeStream<TOut>(data.Stream);
                 }
+                return SerializeStream<TOut>(data.Stream, out response);
+            }
+            catch (Exception exception)
+            {
+                throw new HttpRequestException("Something wrong when requesting ",
+                    response,
+                    data?.GetResponsetHeadersAsString(),
+                    data?.GetRequestHeadersAsString(),
+                    exception);
             }
         }
 

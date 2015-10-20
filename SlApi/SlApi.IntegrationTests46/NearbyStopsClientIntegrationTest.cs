@@ -15,7 +15,7 @@ namespace SlApi.IntegrationTests
     public class NearbyStopsClientIntegrationTest
     {
         [TestMethod]
-        public void NearbyStopsClientIntegrationSuccessTest()
+        public void NearbystopsSuccessTest()
         {
             
             var token = EnvironmentHelper.GetEnvironmentVariable("NearbyStopsClientApiToken");
@@ -24,10 +24,9 @@ namespace SlApi.IntegrationTests
                 GzipEnabled = true,
                 ApiToken = token
             };
-            StopLocations stopLocations = null;
             try
             {
-                stopLocations = client.Nearbystops(new NearbyStopsRequest
+                var stopLocations = client.Nearbystops(new NearbyStopsRequest
                 {
                     MaxResults = 10,
                     OriginCoordLong = 17.998996D,

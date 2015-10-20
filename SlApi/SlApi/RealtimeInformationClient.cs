@@ -7,6 +7,22 @@ namespace SlApi
 {
     public class RealtimeInformationClient : BaseService, IRealtimeInformationClient
     {
+
+        public bool GzipEnabled
+        {
+            get
+            {
+                return HttpClient.Requester.GzipEnabled;
+            }
+            set { HttpClient.Requester.GzipEnabled = value; }
+        }
+
+        public bool EnableDebugInformationInException
+        {
+            get { return HttpClient.EnableDebugInformationInException; }
+            set { HttpClient.EnableDebugInformationInException = value; }
+        }
+
         public RealtimeInformationClient(IHttpClient httpClient)
             : base(httpClient)
         {
@@ -14,9 +30,10 @@ namespace SlApi
 
      
 
-        public RealtimeInformationClient(string endPoint)
+        public RealtimeInformationClient(string apiToken, string endPoint = Endpoint)
             : base(new HttpClient(endPoint, new HttpRequester(), new UrlHelper()))
         {
+            ApiToken = apiToken;
         }
         public RealtimeInformationClient()
             : base(new HttpClient("https://api.sl.se/", new HttpRequester(), new UrlHelper()))

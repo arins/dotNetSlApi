@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SlApi.Tests
+namespace SlApi.IntegrationTests
 {
-    public class SlApiCallbackTest : SlApiTest
+    [TestClass]
+    public class HttpRequesterTest
     {
+        [TestMethod]
         public void Test()
         {
-            
+            var t = new Http();
         }
     }
 }

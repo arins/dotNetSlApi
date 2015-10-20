@@ -15,7 +15,7 @@ namespace SlApi.Core
         /// <param name="url">url to request from</param>
         /// <returns>return a string in the encoding specified</returns>
         /// <exception cref="RequestException">Throw this exception if any error occurs</exception>
-        Stream GetResponseStream(Uri url);
+        StreamAndHeaders GetResponseStream(Uri url);
 
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace SlApi.Core
         /// <param name="url">url to request from</param>
         /// <returns>return a string in the encoding specified</returns>
         /// <exception cref="RequestException">Throw this exception if any error occurs</exception>
-        Task<Stream> GetResponseStreamAsync(Uri url);
+        Task<StreamAndHeaders> GetResponseStreamAsync(Uri url);
 
         /// <summary>
         /// The timeout until abort in milliseconds

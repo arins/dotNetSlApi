@@ -7,6 +7,20 @@ namespace SlApi
 {
     public class StopsAndRoutesClient : BaseService, IStopsAndRoutesClient
     {
+        public bool GzipEnabled
+        {
+            get
+            {
+                return HttpClient.Requester.GzipEnabled;
+            }
+            set { HttpClient.Requester.GzipEnabled = value; }
+        }
+        public bool EnableDebugInformationInException
+        {
+            get { return HttpClient.EnableDebugInformationInException; }
+            set { HttpClient.EnableDebugInformationInException = value; }
+        }
+
         public StopsAndRoutesClient(IHttpClient httpClient)
             : base(httpClient)
         {

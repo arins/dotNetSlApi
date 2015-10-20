@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using SlApi.Core;
@@ -38,13 +39,15 @@ namespace SlApi
         /// <param name="url">url to request from</param>
         /// <returns>return a string in the encoding specified</returns>
         /// <exception cref="RequestException">Throw this exception if any error occurs</exception>
-        public async Task<Stream> GetResponseStreamAsync(Uri url)
+        public async Task<StreamAndHeaders> GetResponseStreamAsync(Uri url)
         {
             var client = System.Net.WebRequest.CreateHttp(url);
+            var response = new StreamAndHeaders();
             client.Method = "GET";
+            response.SetRequestHeaders(client.Headers);
             var webresponse = await client.GetResponseAsync();
-            var stream = webresponse.GetResponseStream();
-            return stream;
+            response.Stream = webresponse.GetResponseStream();
+            return response;
         }
 
 
@@ -54,15 +57,21 @@ namespace SlApi
         /// <param name="url">url to request from</param>
         /// <returns>return a string in the encoding specified</returns>
         /// <exception cref="RequestException">Throw this exception if any error occurs</exception>
-        public Stream GetResponseStream(Uri url)
+        public StreamAndHeaders GetResponseStream(Uri url)
         {
+
             var client = System.Net.WebRequest.CreateHttp(url);
+            var response = new StreamAndHeaders();
             client.Method = "GET";
+            response.SetRequestHeaders(client.Headers);
             var webresponse = client.GetResponseAsync();
             webresponse.WaitWithTimeout(Timeout);
-            var stream = webresponse.Result.GetResponseStream();
-            return stream;
+            response.Stream = webresponse.Result.GetResponseStream();
+            
+            return response;
         }
 
     }
+
+    
 }

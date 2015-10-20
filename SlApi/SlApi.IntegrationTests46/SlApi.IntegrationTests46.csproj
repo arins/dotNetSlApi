@@ -57,7 +57,11 @@
   </Choose>
   <ItemGroup>
     <Compile Include="EnvironmentHelper.cs" />
-    <Compile Include="GeometryClientIntegrationTest.cs" />
+    <Compile Include="HttpRequesterTest.cs" />
+    <Compile Include="RealtimeInformationClientIntegrationTest.cs" />
+    <Compile Include="TrafficDeviationInformationClientIntegrationTest.cs" />
+    <Compile Include="TrafficInformationClientIntegrationTest.cs" />
+    <Compile Include="TravelPlannerClientIntegrationTest.cs" />
     <Compile Include="NearbyStopsClientIntegrationTest.cs" />
     <Compile Include="PlaceSearchClientIntegrationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +70,10 @@
     <ProjectReference Include="..\SlApi.Net46\SlApi.Net46.csproj">
       <Project>{283e4392-0ee6-4681-86c5-68017e313d49}</Project>
       <Name>SlApi.Net46</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SlApi.Tests\SlApi.Tests.csproj">
+      <Project>{907c6f9e-5a47-4585-b71c-9e7fb0d7bcee}</Project>
+      <Name>SlApi.Tests</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

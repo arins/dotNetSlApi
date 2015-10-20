@@ -12,6 +12,7 @@ namespace SlApi
 
     {
 
+        bool EnableDebugInformationInException { get; set; }
         bool GzipEnabled
         {
             get; set;

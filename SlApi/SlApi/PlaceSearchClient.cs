@@ -19,6 +19,12 @@ namespace SlApi
             set { HttpClient.Requester.GzipEnabled = value; }
         }
 
+        public bool EnableDebugInformationInException
+        {
+            get { return HttpClient.EnableDebugInformationInException; }
+            set { HttpClient.EnableDebugInformationInException = value; }
+        }
+
         public PlaceSearchClient(IHttpClient httpClient) : base(httpClient)
         {
         }

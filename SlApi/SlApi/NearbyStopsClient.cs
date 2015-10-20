@@ -20,6 +20,13 @@ namespace SlApi
                 HttpClient.Requester.GzipEnabled = value;
             }
         }
+
+        public bool EnableDebugInformationInException
+        {
+            get { return HttpClient.EnableDebugInformationInException; }
+            set { HttpClient.EnableDebugInformationInException = value; }
+        }
+
         public NearbyStopsClient(IHttpClient httpClient) : base(httpClient)
         {
         }

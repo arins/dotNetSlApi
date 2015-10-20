@@ -13,6 +13,8 @@ namespace SlApi
 
         bool GzipEnabled { get; set; }
 
+        bool EnableDebugInformationInException { get; set; }
+
         /// <summary>
         /// Söker efter stationer som är nära en position
         /// </summary>

@@ -25,7 +25,7 @@ namespace SlApi.Tests
             var pathToFile = Path.Combine(TestContext.DeploymentDirectory, relativePathToFile);
             if (!File.Exists(pathToFile))
             {
-                throw new ArgumentException("given path: " + pathToFile + "does not exist");
+                throw new ArgumentException("given path: " + pathToFile + " does not exist");
             }
             return File.ReadAllText(pathToFile, Encoding.UTF8);
         }
