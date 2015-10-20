@@ -3,7 +3,6 @@ using System.Text;
 
 namespace SlApi.Core
 {
-    
     public class Arguments : Dictionary<string, Argument>
     {
         internal Arguments()
