@@ -56,14 +56,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="EnvironmentHelper.cs" />
-    <Compile Include="HttpRequesterTest.cs" />
-    <Compile Include="RealtimeInformationClientIntegrationTest.cs" />
-    <Compile Include="TrafficDeviationInformationClientIntegrationTest.cs" />
-    <Compile Include="TrafficInformationClientIntegrationTest.cs" />
-    <Compile Include="TravelPlannerClientIntegrationTest.cs" />
-    <Compile Include="NearbyStopsClientIntegrationTest.cs" />
-    <Compile Include="PlaceSearchClientIntegrationTest.cs" />
+    <Compile Include="EnvironmentHelper.cs"></Compile>
+    <Compile Include="HttpRequesterTest.cs"></Compile>
+    <Compile Include="RealtimeInformationClientIntegrationTest.cs"></Compile>
+    <Compile Include="TrafficDeviationInformationClientIntegrationTest.cs" ></Compile>
+    <Compile Include="TrafficInformationClientIntegrationTest.cs" ></Compile>
+    <Compile Include="TravelPlannerClientIntegrationTest.cs"></Compile>
+    <Compile Include="NearbyStopsClientIntegrationTest.cs" ></Compile>
+    <Compile Include="PlaceSearchClientIntegrationTest.cs" ></Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -70,18 +70,45 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    
-    <Compile Include="..\SlApi.IntegrationTests46\EnvironmentHelper.cs">
-      <Link>EnvironmentHelper.cs</Link>
+    <Compile Include="../SlApi.IntegrationTests46/EnvironmentHelper.cs" >
+      <Link>
+        EnvironmentHelper.cs
+      </Link>
     </Compile>
-    <Compile Include="..\SlApi.IntegrationTests46\GeometryClientIntegrationTest.cs">
-      <Link>GeometryClientIntegrationTest.cs</Link>
+    <Compile Include="../SlApi.IntegrationTests46/HttpRequesterTest.cs" >
+      <Link>
+        HttpRequesterTest.cs
+      </Link>
     </Compile>
-    <Compile Include="..\SlApi.IntegrationTests46\NearbyStopsClientIntegrationTest.cs">
-      <Link>NearbyStopsClientIntegrationTest.cs</Link>
+    <Compile Include="../SlApi.IntegrationTests46/RealtimeInformationClientIntegrationTest.cs" >
+      <Link>
+        RealtimeInformationClientIntegrationTest.cs
+      </Link>
     </Compile>
-    <Compile Include="..\SlApi.IntegrationTests46\PlaceSearchClientIntegrationTest.cs">
-      <Link>PlaceSearchClientIntegrationTest.cs</Link>
+    <Compile Include="../SlApi.IntegrationTests46/TrafficDeviationInformationClientIntegrationTest.cs" >
+      <Link>
+        TrafficDeviationInformationClientIntegrationTest.cs
+      </Link>
+    </Compile>
+    <Compile Include="../SlApi.IntegrationTests46/TrafficInformationClientIntegrationTest.cs" >
+      <Link>
+        TrafficInformationClientIntegrationTest.cs
+      </Link>
+    </Compile>
+    <Compile Include="../SlApi.IntegrationTests46/TravelPlannerClientIntegrationTest.cs" >
+      <Link>
+        TravelPlannerClientIntegrationTest.cs
+      </Link>
+    </Compile>
+    <Compile Include="../SlApi.IntegrationTests46/NearbyStopsClientIntegrationTest.cs" >
+      <Link>
+        TravelPlannerClientIntegrationTest.cs
+      </Link>
+    </Compile>
+    <Compile Include="../SlApi.IntegrationTests46/PlaceSearchClientIntegrationTest.cs" >
+      <Link>
+        PlaceSearchClientIntegrationTest.cs
+      </Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
