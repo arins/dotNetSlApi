@@ -13,7 +13,7 @@ namespace SlApi.IntegrationTests
         [TestMethod]
         public void Test()
         {
-            var t = new Http();
+           
         }
     }
 }
