@@ -74,7 +74,7 @@ namespace SlApi.Core
             {
                 if (arguments == 0)
                 {
-                    sb.Append("?");
+                    sb.Append("/?");
                 }
                 sb.Append("key=");
                 sb.Append(ApiToken);

@@ -1,11 +1,5 @@
-﻿using System;
-using System.Diagnostics;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SlApi.Core;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SlApi.Models;
-using SlApi.Models.PlaceSearch.Request;
-using SlApi.Models.PlaceSearch.Response;
 using SlApi.Models.TravelPlanner.Request;
 
 namespace SlApi.IntegrationTests
